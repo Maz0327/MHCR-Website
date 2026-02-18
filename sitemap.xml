@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Homepage - Highest Priority -->
+    <url>
+        <loc>https://milehighcustomremodels.com/</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Main Service Pages - High Priority -->
+    <url>
+        <loc>https://milehighcustomremodels.com/services</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Individual Service Pages - High Priority -->
+    <url>
+        <loc>https://milehighcustomremodels.com/services/kitchen-remodeling</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://milehighcustomremodels.com/images/services/kitchen-remodeling.jpg</image:loc>
+            <image:title>Kitchen Remodeling Denver</image:title>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/services/bathroom-remodeling</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://milehighcustomremodels.com/images/services/bathroom-remodeling.jpg</image:loc>
+            <image:title>Bathroom Remodeling Denver</image:title>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/services/basement-finishing</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://milehighcustomremodels.com/images/services/basement-finishing.jpg</image:loc>
+            <image:title>Basement Finishing Denver</image:title>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/services/whole-home-renovation</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://milehighcustomremodels.com/images/services/whole-home-renovation.jpg</image:loc>
+            <image:title>Whole Home Renovation Denver</image:title>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/services/handyman-services</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://milehighcustomremodels.com/images/services/handyman-services.jpg</image:loc>
+            <image:title>Handyman Services Denver</image:title>
+        </image:image>
+    </url>
+    
+    <!-- Service Areas Hub - High Priority -->
+    <url>
+        <loc>https://milehighcustomremodels.com/service-areas</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Location Pages - High Priority -->
+    <url>
+        <loc>https://milehighcustomremodels.com/locations/denver</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/locations/aurora</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/locations/lakewood</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/locations/highlands-ranch</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/locations/arvada</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/locations/westminster</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/locations/thornton</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/locations/centennial</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/locations/littleton</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/locations/parker</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/locations/golden</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Emergency/High-Intent Page -->
+    <url>
+        <loc>https://milehighcustomremodels.com/emergency-repairs</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Blog Section -->
+    <url>
+        <loc>https://milehighcustomremodels.com/blog</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/blog/kitchen-remodel-cost-denver</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/blog/bathroom-remodel-timeline</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/blog/basement-finishing-ideas-colorado</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Core Pages - Medium-High Priority -->
+    <url>
+        <loc>https://milehighcustomremodels.com/about</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/contact</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://milehighcustomremodels.com/gallery</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+</urlset>

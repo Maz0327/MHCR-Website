@@ -1,0 +1,28 @@
+# Mile High Custom Renovations - Robots.txt
+# https://milehighcustomremodels.com/robots.txt
+
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /*.json$
+Disallow: /cgi-bin/
+
+# Allow CSS, JS, and images for better rendering
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /fonts/
+
+# Crawl-delay (optional, be gentle on server)
+# Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://milehighcustomremodels.com/sitemap.xml
+
+# LLMs.txt for AI assistants
+# https://milehighcustomremodels.com/llms.txt

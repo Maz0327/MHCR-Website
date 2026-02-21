@@ -38,7 +38,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css">
@@ -139,50 +139,98 @@
     </script>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header" role="banner">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Top Bar with Contact Info -->
+    <div class="top-bar">
         <div class="container">
-            <nav class="nav" role="navigation" aria-label="Main navigation">
-                <a href="../index.html" class="logo" aria-label="Mile High Custom Remodels - Home">
-                    <span class="logo-icon">🏔️</span>
-                    <span class="logo-text">Mile High Custom Remodels</span>
+            <div class="top-bar-content">
+                <span class="top-bar-item">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <a href="tel:+13035556427">(303) 555-MHCR</a>
+                </span>
+                <span class="top-bar-item">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    Mon-Fri: 7AM-6PM | Sat: 8AM-2PM
+                </span>
+                <span class="top-bar-item">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Serving Denver Metro Area
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../" class="logo">
+                    <img src="../images/logo.png" alt="Mile High Custom Remodels Logo" class="logo-image" width="60" height="50">
+                    <div class="logo-text-wrapper">
+                        <span class="logo-text">Mile High<span class="logo-accent">Custom Remodels</span></span>
+                        <span class="logo-tagline">You Dream It, We Build It</span>
+                    </div>
                 </a>
-                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
                     <span class="hamburger"></span>
                 </button>
+
                 <ul class="nav-menu">
-                    <li><a href="../index.html">Home</a></li>
-                    <li class="dropdown">
-                        <a href="../services.html" class="dropdown-toggle">Services</a>
+                    <li><a href="../" class="nav-link">Home</a></li>
+                    <li class="nav-dropdown">
+                        <a href="../services.html" class="nav-link">Services</a>
                         <ul class="dropdown-menu">
                             <li><a href="../services/kitchen-remodeling.html">Kitchen Remodeling</a></li>
-                            <li><a href="../services/bathroom-remodeling.html">Bathroom Remodeling</a></li>
+                            <li><a href="../services/bathroom-remodeling.html">Bathroom Renovation</a></li>
                             <li><a href="../services/basement-finishing.html">Basement Finishing</a></li>
-                            <li><a href="../services/whole-home-renovation.html">Whole Home Renovation</a></li>
+                            <li><a href="../services/living-room-remodeling.html">Living Room Remodeling</a></li>
+                            <li><a href="../services/bedroom-renovation.html">Bedroom Renovation</a></li>
                             <li><a href="../services/handyman-services.html">Handyman Services</a></li>
                         </ul>
                     </li>
-                    <li><a href="../service-areas.html">Service Areas</a></li>
-                    <li><a href="../gallery.html">Gallery</a></li>
-                    <li><a href="../about.html">About</a></li>
-                    <li><a href="index.html" class="active">Blog</a></li>
-                    <li><a href="../contact.html" class="btn btn-primary">Get Free Quote</a></li>
+                    <li class="nav-dropdown">
+                        <a href="../service-areas.html" class="nav-link">Service Areas</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../locations/denver.html">Denver</a></li>
+                            <li><a href="../locations/aurora.html">Aurora</a></li>
+                            <li><a href="../locations/lakewood.html">Lakewood</a></li>
+                            <li><a href="../locations/arvada.html">Arvada</a></li>
+                            <li><a href="../locations/highlands-ranch.html">Highlands Ranch</a></li>
+                            <li><a href="../locations/centennial.html">Centennial</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="../about.html" class="nav-link">About Us</a></li>
+                    <li><a href="../contact.html" class="nav-link">Contact</a></li>
                 </ul>
+
+                <a href="tel:+13035556427" class="btn btn-primary nav-cta">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    Call Now
+                </a>
             </nav>
         </div>
     </header>
+
+    <main id="main-content">
+
 
     <!-- Article -->
     <article class="blog-article" itemscope itemtype="https://schema.org/Article">
         <header class="article-header">
             <div class="container">
-                <nav class="breadcrumb" aria-label="Breadcrumb">
-                    <ol>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="index.html">Blog</a></li>
-                        <li aria-current="page">Bathroom Remodel Timeline</li>
-                    </ol>
-                </nav>
                 <span class="article-category">Planning</span>
                 <h1 itemprop="headline">How Long Does a Bathroom Remodel Take?</h1>
                 <p class="article-meta">
@@ -462,43 +510,126 @@
             </div>
         </div>
     </article>
+    
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Transform Your Home?</h2>
+                    <p>Get your free estimate today. Our team is ready to help bring your vision to life.</p>
+                    <div class="cta-buttons">
+                        <a href="../contact.html" class="btn btn-white btn-lg">Request Free Estimate</a>
+                        <a href="tel:+13035556427" class="btn btn-outline-white btn-lg">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            (303) 555-MHCR
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
 
     <!-- Footer -->
-    <footer class="footer" role="contentinfo">
+
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="../index.html" class="logo">
-                        <span class="logo-icon">🏔️</span>
-                        <span class="logo-text">Mile High Custom Remodels</span>
+                <div class="footer-about">
+                    <a href="../" class="logo">
+                        <img src="../images/logo.png" alt="Mile High Custom Remodels Logo" class="logo-image" width="60" height="50">
+                        <div class="logo-text-wrapper">
+                            <span class="logo-text">Mile High<span class="logo-accent">Custom Remodels</span></span>
+                            <span class="logo-tagline">You Dream It, We Build It</span>
+                        </div>
                     </a>
-                    <p>Denver's trusted home remodeling contractor.</p>
+                    <p>Denver&#39;s trusted home remodeling contractor since 2009. We transform kitchens, bathrooms, basements, and more with quality craftsmanship and exceptional service.</p>
+                    <div class="footer-contact">
+                        <p><strong>Phone:</strong> <a href="tel:+13035556427">(303) 555-MHCR</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:info@milehighcustomremodels.com">info@milehighcustomremodels.com</a></p>
+                        <p><strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=1234+Renovation+Way+Denver+CO+80202" target="_blank" rel="noopener">1234 Renovation Way, Denver, CO 80202</a></p>
+                    </div>
                 </div>
-                
+
                 <div class="footer-links">
                     <h4>Services</h4>
                     <ul>
                         <li><a href="../services/kitchen-remodeling.html">Kitchen Remodeling</a></li>
-                        <li><a href="../services/bathroom-remodeling.html">Bathroom Remodeling</a></li>
+                        <li><a href="../services/bathroom-remodeling.html">Bathroom Renovation</a></li>
                         <li><a href="../services/basement-finishing.html">Basement Finishing</a></li>
+                        <li><a href="../services/living-room-remodeling.html">Living Room Remodeling</a></li>
+                        <li><a href="../services/bedroom-renovation.html">Bedroom Renovation</a></li>
+                        <li><a href="../services/handyman-services.html">Handyman Services</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <address>
-                        <p><a href="tel:+13035550123">(303) 555-0123</a></p>
-                        <p><a href="mailto:info@milehighcustomremodels.com">info@milehighcustomremodels.com</a></p>
-                    </address>
+
+                <div class="footer-links">
+                    <h4>Service Areas</h4>
+                    <ul>
+                        <li><a href="../locations/denver.html">Denver</a></li>
+                        <li><a href="../locations/aurora.html">Aurora</a></li>
+                        <li><a href="../locations/lakewood.html">Lakewood</a></li>
+                        <li><a href="../locations/arvada.html">Arvada</a></li>
+                        <li><a href="../locations/highlands-ranch.html">Highlands Ranch</a></li>
+                        <li><a href="../locations/centennial.html">Centennial</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../about.html">About Us</a></li>
+                        <li><a href="../gallery.html">Project Gallery</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                    </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; 2026 Mile High Custom Remodels. All rights reserved.</p>
+                <p>&copy; 2026 Mile High Custom Remodels. All rights reserved. Licensed &amp; Insured in Colorado.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/milehighcustomremodels" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="https://www.instagram.com/mhcr_denver" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://www.yelp.com/biz/mile-high-custom-renovations-denver" target="_blank" rel="noopener" aria-label="Yelp">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.27 13.6l-2.55 1.97c-.33.25-.79.04-.83-.37L8.5 12.1c-.04-.4.38-.69.74-.51l2.79 1.36c.36.18.47.63.24.95zM8.93 10.4l2.98-.59c.39-.08.58-.53.36-.86L10.6 6.68c-.22-.34-.7-.3-.87.06L8.49 9.62c-.17.37.06.8.44.78zm3.98 2.08l2.85-1.27c.37-.16.43-.65.11-.91l-2.46-1.91c-.32-.25-.77-.05-.82.35L12.23 12c-.05.4.33.7.68.48zm.6 2.49l.57 3.06c.07.41.54.57.82.3l2.23-2.16c.28-.27.19-.71-.17-.87l-2.8-1.2c-.36-.15-.74.1-.65.87zm-4.17 2.27l1.95 2.37c.25.31.71.22.85-.16l1.05-2.92c.13-.38-.18-.77-.58-.72l-3.01.37c-.4.05-.54.53-.26.76z"></path></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/mile-high-custom-remodels" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script src="../js/main.js"></script>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="tel:+13035556427" class="mobile-cta-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            Call Now
+        </a>
+        <a href="../contact.html" class="mobile-cta-btn secondary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            Free Quote
+        </a>
+    </div>
+
 </body>
 </html>

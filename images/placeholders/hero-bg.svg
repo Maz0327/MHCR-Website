@@ -45,6 +45,6 @@
   <!-- Placeholder label -->
   <rect x="0" y="0" width="1920" height="1080" fill="rgba(0,0,0,0)" />
   <rect x="60" y="30" width="520" height="60" rx="8" fill="rgba(232,90,27,0.9)"/>
-  <text x="80" y="52" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="white" letter-spacing="2">� PLACEHOLDER  REPLACE WITH ACTUAL PHOTO</text>
-  <text x="80" y="72" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.9)">File: hero-bg.jpg/webp  |  Size: 1920�1080px  |  Subject: Premium completed kitchen or main project photo</text>
+  <text x="80" y="52" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="white" letter-spacing="2"> PLACEHOLDER  REPLACE WITH ACTUAL PHOTO</text>
+  <text x="80" y="72" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.9)">File: hero-bg.jpg/webp  |  Size: 19201080px  |  Subject: Premium completed kitchen or main project photo</text>
 </svg>

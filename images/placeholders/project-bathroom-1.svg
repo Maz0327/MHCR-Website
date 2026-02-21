@@ -5,5 +5,5 @@
   <rect x="400" y="120" width="200" height="240" rx="6" fill="rgba(40,60,80,0.3)" stroke="rgba(70,100,130,0.2)" stroke-width="1"/>
   <rect x="0" y="550" width="800" height="50" rx="0 0 8px 8px" fill="rgba(232,90,27,0.88)"/>
   <text x="400" y="569" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1.5">⚠ PLACEHOLDER — REPLACE WITH BATHROOM PROJECT PHOTO</text>
-  <text x="400" y="585" font-family="system-ui,sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" text-anchor="middle">File: project-bathroom-1.jpg  |  800×600px  |  Subject: Completed luxury bathroom renovation</text>
+  <text x="400" y="585" font-family="system-ui,sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" text-anchor="middle">File: project-bathroom-1.jpg  |  800x600px  |  Subject: Completed luxury bathroom renovation</text>
 </svg>

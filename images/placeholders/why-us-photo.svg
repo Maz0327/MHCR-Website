@@ -30,6 +30,6 @@
 
   <!-- Bottom label -->
   <rect x="0" y="452" width="600" height="48" rx="0 0 12px 12px" fill="rgba(232,90,27,0.85)"/>
-  <text x="300" y="471" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1.5">� PLACEHOLDER  REPLACE WITH ACTUAL BEFORE/AFTER PHOTO</text>
-  <text x="300" y="487" font-family="system-ui, sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" text-anchor="middle">File: why-us-photo.jpg  |  Size: 600�500px  |  Subject: Dramatic before/after project comparison</text>
+  <text x="300" y="471" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1.5"> PLACEHOLDER  REPLACE WITH ACTUAL BEFORE/AFTER PHOTO</text>
+  <text x="300" y="487" font-family="system-ui, sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" text-anchor="middle">File: why-us-photo.jpg  |  Size: 600500px  |  Subject: Dramatic before/after project comparison</text>
 </svg>

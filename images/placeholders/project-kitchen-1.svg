@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#1a1208" rx="8"/>
+  <rect x="100" y="80" width="600" height="380" rx="4" fill="rgba(100,75,45,0.15)" stroke="rgba(140,100,55,0.2)" stroke-width="1"/>
+  <rect x="100" y="80" width="600" height="160" rx="4" fill="rgba(80,60,35,0.2)" stroke="rgba(120,85,50,0.18)" stroke-width="1"/>
+  <line x1="300" y1="80" x2="300" y2="240" stroke="rgba(120,85,50,0.15)" stroke-width="1"/>
+  <line x1="500" y1="80" x2="500" y2="240" stroke="rgba(120,85,50,0.15)" stroke-width="1"/>
+  <line x1="700" y1="80" x2="700" y2="240" stroke="rgba(120,85,50,0.15)" stroke-width="1"/>
+  <rect x="100" y="390" width="600" height="50" rx="2" fill="rgba(60,45,30,0.3)"/>
+  <rect x="0" y="550" width="800" height="50" rx="0 0 8px 8px" fill="rgba(232,90,27,0.88)"/>
+  <text x="400" y="569" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1.5">⚠ PLACEHOLDER — REPLACE WITH KITCHEN PROJECT PHOTO</text>
+  <text x="400" y="585" font-family="system-ui,sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" text-anchor="middle">File: project-kitchen-1.jpg  |  800×600px  |  Subject: Completed custom kitchen remodel</text>
+</svg>

@@ -1,7 +1,7 @@
 /* ============================================
    Mile High Custom Remodels - Main Stylesheet
-   Premium Dark Mode Design v2
-   Color Scheme: True Dark (#0e1118) + Burnt Orange Accent
+   Premium Light Mode Design v1
+   Color Scheme: Warm Off-White (#FAFAF8) + Burnt Orange Accent
    Heading Font: Fraunces (editorial serif)
    Body Font: Inter (refined sans)
    ============================================ */
@@ -11,40 +11,40 @@
 
 /* CSS Custom Properties / Variables */
 :root {
-    /* Primary Colors - Premium Dark Mode with Burnt Orange Accent */
-    --color-primary: #0e1118;         /* True premium dark — not flat black */
-    --color-primary-dark: #080a0f;    /* Deepest layer */
-    --color-primary-light: #161b24;   /* Slightly lighter dark */
+    /* Primary Colors - Premium Light Mode with Burnt Orange Accent */
+    --color-primary: #FAFAF8;         /* Warm off-white base */
+    --color-primary-dark: #F0EDE8;    /* Slightly deeper warm white */
+    --color-primary-light: #FFFFFF;   /* Pure white — lightest surfaces */
     --color-accent: #E85A1B;          /* Burnt Orange from logo */
     --color-accent-dark: #C94A15;     /* Darker orange for hover */
     --color-accent-light: #FF6D2E;    /* Lighter orange */
     --color-accent-glow: rgba(232, 90, 27, 0.12); /* Ultra-subtle accent glow */
     
-    /* Dark Mode Surfaces - 4-tier elevation system */
-    --color-surface: #0e1118;         /* Base layer — true premium dark */
-    --color-surface-elevated: #131820; /* Cards, panels — barely distinguishable */
-    --color-surface-overlay: #1a2030; /* Modals, dropdowns */
-    --color-surface-hover: #1e2535;   /* Hover states */
-    --color-border: rgba(255, 255, 255, 0.06); /* Ultra-subtle border — premium */
-    --color-border-light: rgba(255, 255, 255, 0.1); /* Slightly more visible */
+    /* Light Mode Surfaces - 4-tier elevation system */
+    --color-surface: #FAFAF8;         /* Warm off-white page base */
+    --color-surface-elevated: #F2EDE5; /* Cards, panels — warm off-white */
+    --color-surface-overlay: #E9E3D9; /* Modals, dropdowns */
+    --color-surface-hover: #E3DDD2;   /* Hover states */
+    --color-border: rgba(0, 0, 0, 0.08);       /* Ultra-subtle border — premium */
+    --color-border-light: rgba(0, 0, 0, 0.13);      /* Slightly more visible */
     
-    /* Text Colors for Dark Mode - proper hierarchy */
-    --color-text-primary: #f0ede8;    /* Warm white — not clinical pure white */
-    --color-text-secondary: #9a9fa8;  /* Secondary text */
-    --color-text-muted: #5a6070;      /* Muted/subtle text */
+    /* Text Colors for Light Mode - proper hierarchy */
+    --color-text-primary: #18130E;    /* Deep warm brown — not harsh black */
+    --color-text-secondary: #5C5048;  /* Medium warm brown */
+    --color-text-muted: #9E9088;      /* Muted warm tan */
     
-    /* Legacy Neutrals (for compatibility) */
+    /* Neutrals (for compatibility) */
     --color-white: #ffffff;
-    --color-off-white: #f0ede8;
-    --color-gray-100: #1a2030;        /* Inverted for dark mode */
-    --color-gray-200: rgba(255,255,255,0.06);
-    --color-gray-300: rgba(255,255,255,0.12);
-    --color-gray-400: #4a5060;
-    --color-gray-500: #6b7280;
-    --color-gray-600: #9a9fa8;
-    --color-gray-700: #c0c4cc;
-    --color-gray-800: rgba(255,255,255,0.08);
-    --color-gray-900: #f0ede8;
+    --color-off-white: #FAFAF8;
+    --color-gray-100: #F2EDE5;        /* Light warm card background */
+    --color-gray-200: rgba(0, 0, 0, 0.05);
+    --color-gray-300: rgba(0, 0, 0, 0.10);
+    --color-gray-400: #B0A89E;
+    --color-gray-500: #9E9088;
+    --color-gray-600: #5C5048;
+    --color-gray-700: #3A2E28;
+    --color-gray-800: rgba(0, 0, 0, 0.05);
+    --color-gray-900: #18130E;
     --color-black: #000000;
     
     /* Semantic Colors */
@@ -75,7 +75,7 @@
     --font-bold: 700;
     --font-extrabold: 800;
     
-    /* Line Heights - generous for dark mode readability */
+    /* Line Heights - generous for readability */
     --leading-tight: 1.1;
     --leading-snug: 1.3;
     --leading-normal: 1.65;
@@ -105,11 +105,11 @@
     --radius-full: 9999px;
     
     /* Shadows - richer layered shadows for premium feel */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.25);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.55), 0 4px 12px rgba(0, 0, 0, 0.35);
-    --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.6), 0 8px 20px rgba(0, 0, 0, 0.4);
-    --shadow-2xl: 0 32px 72px rgba(0, 0, 0, 0.7), 0 12px 28px rgba(0, 0, 0, 0.45);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.07);
+    --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.14), 0 8px 20px rgba(0, 0, 0, 0.08);
+    --shadow-2xl: 0 32px 72px rgba(0, 0, 0, 0.16), 0 12px 28px rgba(0, 0, 0, 0.10);
     --shadow-glow: 0 0 30px var(--color-accent-glow), 0 0 60px rgba(232, 90, 27, 0.06);
     
     /* Transitions - GPU-safe (transform + opacity only) */
@@ -415,11 +415,11 @@ section:nth-of-type(even) {
    ============================================ */
 
 .top-bar {
-    background-color: #0a0a0a;
+    background-color: #18130E;
     color: var(--color-text-secondary);
     padding: var(--space-2) 0;
     font-size: var(--text-sm);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
 }
 
 .top-bar-content {
@@ -468,16 +468,16 @@ section:nth-of-type(even) {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: rgba(18, 18, 18, 0.85);
+    background-color: rgba(250, 250, 248, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     transition: background-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .header.scrolled {
-    background-color: rgba(18, 18, 18, 0.95);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    background-color: rgba(250, 250, 248, 0.98);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.10);
 }
 
 .nav {
@@ -693,7 +693,7 @@ section:nth-of-type(even) {
         right: 0;
         background-color: var(--color-surface-elevated);
         padding: var(--space-4);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
         gap: var(--space-1);
         border-top: 1px solid var(--color-border);
     }
@@ -727,7 +727,7 @@ section:nth-of-type(even) {
     min-height: 90vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(160deg, #0e1118 0%, #09090f 55%, #100d08 100%);
+    background: linear-gradient(160deg, #F0EAE0 0%, #EDE3D5 55%, #EDE5D8 100%);
     overflow: hidden;
 }
 
@@ -748,7 +748,7 @@ section:nth-of-type(even) {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    opacity: 0.2;
+    opacity: 0.50;
 }
 
 .hero-overlay {
@@ -756,9 +756,9 @@ section:nth-of-type(even) {
     inset: 0;
     background: linear-gradient(
         135deg,
-        rgba(14, 17, 24, 0.97) 0%,
-        rgba(8, 9, 15, 0.93) 50%,
-        rgba(14, 17, 24, 0.88) 100%
+        rgba(20, 10, 4, 0.84) 0%,
+        rgba(15, 8, 3, 0.78) 50%,
+        rgba(22, 12, 5, 0.75) 100%
     );
 }
 
@@ -1358,7 +1358,7 @@ img.hero-background:not([src]) {
     background-color: var(--color-surface-elevated);
     border-radius: var(--radius-xl);
     padding: var(--space-6);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
     display: flex;
     gap: var(--space-8);
     border: 1px solid var(--color-border);
@@ -1455,7 +1455,7 @@ img.hero-background:not([src]) {
     background-color: var(--color-surface-hover);
     border-color: var(--color-accent);
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px var(--color-accent-glow);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10), 0 0 20px var(--color-accent-glow);
     color: var(--color-white);
 }
 
@@ -1958,10 +1958,10 @@ img.hero-background:not([src]) {
    ============================================ */
 
 .footer {
-    background-color: #080808;
+    background-color: #18130E;
     color: var(--color-text-secondary);
     padding: var(--space-10) 0 var(--space-6);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 @media (min-width: 768px) {
@@ -2182,7 +2182,7 @@ img.hero-background:not([src]) {
     z-index: 999;
     display: flex;
     background-color: var(--color-white);
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
     padding: var(--space-3);
     gap: var(--space-3);
 }
@@ -2825,7 +2825,7 @@ img.hero-background:not([src]) {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    background: linear-gradient(transparent, rgba(10,5,2,0.82));
     padding: var(--space-4);
     color: var(--color-white);
     font-size: var(--text-sm);

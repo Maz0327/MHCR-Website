@@ -485,7 +485,7 @@ section:nth-of-type(even) {
     align-items: center;
     justify-content: space-between;
     height: var(--header-height);
-    gap: var(--space-6);
+    gap: clamp(0.5rem, 1.5vw, 1.5rem);
 }
 
 /* Logo */
@@ -554,12 +554,13 @@ section:nth-of-type(even) {
 
 .nav-link {
     display: block;
-    padding: 0.5rem 0.875rem;
-    font-size: 0.875rem;
+    padding: 0.5rem clamp(0.35rem, 0.85vw, 0.875rem);
+    font-size: clamp(0.8rem, 0.9vw, 0.875rem);
     font-weight: 500;
     color: var(--color-text-secondary);
     border-radius: var(--radius-md);
     letter-spacing: 0.01em;
+    white-space: nowrap;
     transition: color var(--transition-fast), background-color var(--transition-fast);
 }
 

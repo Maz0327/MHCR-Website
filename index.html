@@ -32,7 +32,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/style.css">
-    
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
     <!-- Schema.org LocalBusiness Markup for SEO & LLM Optimization -->
     <script type="application/ld+json">
     {
@@ -115,10 +118,40 @@
             "https://www.facebook.com/milehighcustomremodels",
             "https://www.instagram.com/mhcr_denver",
             "https://www.linkedin.com/company/mile-high-custom-remodels",
-            "https://www.yelp.com/biz/mile-high-custom-renovations-denver"
+            "https://www.yelp.com/biz/mile-high-custom-remodels-denver"
         ],
         "image": "https://milehighcustomremodels.com/images/mhcr-logo.png",
         "logo": "https://milehighcustomremodels.com/images/mhcr-logo.png"
+    }
+    </script>
+
+    <!-- Schema.org Review Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Review",
+                "itemReviewed": {"@type": "HomeAndConstructionBusiness", "name": "Mile High Custom Remodels"},
+                "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+                "author": {"@type": "Person", "name": "Sarah M."},
+                "reviewBody": "Mile High Custom Remodels completely transformed our outdated kitchen. The team was professional, stayed on schedule, and the quality of work exceeded our expectations. Highly recommend for any Denver homeowner!"
+            },
+            {
+                "@type": "Review",
+                "itemReviewed": {"@type": "HomeAndConstructionBusiness", "name": "Mile High Custom Remodels"},
+                "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+                "author": {"@type": "Person", "name": "David & Jennifer T."},
+                "reviewBody": "We hired MHCR to finish our basement and couldn't be happier. They handled everything from permits to final inspection. The new space has added so much value to our home. Great communication throughout!"
+            },
+            {
+                "@type": "Review",
+                "itemReviewed": {"@type": "HomeAndConstructionBusiness", "name": "Mile High Custom Remodels"},
+                "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+                "author": {"@type": "Person", "name": "Mike R."},
+                "reviewBody": "Best contractor experience we've ever had. They remodeled both our bathrooms on time and on budget. The attention to detail was impressive, and they cleaned up every day. Will definitely use them again!"
+            }
+        ]
     }
     </script>
 </head>
@@ -181,10 +214,12 @@
                             <li><a href="services/living-room-remodeling.html">Living Room Remodeling</a></li>
                             <li><a href="services/bedroom-renovation.html">Bedroom Renovation</a></li>
                             <li><a href="services/handyman-services.html">Handyman Services</a></li>
+                            <li><a href="services/whole-home-renovation.html">Whole Home Renovation</a></li>
+                            <li><a href="emergency-repairs.html">Emergency Repairs</a></li>
                         </ul>
                     </li>
                     <li class="nav-dropdown">
-                        <a href="#service-areas" class="nav-link">Service Areas</a>
+                        <a href="service-areas.html" class="nav-link">Service Areas</a>
                         <ul class="dropdown-menu">
                             <li><a href="locations/denver.html">Denver</a></li>
                             <li><a href="locations/aurora.html">Aurora</a></li>
@@ -196,6 +231,7 @@
                     </li>
                     <li><a href="gallery.html" class="nav-link">Gallery</a></li>
                     <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="blog/" class="nav-link">Blog</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
                 
@@ -539,7 +575,7 @@
                 
                 <div class="testimonials-grid">
                     <article class="testimonial-card">
-                        <div class="testimonial-rating">★★★★★</div>
+                        <div class="testimonial-rating" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
                         <blockquote class="testimonial-text">"Mile High Custom Remodels completely transformed our outdated kitchen. The team was professional, stayed on schedule, and the quality of work exceeded our expectations. Highly recommend for any Denver homeowner!"</blockquote>
                         <div class="testimonial-author">
                             <!-- PLACEHOLDER: Replace src with images/testimonials/sarah-m.jpg. See PLACEHOLDER-GUIDE.md #3 -->
@@ -553,7 +589,7 @@
                     </article>
                     
                     <article class="testimonial-card">
-                        <div class="testimonial-rating">★★★★★</div>
+                        <div class="testimonial-rating" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
                         <blockquote class="testimonial-text">"We hired MHCR to finish our basement and couldn't be happier. They handled everything from permits to final inspection. The new space has added so much value to our home. Great communication throughout!"</blockquote>
                         <div class="testimonial-author">
                             <!-- PLACEHOLDER: Replace src with images/testimonials/david-t.jpg. See PLACEHOLDER-GUIDE.md #4 -->
@@ -567,7 +603,7 @@
                     </article>
                     
                     <article class="testimonial-card">
-                        <div class="testimonial-rating">★★★★★</div>
+                        <div class="testimonial-rating" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
                         <blockquote class="testimonial-text">"Best contractor experience we've ever had. They remodeled both our bathrooms on time and on budget. The attention to detail was impressive, and they cleaned up every day. Will definitely use them again!"</blockquote>
                         <div class="testimonial-author">
                             <!-- PLACEHOLDER: Replace src with images/testimonials/mike-r.jpg. See PLACEHOLDER-GUIDE.md #5 -->
@@ -779,10 +815,11 @@
                     <div class="footer-contact">
                         <p><strong>Phone:</strong> <a href="tel:+13035556427">(303) 555-MHCR</a></p>
                         <p><strong>Email:</strong> <a href="mailto:info@milehighcustomremodels.com">info@milehighcustomremodels.com</a></p>
-                        <p><strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=1234+Renovation+Way+Denver+CO+80202" target="_blank" rel="noopener">1234 Renovation Way, Denver, CO 80202</a></p>
+                        <p><strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=1234+Renovation+Way+Denver+CO+80202" target="_blank" rel="noopener noreferrer">1234 Renovation Way, Denver, CO 80202</a></p>
                     </div>
                 </div>
                 
+                <nav aria-label="Footer navigation">
                 <div class="footer-links">
                     <h4>Services</h4>
                     <ul>
@@ -792,9 +829,11 @@
                         <li><a href="services/living-room-remodeling.html">Living Room Remodeling</a></li>
                         <li><a href="services/bedroom-renovation.html">Bedroom Renovation</a></li>
                         <li><a href="services/handyman-services.html">Handyman Services</a></li>
+                        <li><a href="services/whole-home-renovation.html">Whole Home Renovation</a></li>
+                        <li><a href="emergency-repairs.html">Emergency Repairs</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-links">
                     <h4>Service Areas</h4>
                     <ul>
@@ -813,26 +852,28 @@
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="gallery.html">Project Gallery</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="blog/">Blog</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
                     </ul>
                 </div>
+                </nav>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2026 Mile High Custom Remodels. All rights reserved. Licensed & Insured in Colorado.</p>
                 <div class="footer-social">
-                    <a href="https://www.facebook.com/milehighcustomremodels" target="_blank" rel="noopener" aria-label="Facebook">
+                    <a href="https://www.facebook.com/milehighcustomremodels" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                     </a>
-                    <a href="https://www.instagram.com/mhcr_denver" target="_blank" rel="noopener" aria-label="Instagram">
+                    <a href="https://www.instagram.com/mhcr_denver" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     </a>
-                    <a href="https://www.yelp.com/biz/mile-high-custom-renovations-denver" target="_blank" rel="noopener" aria-label="Yelp">
+                    <a href="https://www.yelp.com/biz/mile-high-custom-remodels-denver" target="_blank" rel="noopener noreferrer" aria-label="Yelp">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.27 13.6l-2.55 1.97c-.33.25-.79.04-.83-.37L8.5 12.1c-.04-.4.38-.69.74-.51l2.79 1.36c.36.18.47.63.24.95zM8.93 10.4l2.98-.59c.39-.08.58-.53.36-.86L10.6 6.68c-.22-.34-.7-.3-.87.06L8.49 9.62c-.17.37.06.8.44.78zm3.98 2.08l2.85-1.27c.37-.16.43-.65.11-.91l-2.46-1.91c-.32-.25-.77-.05-.82.35L12.23 12c-.05.4.33.7.68.48zm.6 2.49l.57 3.06c.07.41.54.57.82.3l2.23-2.16c.28-.27.19-.71-.17-.87l-2.8-1.2c-.36-.15-.74.1-.65.87zm-4.17 2.27l1.95 2.37c.25.31.71.22.85-.16l1.05-2.92c.13-.38-.18-.77-.58-.72l-3.01.37c-.4.05-.54.53-.26.76z"/></svg>
                     </a>
-                    <a href="https://www.linkedin.com/company/mile-high-custom-remodels" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/company/mile-high-custom-remodels" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                     </a>
                 </div>

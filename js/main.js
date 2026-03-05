@@ -22,7 +22,7 @@
             const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
             navToggle.setAttribute('aria-expanded', !isExpanded);
             navMenu.classList.toggle('active');
-            
+
             // Prevent body scroll when menu is open
             document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
         });
@@ -49,12 +49,11 @@
     // ============================================
     // Mobile Dropdown Handling
     // ============================================
+    // Always attach listener; check width inside handler so resize works correctly
     navDropdowns.forEach(function(dropdown) {
         const link = dropdown.querySelector('.nav-link');
-        
-        if (link && window.innerWidth < 1024) {
+        if (link) {
             link.addEventListener('click', function(e) {
-                // Only prevent default on mobile
                 if (window.innerWidth < 1024) {
                     e.preventDefault();
                     dropdown.classList.toggle('open');
@@ -72,8 +71,8 @@
                 navDropdowns.forEach(function(dropdown) {
                     dropdown.classList.remove('open');
                 });
-                navMenu.classList.remove('active');
-                navToggle.setAttribute('aria-expanded', 'false');
+                if (navMenu) navMenu.classList.remove('active');
+                if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             }
         }, 250);
@@ -87,7 +86,7 @@
 
     function updateHeader() {
         const currentScrollY = window.scrollY;
-        
+
         // Add scrolled class for shadow effect
         if (currentScrollY > 50) {
             header.classList.add('scrolled');
@@ -95,16 +94,6 @@
             header.classList.remove('scrolled');
         }
 
-        // Optional: Hide header on scroll down, show on scroll up
-        // Uncomment if you want this behavior:
-        /*
-        if (currentScrollY > lastScrollY && currentScrollY > 200) {
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            header.style.transform = 'translateY(0)';
-        }
-        */
-        
         lastScrollY = currentScrollY;
         ticking = false;
     }
@@ -122,24 +111,24 @@
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
-            
+
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
-            
+
             if (targetElement) {
                 e.preventDefault();
-                
+
                 // Close mobile menu if open
-                navMenu.classList.remove('active');
-                navToggle.setAttribute('aria-expanded', 'false');
+                if (navMenu) navMenu.classList.remove('active');
+                if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
-                
+
                 // Calculate offset for fixed header
-                const headerHeight = header.offsetHeight;
+                const headerHeight = header ? header.offsetHeight : 0;
                 const topBarHeight = document.querySelector('.top-bar')?.offsetHeight || 0;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -152,10 +141,10 @@
     // FAQ Accordion Enhancement
     // ============================================
     const faqItems = document.querySelectorAll('.faq-item');
-    
+
     faqItems.forEach(function(item) {
         const summary = item.querySelector('summary');
-        
+
         if (summary) {
             summary.addEventListener('click', function(e) {
                 // Optional: Close other FAQ items when one is opened
@@ -175,7 +164,7 @@
     // Click-to-Call Tracking (Analytics Ready)
     // ============================================
     const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-    
+
     phoneLinks.forEach(function(link) {
         link.addEventListener('click', function() {
             // Track phone click event
@@ -185,9 +174,6 @@
                     'event_label': this.href
                 });
             }
-            
-            // Console log for debugging (remove in production)
-            console.log('Phone click tracked:', this.href);
         });
     });
 
@@ -195,17 +181,17 @@
     // Form Validation Enhancement
     // ============================================
     const forms = document.querySelectorAll('form');
-    
+
     forms.forEach(function(form) {
         form.addEventListener('submit', function(e) {
             const requiredFields = form.querySelectorAll('[required]');
             let isValid = true;
-            
+
             requiredFields.forEach(function(field) {
                 if (!field.value.trim()) {
                     isValid = false;
                     field.classList.add('error');
-                    
+
                     // Add error message if not exists
                     if (!field.nextElementSibling?.classList.contains('error-message')) {
                         const errorMsg = document.createElement('span');
@@ -221,12 +207,12 @@
                     }
                 }
             });
-            
+
             if (!isValid) {
                 e.preventDefault();
             }
         });
-        
+
         // Remove error state on input
         form.querySelectorAll('input, textarea, select').forEach(function(field) {
             field.addEventListener('input', function() {
@@ -244,12 +230,11 @@
     // ============================================
     if ('IntersectionObserver' in window) {
         const animatedElements = document.querySelectorAll('.service-card, .area-card, .testimonial-card, .process-step');
-        
+
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                     observer.unobserve(entry.target);
                 }
             });
@@ -257,46 +242,54 @@
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         });
-        
+
+        // Use CSS class instead of inline styles (prevents content being hidden if JS fails)
         animatedElements.forEach(function(el) {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            el.classList.add('fade-in-up');
             observer.observe(el);
         });
     }
 
     // ============================================
-    // Lazy Loading Images (Native + Fallback)
+    // Lazy Loading Images (Native only — fallback not needed in modern browsers)
     // ============================================
-    if ('loading' in HTMLImageElement.prototype) {
-        // Browser supports native lazy loading
-        const images = document.querySelectorAll('img[loading="lazy"]');
-        images.forEach(function(img) {
-            if (img.dataset.src) {
-                img.src = img.dataset.src;
-            }
-        });
-    } else {
-        // Fallback for older browsers
-        const lazyImages = document.querySelectorAll('img[data-src]');
-        
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.removeAttribute('data-src');
-                        imageObserver.unobserve(img);
+    const images = document.querySelectorAll('img[loading="lazy"][data-src]');
+    images.forEach(function(img) {
+        if (img.dataset.src) {
+            img.src = img.dataset.src;
+        }
+    });
+
+    // ============================================
+    // Gallery Filter (moved from gallery.html inline script)
+    // ============================================
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    if (filterButtons.length > 0) {
+        filterButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                // Update active button and aria-selected
+                filterButtons.forEach(function(btn) {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-selected', 'false');
+                });
+                this.classList.add('active');
+                this.setAttribute('aria-selected', 'true');
+
+                var filter = this.getAttribute('data-filter');
+
+                galleryItems.forEach(function(item) {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.classList.remove('gallery-hidden');
+                        item.classList.add('gallery-visible');
+                    } else {
+                        item.classList.remove('gallery-visible');
+                        item.classList.add('gallery-hidden');
                     }
                 });
             });
-            
-            lazyImages.forEach(function(img) {
-                imageObserver.observe(img);
-            });
-        }
+        });
     }
 
     // ============================================
@@ -318,16 +311,17 @@
     }
 
     // ============================================
-    // Console Welcome Message
+    // Console Welcome Message (dev only)
     // ============================================
-    console.log(
-        '%cMile High Custom Remodels',
-        'font-size: 24px; font-weight: bold; color: #1e3a5f;'
-    );
-    console.log(
-        '%cDenver\'s Trusted Home Remodeling Contractor',
-        'font-size: 14px; color: #e86830;'
-    );
-    console.log('Website by: Mile High Custom Remodels');
+    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+        console.log(
+            '%cMile High Custom Remodels',
+            'font-size: 24px; font-weight: bold; color: #E85A1B;'
+        );
+        console.log(
+            '%cDenver\'s Trusted Home Remodeling Contractor',
+            'font-size: 14px; color: #E85A1B;'
+        );
+    }
 
 })();

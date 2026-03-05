@@ -241,6 +241,14 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- FAQ Page - Medium Priority -->
+    <url>
+        <loc>https://milehighcustomremodels.com/faq</loc>
+        <lastmod>2026-03-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
     <!-- Legal Pages - Low Priority -->
     <url>
         <loc>https://milehighcustomremodels.com/privacy</loc>

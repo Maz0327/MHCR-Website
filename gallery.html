@@ -55,6 +55,36 @@
         }
     }
     </script>
+
+    <!-- Schema.org Review Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Review",
+                "itemReviewed": {"@type": "HomeAndConstructionBusiness", "name": "Mile High Custom Remodels"},
+                "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+                "author": {"@type": "Person", "name": "Sarah M."},
+                "reviewBody": "Our kitchen remodel exceeded all expectations. The team was professional, kept us informed throughout, and the finished product is absolutely stunning. We've gotten so many compliments from friends and family!"
+            },
+            {
+                "@type": "Review",
+                "itemReviewed": {"@type": "HomeAndConstructionBusiness", "name": "Mile High Custom Remodels"},
+                "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+                "author": {"@type": "Person", "name": "Michael & Jennifer R."},
+                "reviewBody": "MHCR transformed our dated basement into an amazing entertainment space. They handled everything from permits to final finishes. The attention to detail was impressive, and they finished on time and on budget."
+            },
+            {
+                "@type": "Review",
+                "itemReviewed": {"@type": "HomeAndConstructionBusiness", "name": "Mile High Custom Remodels"},
+                "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+                "author": {"@type": "Person", "name": "David L."},
+                "reviewBody": "We needed an accessible bathroom for my mother, and Mile High Custom Remodels designed a beautiful space that's both functional and stylish. They were so thoughtful about every detail. Highly recommend!"
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -114,6 +144,8 @@
                             <li><a href="services/living-room-remodeling.html">Living Room Remodeling</a></li>
                             <li><a href="services/bedroom-renovation.html">Bedroom Renovation</a></li>
                             <li><a href="services/handyman-services.html">Handyman Services</a></li>
+                            <li><a href="services/whole-home-renovation.html">Whole Home Renovation</a></li>
+                            <li><a href="emergency-repairs.html">Emergency Repairs</a></li>
                         </ul>
                     </li>
                     <li class="nav-dropdown">
@@ -129,6 +161,7 @@
                     </li>
                     <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
                     <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="blog/" class="nav-link">Blog</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
 
@@ -155,16 +188,16 @@
         <!-- Gallery Filter -->
         <section class="section gallery-section">
             <div class="container">
-                <div class="gallery-filter">
-                    <button class="filter-btn active" data-filter="all">All Projects</button>
-                    <button class="filter-btn" data-filter="kitchen">Kitchens</button>
-                    <button class="filter-btn" data-filter="bathroom">Bathrooms</button>
-                    <button class="filter-btn" data-filter="basement">Basements</button>
-                    <button class="filter-btn" data-filter="living">Living Spaces</button>
+                <div class="gallery-filter" role="tablist" aria-label="Filter gallery by project category">
+                    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Projects</button>
+                    <button class="filter-btn" data-filter="kitchen" role="tab" aria-selected="false">Kitchens</button>
+                    <button class="filter-btn" data-filter="bathroom" role="tab" aria-selected="false">Bathrooms</button>
+                    <button class="filter-btn" data-filter="basement" role="tab" aria-selected="false">Basements</button>
+                    <button class="filter-btn" data-filter="living" role="tab" aria-selected="false">Living Spaces</button>
                 </div>
 
                 <!-- Featured Projects -->
-                <div class="gallery-grid">
+                <div class="gallery-grid" aria-live="polite" aria-label="Project gallery">
                     <!-- Kitchen Project 1 -->
                     <article class="gallery-item" data-category="kitchen">
                         <div class="gallery-image">
@@ -416,8 +449,8 @@
                 
                 <div class="testimonials-grid">
                     <blockquote class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                        <div class="testimonial-rating" aria-label="5 out of 5 stars">
+                            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
                         </div>
                         <p class="testimonial-text">"Our kitchen remodel exceeded all expectations. The team was professional, kept us informed throughout, and the finished product is absolutely stunning. We've gotten so many compliments from friends and family!"</p>
                         <footer class="testimonial-author">
@@ -427,8 +460,8 @@
                     </blockquote>
 
                     <blockquote class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                        <div class="testimonial-rating" aria-label="5 out of 5 stars">
+                            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
                         </div>
                         <p class="testimonial-text">"MHCR transformed our dated basement into an amazing entertainment space. They handled everything from permits to final finishes. The attention to detail was impressive, and they finished on time and on budget."</p>
                         <footer class="testimonial-author">
@@ -438,8 +471,8 @@
                     </blockquote>
 
                     <blockquote class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                        <div class="testimonial-rating" aria-label="5 out of 5 stars">
+                            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
                         </div>
                         <p class="testimonial-text">"We needed an accessible bathroom for my mother, and Mile High Custom Remodels designed a beautiful space that's both functional and stylish. They were so thoughtful about every detail. Highly recommend!"</p>
                         <footer class="testimonial-author">
@@ -489,10 +522,11 @@
                     <div class="footer-contact">
                         <p><strong>Phone:</strong> <a href="tel:+13035556427">(303) 555-MHCR</a></p>
                         <p><strong>Email:</strong> <a href="mailto:info@milehighcustomremodels.com">info@milehighcustomremodels.com</a></p>
-                        <p><strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=1234+Renovation+Way+Denver+CO+80202" target="_blank" rel="noopener">1234 Renovation Way, Denver, CO 80202</a></p>
+                        <p><strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=1234+Renovation+Way+Denver+CO+80202" target="_blank" rel="noopener noreferrer">1234 Renovation Way, Denver, CO 80202</a></p>
                     </div>
                 </div>
 
+                <nav aria-label="Footer navigation">
                 <div class="footer-links">
                     <h4>Services</h4>
                     <ul>
@@ -502,6 +536,8 @@
                         <li><a href="services/living-room-remodeling.html">Living Room Remodeling</a></li>
                         <li><a href="services/bedroom-renovation.html">Bedroom Renovation</a></li>
                         <li><a href="services/handyman-services.html">Handyman Services</a></li>
+                        <li><a href="services/whole-home-renovation.html">Whole Home Renovation</a></li>
+                        <li><a href="emergency-repairs.html">Emergency Repairs</a></li>
                     </ul>
                 </div>
 
@@ -523,26 +559,28 @@
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="gallery.html">Project Gallery</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="blog/">Blog</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
                     </ul>
                 </div>
+                </nav>
             </div>
 
             <div class="footer-bottom">
                 <p>&copy; 2026 Mile High Custom Remodels. All rights reserved. Licensed &amp; Insured in Colorado.</p>
                 <div class="footer-social">
-                    <a href="https://www.facebook.com/milehighcustomremodels" target="_blank" rel="noopener" aria-label="Facebook">
+                    <a href="https://www.facebook.com/milehighcustomremodels" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                     </a>
-                    <a href="https://www.instagram.com/mhcr_denver" target="_blank" rel="noopener" aria-label="Instagram">
+                    <a href="https://www.instagram.com/mhcr_denver" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     </a>
-                    <a href="https://www.yelp.com/biz/mile-high-custom-renovations-denver" target="_blank" rel="noopener" aria-label="Yelp">
+                    <a href="https://www.yelp.com/biz/mile-high-custom-remodels-denver" target="_blank" rel="noopener noreferrer" aria-label="Yelp">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.27 13.6l-2.55 1.97c-.33.25-.79.04-.83-.37L8.5 12.1c-.04-.4.38-.69.74-.51l2.79 1.36c.36.18.47.63.24.95zM8.93 10.4l2.98-.59c.39-.08.58-.53.36-.86L10.6 6.68c-.22-.34-.7-.3-.87.06L8.49 9.62c-.17.37.06.8.44.78zm3.98 2.08l2.85-1.27c.37-.16.43-.65.11-.91l-2.46-1.91c-.32-.25-.77-.05-.82.35L12.23 12c-.05.4.33.7.68.48zm.6 2.49l.57 3.06c.07.41.54.57.82.3l2.23-2.16c.28-.27.19-.71-.17-.87l-2.8-1.2c-.36-.15-.74.1-.65.87zm-4.17 2.27l1.95 2.37c.25.31.71.22.85-.16l1.05-2.92c.13-.38-.18-.77-.58-.72l-3.01.37c-.4.05-.54.53-.26.76z"></path></svg>
                     </a>
-                    <a href="https://www.linkedin.com/company/mile-high-custom-remodels" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/company/mile-high-custom-remodels" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                     </a>
                 </div>
@@ -570,34 +608,5 @@
 
 
     <script src="js/main.js"></script>
-    
-    <!-- Gallery Filter Script -->
-    <script>
-        // Gallery filtering functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            
-            filterButtons.forEach(function(button) {
-                button.addEventListener('click', function() {
-                    // Update active button
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Filter items
-                    const filter = this.getAttribute('data-filter');
-                    
-                    galleryItems.forEach(function(item) {
-                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                            item.style.display = '';
-                            item.style.animation = 'fadeIn 0.3s ease';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        });
-    </script>
 </body>
 </html>

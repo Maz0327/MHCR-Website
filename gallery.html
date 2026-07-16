@@ -16,7 +16,7 @@
     <meta property="og:url" content="https://milehighcustomremodels.com/gallery">
     <meta property="og:title" content="Remodeling Project Gallery | Mile High Custom Remodels">
     <meta property="og:description" content="See our portfolio of kitchen, bathroom, and basement renovations in Denver. Before and after photos of 500+ completed projects.">
-    <meta property="og:image" content="https://milehighcustomremodels.com/images/gallery-og.jpg">
+    <meta property="og:image" content="https://milehighcustomremodels.com/images/og-image.jpg">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -28,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Fraunces (editorial serif headings) + Inter (body text) -->
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
@@ -44,45 +44,15 @@
         "name": "Mile High Custom Remodels Project Gallery",
         "description": "Portfolio of home remodeling projects completed by Mile High Custom Remodels in Denver, Colorado, including kitchen renovations, bathroom remodels, and basement finishes.",
         "publisher": {
+            "@id": "https://milehighcustomremodels.com/#business",
             "@type": "HomeAndConstructionBusiness",
-            "name": "Mile High Custom Remodels",
-            "url": "https://milehighcustomremodels.com"
+            "name": "Mile High Custom Remodels"
         },
         "about": {
             "@type": "Service",
             "name": "Home Remodeling Services",
             "areaServed": "Denver Metro Area, Colorado"
         }
-    }
-    </script>
-
-    <!-- Schema.org Review Markup -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "Review",
-                "itemReviewed": {"@type": "HomeAndConstructionBusiness", "name": "Mile High Custom Remodels"},
-                "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-                "author": {"@type": "Person", "name": "Sarah M."},
-                "reviewBody": "Our kitchen remodel exceeded all expectations. The team was professional, kept us informed throughout, and the finished product is absolutely stunning. We've gotten so many compliments from friends and family!"
-            },
-            {
-                "@type": "Review",
-                "itemReviewed": {"@type": "HomeAndConstructionBusiness", "name": "Mile High Custom Remodels"},
-                "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-                "author": {"@type": "Person", "name": "Michael & Jennifer R."},
-                "reviewBody": "MHCR transformed our dated basement into an amazing entertainment space. They handled everything from permits to final finishes. The attention to detail was impressive, and they finished on time and on budget."
-            },
-            {
-                "@type": "Review",
-                "itemReviewed": {"@type": "HomeAndConstructionBusiness", "name": "Mile High Custom Remodels"},
-                "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-                "author": {"@type": "Person", "name": "David L."},
-                "reviewBody": "We needed an accessible bathroom for my mother, and Mile High Custom Remodels designed a beautiful space that's both functional and stylish. They were so thoughtful about every detail. Highly recommend!"
-            }
-        ]
     }
     </script>
 </head>
@@ -608,6 +578,7 @@
 
 
     <script src="js/main.js"></script>
-    <script src="js/editor.js"></script>
+    <script src="js/editor.js" defer></script>
+<script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </body>
 </html>

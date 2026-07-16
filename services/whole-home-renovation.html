@@ -18,7 +18,7 @@
     <meta property="og:url" content="https://milehighcustomremodels.com/services/whole-home-renovation">
     <meta property="og:title" content="Whole Home Renovation Denver | Mile High Custom Remodels">
     <meta property="og:description" content="Transform your entire home with Denver's trusted renovation experts. Complete remodels, open floor plans, additions & more. Free consultations.">
-    <meta property="og:image" content="https://milehighcustomremodels.com/images/services/whole-home-renovation-denver.jpg">
+    <meta property="og:image" content="https://milehighcustomremodels.com/images/og-image.jpg">
     <meta property="og:locale" content="en_US">
     
     <!-- Twitter Card -->
@@ -42,7 +42,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Fraunces (editorial serif headings) + Inter (body text) -->
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../css/style.css">
@@ -56,21 +56,9 @@
         "alternateName": "Complete Home Remodeling Denver",
         "description": "Comprehensive whole home renovation services in Denver, Colorado. Mile High Custom Remodels provides complete house renovations including kitchen and bathroom remodels, open floor plan conversions, room additions, structural modifications, electrical and plumbing upgrades, and full interior renovations. Our whole home renovation projects typically range from $100,000 to $500,000+ depending on scope and home size. Average project timeline is 3-6 months.",
         "provider": {
+            "@id": "https://milehighcustomremodels.com/#business",
             "@type": "HomeAndConstructionBusiness",
-            "name": "Mile High Custom Remodels",
-            "telephone": "+1-720-492-4326",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "1234 Renovation Way",
-                "addressLocality": "Denver",
-                "addressRegion": "CO",
-                "postalCode": "80202"
-            },
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "reviewCount": "127"
-            }
+            "name": "Mile High Custom Remodels"
         },
         "areaServed": {
             "@type": "Place",
@@ -172,35 +160,7 @@
         ]
     }
     </script>
-    
-    <!-- BreadcrumbList Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://milehighcustomremodels.com"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Services",
-                "item": "https://milehighcustomremodels.com/services"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Whole Home Renovation",
-                "item": "https://milehighcustomremodels.com/services/whole-home-renovation"
-            }
-        ]
-    }
-    </script>
-</head>
+    </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -784,6 +744,7 @@
 
     <!-- JavaScript -->
     <script src="../js/main.js"></script>
-    <script src="../js/editor.js"></script>
+    <script src="../js/editor.js" defer></script>
+<script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </body>
 </html>

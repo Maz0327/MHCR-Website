@@ -16,7 +16,7 @@
     <meta property="og:url" content="https://milehighcustomremodels.com/services/kitchen-remodeling">
     <meta property="og:title" content="Kitchen Remodeling Denver | Mile High Custom Remodels">
     <meta property="og:description" content="Transform your kitchen with Denver's trusted renovation specialists. Custom designs, quality craftsmanship, transparent pricing. Free consultation.">
-    <meta property="og:image" content="https://milehighcustomremodels.com/images/services/kitchen-remodeling-og.jpg">
+    <meta property="og:image" content="https://milehighcustomremodels.com/images/og-image.jpg">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Fraunces (editorial serif headings) + Inter (body text) -->
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../css/style.css">
@@ -51,21 +51,9 @@
         "alternateName": "Kitchen Renovation Denver",
         "description": "Professional kitchen remodeling services in Denver, Colorado. Mile High Custom Remodels offers complete kitchen renovations including custom cabinetry, countertop installation (granite, quartz, marble), backsplash design, flooring, lighting, and appliance installation. Our kitchen remodels range from $25,000 for basic updates to $100,000+ for luxury transformations. Average kitchen renovation timeline is 6-12 weeks.",
         "provider": {
+            "@id": "https://milehighcustomremodels.com/#business",
             "@type": "HomeAndConstructionBusiness",
-            "name": "Mile High Custom Remodels",
-            "telephone": "+1-720-492-4326",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "1234 Renovation Way",
-                "addressLocality": "Denver",
-                "addressRegion": "CO",
-                "postalCode": "80202"
-            },
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "reviewCount": "127"
-            }
+            "name": "Mile High Custom Remodels"
         },
         "areaServed": {
             "@type": "Place",
@@ -163,34 +151,6 @@
                     "@type": "Answer",
                     "text": "An open-concept kitchen conversion involves removing walls between the kitchen and adjacent living or dining areas to create a more spacious, connected floor plan. This popular renovation in Denver homes typically costs $10,000-$25,000 depending on whether load-bearing walls are involved. Benefits include better natural light, improved traffic flow, easier entertaining, and a more modern aesthetic. Our team assesses structural requirements and handles necessary permits."
                 }
-            }
-        ]
-    }
-    </script>
-
-    <!-- BreadcrumbList Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://milehighcustomremodels.com"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Services",
-                "item": "https://milehighcustomremodels.com/services"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Kitchen Remodeling",
-                "item": "https://milehighcustomremodels.com/services/kitchen-remodeling"
             }
         ]
     }
@@ -833,6 +793,7 @@
 
 
     <script src="../js/main.js"></script>
-    <script src="../js/editor.js"></script>
+    <script src="../js/editor.js" defer></script>
+<script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </body>
 </html>

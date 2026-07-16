@@ -29,9 +29,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Fraunces (editorial serif headings) + Inter (body text) -->
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Preload hero background (AVIF; browsers without AVIF support skip this and load the WebP fallback) -->
+    <link rel="preload" as="image" type="image/avif" href="images/projects/kitchen/kitchen-completed-overview.avif" fetchpriority="high">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -41,6 +44,7 @@
     {
         "@context": "https://schema.org",
         "@type": "HomeAndConstructionBusiness",
+        "@id": "https://milehighcustomremodels.com/#business",
         "name": "Mile High Custom Remodels",
         "alternateName": "MHCR",
         "description": "Mile High Custom Remodels is a full-service home remodeling contractor serving the Denver Metro Area. We specialize in kitchen remodeling, bathroom renovation, basement finishing, living room updates, bedroom remodels, and general handyman services. Our licensed and insured team has over 15 years of experience transforming homes throughout Colorado.",
@@ -61,25 +65,77 @@
             "longitude": -104.9903
         },
         "areaServed": [
-            {"@type": "City", "name": "Denver", "containedInPlace": {"@type": "State", "name": "Colorado"}},
-            {"@type": "City", "name": "Aurora"},
-            {"@type": "City", "name": "Lakewood"},
-            {"@type": "City", "name": "Arvada"},
-            {"@type": "City", "name": "Centennial"},
-            {"@type": "City", "name": "Littleton"},
-            {"@type": "City", "name": "Highlands Ranch"},
-            {"@type": "City", "name": "Parker"},
-            {"@type": "City", "name": "Castle Rock"},
-            {"@type": "City", "name": "Golden"},
-            {"@type": "City", "name": "Westminster"},
-            {"@type": "City", "name": "Thornton"},
-            {"@type": "City", "name": "Broomfield"},
-            {"@type": "City", "name": "Englewood"}
+            {
+                "@type": "City",
+                "name": "Denver",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Colorado"
+                }
+            },
+            {
+                "@type": "City",
+                "name": "Aurora"
+            },
+            {
+                "@type": "City",
+                "name": "Lakewood"
+            },
+            {
+                "@type": "City",
+                "name": "Arvada"
+            },
+            {
+                "@type": "City",
+                "name": "Centennial"
+            },
+            {
+                "@type": "City",
+                "name": "Littleton"
+            },
+            {
+                "@type": "City",
+                "name": "Highlands Ranch"
+            },
+            {
+                "@type": "City",
+                "name": "Parker"
+            },
+            {
+                "@type": "City",
+                "name": "Castle Rock"
+            },
+            {
+                "@type": "City",
+                "name": "Golden"
+            },
+            {
+                "@type": "City",
+                "name": "Westminster"
+            },
+            {
+                "@type": "City",
+                "name": "Thornton"
+            },
+            {
+                "@type": "City",
+                "name": "Broomfield"
+            },
+            {
+                "@type": "City",
+                "name": "Englewood"
+            }
         ],
         "openingHoursSpecification": [
             {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ],
                 "opens": "07:00",
                 "closes": "18:00"
             },
@@ -91,27 +147,73 @@
             }
         ],
         "priceRange": "$$",
-        "paymentAccepted": ["Cash", "Credit Card", "Check", "Financing Available"],
+        "paymentAccepted": [
+            "Cash",
+            "Credit Card",
+            "Check",
+            "Financing Available"
+        ],
         "currenciesAccepted": "USD",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "127",
-            "bestRating": "5",
-            "worstRating": "1"
-        },
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Home Remodeling Services",
             "itemListElement": [
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Kitchen Remodeling"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bathroom Renovation"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Basement Finishing"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Living Room Remodeling"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bedroom Renovation"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Handyman Services"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Home Repairs"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Light Plumbing"}}
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Kitchen Remodeling"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Bathroom Renovation"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Basement Finishing"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Living Room Remodeling"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Bedroom Renovation"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Handyman Services"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Home Repairs"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Light Plumbing"
+                    }
+                }
             ]
         },
         "sameAs": [
@@ -120,38 +222,8 @@
             "https://www.linkedin.com/company/mile-high-custom-remodels",
             "https://www.yelp.com/biz/mile-high-custom-remodels-denver"
         ],
-        "image": "https://milehighcustomremodels.com/images/mhcr-logo.png",
-        "logo": "https://milehighcustomremodels.com/images/mhcr-logo.png"
-    }
-    </script>
-
-    <!-- Schema.org Review Markup -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "Review",
-                "itemReviewed": {"@type": "HomeAndConstructionBusiness", "name": "Mile High Custom Remodels"},
-                "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-                "author": {"@type": "Person", "name": "Sarah M."},
-                "reviewBody": "Mile High Custom Remodels completely transformed our outdated kitchen. The team was professional, stayed on schedule, and the quality of work exceeded our expectations. Highly recommend for any Denver homeowner!"
-            },
-            {
-                "@type": "Review",
-                "itemReviewed": {"@type": "HomeAndConstructionBusiness", "name": "Mile High Custom Remodels"},
-                "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-                "author": {"@type": "Person", "name": "David & Jennifer T."},
-                "reviewBody": "We hired MHCR to finish our basement and couldn't be happier. They handled everything from permits to final inspection. The new space has added so much value to our home. Great communication throughout!"
-            },
-            {
-                "@type": "Review",
-                "itemReviewed": {"@type": "HomeAndConstructionBusiness", "name": "Mile High Custom Remodels"},
-                "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-                "author": {"@type": "Person", "name": "Mike R."},
-                "reviewBody": "Best contractor experience we've ever had. They remodeled both our bathrooms on time and on budget. The attention to detail was impressive, and they cleaned up every day. Will definitely use them again!"
-            }
-        ]
+        "image": "https://milehighcustomremodels.com/images/logo.png",
+        "logo": "https://milehighcustomremodels.com/images/logo.png"
     }
     </script>
 </head>
@@ -250,7 +322,10 @@
         <section class="hero">
             <div class="hero-background">
                 <!-- PLACEHOLDER: Replace src with images/hero-bg.jpg when ready. See PLACEHOLDER-GUIDE.md #1 -->
-                <img src="images/projects/kitchen/kitchen-completed-overview.webp" alt="" role="presentation" loading="eager" fetchpriority="high">
+                <picture>
+                    <source srcset="images/projects/kitchen/kitchen-completed-overview.avif" type="image/avif">
+                    <img src="images/projects/kitchen/kitchen-completed-overview.webp" alt="" role="presentation" loading="eager" fetchpriority="high">
+                </picture>
                 <div class="hero-overlay"></div>
             </div>
             <div class="container">
@@ -894,6 +969,7 @@
     </div>
 
     <script src="js/main.js"></script>
-    <script src="js/editor.js"></script>
+    <script src="js/editor.js" defer></script>
+<script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </body>
 </html>

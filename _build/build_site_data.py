@@ -97,6 +97,7 @@ def load(data_dir):
         j["steps"] = [f for f in j["frames"] if f["name"] in ("before", "after") or f["name"].startswith("process")]
         j["before"] = f"{j['slug']}/before" if any(f["name"] == "before" for f in j["frames"]) else None
         j["is_film"], j["is_frames"] = j.get("buildup") == "film", j.get("buildup") == "frames"
+        j["steps_n"] = len(j["steps"])
     for x in out_services:                         # "More services": 3 others, photo tiles first (A-Z), then word tiles
         others = [o for o in out_services if o is not x]
         x["more"] = ([o for o in others if o["tile"]] + [o for o in others if not o["tile"]])[:3]

@@ -72,7 +72,7 @@
 .js .build { height: calc(var(--steps, 4) * 70svh + 100svh); }
 .build__stage { position: relative; height: 100svh; min-height: 640px; overflow: hidden; }
 .js .build__stage { position: sticky; top: 0; }
-.build__frame { position: absolute; inset: 0; transition: opacity .35s; }
+.build__frame { position: absolute; inset: 0; z-index: 0; transition: opacity .35s; }   /* own stacking context: chips stay with their frame */
 .build__frame picture, .build__frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .js .build__frame:not(:first-child) { opacity: 0; }
 .build__frame .chip { top: 88px; left: 24px; }
@@ -172,6 +172,7 @@
   .group { padding-top: 96px; }
   .group-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
   .group .card + .card { margin-top: 0; }
+  .group-cards > .card:only-child { grid-column: 1 / -1; }
   .group .card img { height: 62vh; }
   .group .card__name { font-size: 32px; }
   .page-end { padding: 96px var(--g) 0; font-size: 19px; }

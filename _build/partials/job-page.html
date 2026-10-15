@@ -1,0 +1,41 @@
+<!-- Job page (one per published job in jobs.json; scope `jb`). Comp: wildcard-2 tpl2-job-*. Copy: copy deck §6. -->
+<main id="main">
+  <section class="job-hero" aria-label="{{jb.title}}">
+    {{pic jb.after eager}}
+    <div class="job-hero__cap"><p class="crumb"><a href="gallery.html">Our jobs</a><i>/</i><a href="gallery.html#{{jb.service.anchor}}">{{jb.category}}</a></p><h1 class="h1">{{jb.title}}</h1></div>
+  </section>
+{{#if jb.before}}  <section class="sec ba-sec" aria-label="Before and after">
+    <div class="ba">
+      {{pic jb.before}}
+      <div class="ba__after">{{pic jb.after alt=""}}</div>
+      <span class="chip chip--l">Before</span><span class="chip chip--r">After</span>
+      <span class="ba__line" aria-hidden="true"></span>
+      <button class="ba__knob" type="button" role="slider" aria-label="Before and after: move to compare" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></button>
+    </div>
+  </section>
+{{/if}}{{#if jb.is_film}}{{> film}}
+{{/if}}{{#if jb.is_frames}}  <section class="build" id="build" aria-label="The job as it went" style="--steps: {{jb.steps_n}}">
+    <div class="build__stage">
+{{#each jb.steps}}      <div class="build__frame">{{pic ref}}<span class="chip">{{label}}</span></div>
+{{/each}}      <div class="build__bar" aria-hidden="true"><i></i></div>
+    </div>
+  </section>
+{{/if}}  <section class="job-end-wrap">
+    <div class="job-end">
+      <div>
+        <p class="statement">{{jb.summary}}</p>
+        <h2 class="did-head">What we did</h2>
+        <ol class="did">
+{{#each jb.did}}          <li>{{.}}</li>
+{{/each}}        </ol>
+        <dl class="facts">
+          <div><dt>Job</dt><dd>{{jb.title}}</dd></div>
+          <div><dt>Service</dt><dd><a href="{{jb.service.path}}">{{jb.service.h1}}</a></dd></div>
+        </dl>
+      </div>
+      <div class="ask__body" id="ask">
+{{> ask-body}}
+      </div>
+    </div>
+  </section>
+</main>

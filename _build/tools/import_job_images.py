@@ -28,6 +28,7 @@ MASTER2 = f"{ARCHIVE}/photo-batch/master2"
 FILM = f"{ARCHIVE}/mhcr-stone-film/f"
 KEYS = f"{ARCHIVE}/fp1/keys"
 CARD_BOX = (1338, 1184, 2706, 2096)
+FP1_M_BOX = (198, 300, 1230, 1676)   # where fireplace-1/after (the 3:4 film card) sits in the film's final-m frame
 
 # Older wides that were still stretched: (master file, measured aspect vs the mobile, NCC confidence).
 # Measured 2026-10-15 with a two-stage NCC fit (coarse grid as wide2/tools/measure_stretch.py, then 0.005 steps).
@@ -63,6 +64,19 @@ def unstretch(master, aspect, out_dir, frame):
     return f"unstretched 1/{aspect} from master2/{master}"
 
 
+def fp1_before(out_dir):
+    """Fireplace 1's before, cut from the film's aligned frames so the before/after slider lines up exactly with the
+    after (same camera, same crop): 3:4 = film before-m at FP1_M_BOX; 3:2 = before_4k at CARD_BOX (same as the after)."""
+    m = Image.open(f"{FILM}/before-m.webp").convert("RGB").crop(FP1_M_BOX)
+    save_webp(m, f"{out_dir}/before-m-1200.webp", 80)
+    save_webp(m.resize((800, round(800 * m.height / m.width)), Image.LANCZOS), f"{out_dir}/before-m-800.webp", 80)
+    d = Image.open(f"{KEYS}/before_4k.png").convert("RGB").crop(CARD_BOX).resize((2400, 1600), Image.LANCZOS)
+    d = d.filter(ImageFilter.UnsharpMask(radius=1.2, percent=35, threshold=2))
+    save_webp(d, f"{out_dir}/before-d-2400.webp", 82)
+    save_webp(d.resize((1600, 1067), Image.LANCZOS), f"{out_dir}/before-d-1600.webp", 82)
+    return "aligned to the after: film before-m crop + before_4k card crop"
+
+
 def main():
     with open(os.path.join(SITE, "_build/data/jobs.json"), encoding="utf-8") as f:
         jobs = json.load(f)["jobs"]
@@ -81,7 +95,9 @@ def main():
                 im = Image.open(f"{base}.webp").convert("RGB")
                 save_webp(im.resize((800, round(800 * im.height / im.width)), Image.LANCZOS), f"{out_dir}/{fr['name']}-m-800.webp", 80)
                 note = "m-800 resized from the 3:4 final"
-            if key in UNSTRETCH:
+            if key == "fireplace-1/before":
+                note = fp1_before(out_dir); base = f"{FILM}/before-m"
+            elif key in UNSTRETCH:
                 master, aspect, _ = UNSTRETCH[key]
                 note = unstretch(master, aspect, out_dir, fr["name"])
             else:

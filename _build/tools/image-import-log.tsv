@@ -1,8 +1,8 @@
 file	width	height	source	note
-images/jobs/fireplace-1/before-m-800.webp	600	800	photo-batch/final/fireplace-1/before	byte copy
-images/jobs/fireplace-1/before-m-1200.webp	900	1200	photo-batch/final/fireplace-1/before	byte copy
-images/jobs/fireplace-1/before-d-1600.webp	1600	1067	photo-batch/final/fireplace-1/before	byte copy
-images/jobs/fireplace-1/before-d-2400.webp	2400	1600	photo-batch/final/fireplace-1/before	byte copy
+images/jobs/fireplace-1/before-m-800.webp	800	1067	mhcr-stone-film/f/before-m	aligned to the after: film before-m crop + before_4k card crop
+images/jobs/fireplace-1/before-m-1200.webp	1032	1376	mhcr-stone-film/f/before-m	aligned to the after: film before-m crop + before_4k card crop
+images/jobs/fireplace-1/before-d-1600.webp	1600	1067	mhcr-stone-film/f/before-m	aligned to the after: film before-m crop + before_4k card crop
+images/jobs/fireplace-1/before-d-2400.webp	2400	1600	mhcr-stone-film/f/before-m	aligned to the after: film before-m crop + before_4k card crop
 images/jobs/fireplace-1/process-1-m-800.webp	600	800	photo-batch/final/fireplace-1/process-1	byte copy
 images/jobs/fireplace-1/process-1-m-1200.webp	900	1200	photo-batch/final/fireplace-1/process-1	byte copy
 images/jobs/fireplace-1/process-1-d-1600.webp	1600	1067	photo-batch/final/fireplace-1/process-1	byte copy

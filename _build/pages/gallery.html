@@ -1,0 +1,17 @@
+<!-- path: gallery.html -->
+<!-- title: Our Jobs: Before and After | Mile High Custom Remodels -->
+<!-- description: Before and after photos from our own jobs: a bathroom remodel, a tiled walk-in shower, two stone fireplaces and a navy board-and-batten bedroom wall. -->
+<main id="main" class="page">
+  <section class="page-head">
+    <p class="crumb">Our jobs</p>
+    <h1 class="h1 h1--xl">Our jobs</h1>
+    <p class="lede">Photos from our own jobs. Open one to see the before and after.</p>
+  </section>
+{{#each job_groups}}  <section class="group" id="{{anchor}}" aria-labelledby="g-{{anchor}}">
+    <p class="kicker" id="g-{{anchor}}"><a href="{{path}}">{{name}}</a></p>
+    <div class="group-cards">
+{{#each jobs}}      <a class="card" href="{{href}}">{{pic after sizes="(min-width:1024px) 50vw, 100vw"}}<span class="card__cap"><span class="card__name">{{title}}</span><span class="frame__see">See the job <i aria-hidden="true">&rarr;</i></span></span></a>
+{{/each}}    </div>
+  </section>
+{{/each}}  <p class="page-end">We do more than what's shown here. <a href="services.html">See all services.</a></p>
+</main>

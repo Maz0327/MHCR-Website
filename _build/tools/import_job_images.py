@@ -29,7 +29,10 @@ MASTER2 = f"{ARCHIVE}/photo-batch/master2"
 FILM = f"{ARCHIVE}/mhcr-stone-film/f"
 KEYS = f"{ARCHIVE}/fp1/keys"
 CARD_BOX = (1338, 1184, 2706, 2096)
-FP1_M_BOX = (198, 300, 1230, 1676)   # where fireplace-1/after (the 3:4 film card) sits in the film's final-m frame
+FP1_M_BOX = (198, 300, 1230, 1676)
+# Prep frame v2 (10-15): cement-board seams redrawn as staggered T joints, pixel-identical outside the board.
+PREP_FIX = "/Users/maz/Documents/Projects/MHCR-Redesign/photo-fixes-261015/fp1-prep"
+PREP_4K, PREP_M = f"{PREP_FIX}/prep_4k_v2.png", f"{PREP_FIX}/m_prep_v2.png"   # replace keys/prep_4k.png, keys/m_prep.png   # where fireplace-1/after (the 3:4 film card) sits in the film's final-m frame
 
 # Older wides that were still stretched: (master file, measured aspect vs the mobile, NCC confidence).
 # Measured 2026-10-15 with a two-stage NCC fit (coarse grid as wide2/tools/measure_stretch.py, then 0.005 steps).
@@ -111,13 +114,16 @@ def main():
     film_dir = os.path.join(SITE, "images/jobs/fireplace-1")
     for name in ("prep", "final"):
         dst = f"{film_dir}/film-{name}-m.webp"                    # phone set: cut to the stone wall's width (x 198-1230)
-        m = Image.open(f"{FILM}/{name}-m.webp").convert("RGB")  # so the bar shelf + bottles at the right can never show
+        if name == "prep":                                        # so the bar shelf + bottles at the right can never show
+            m = Image.open(PREP_M).convert("RGB").resize((1440, 2217), Image.LANCZOS)   # same 0.75 scale as the film's -m
+        else:
+            m = Image.open(f"{FILM}/{name}-m.webp").convert("RGB")
         save_webp(m.crop((FP1_M_BOX[0], 0, FP1_M_BOX[2], m.height)), dst, 82)
-        log.append((os.path.relpath(dst, SITE), *map(str, Image.open(dst).size), f"mhcr-stone-film/f/{name}-m.webp", "film frame, cut to x198-1230 (no shelf)"))
+        log.append((os.path.relpath(dst, SITE), *map(str, Image.open(dst).size), "photo-fixes-261015/fp1-prep/m_prep_v2.png" if name == "prep" else f"mhcr-stone-film/f/{name}-m.webp", "film frame, cut to x198-1230 (no shelf)"))
         dst = f"{film_dir}/film-{name}-d.webp"
-        im = Image.open(f"{KEYS}/{name}_4k.png").convert("RGB").crop(CARD_BOX).resize((2400, 1600), Image.LANCZOS)
+        im = Image.open(PREP_4K if name == "prep" else f"{KEYS}/{name}_4k.png").convert("RGB").crop(CARD_BOX).resize((2400, 1600), Image.LANCZOS)
         save_webp(im.filter(ImageFilter.UnsharpMask(radius=1.2, percent=35, threshold=2)), dst, 82)
-        log.append((os.path.relpath(dst, SITE), "2400", "1600", f"fp1/keys/{name}_4k.png", "film card crop x1338-2706 y1184-2096"))
+        log.append((os.path.relpath(dst, SITE), "2400", "1600", "photo-fixes-261015/fp1-prep/prep_4k_v2.png" if name == "prep" else f"fp1/keys/{name}_4k.png", "film card crop x1338-2706 y1184-2096"))
     with open(os.path.join(HERE, "image-import-log.tsv"), "w", encoding="utf-8") as f:
         f.write("\n".join("\t".join(r) for r in log) + "\n")
     print(f"{len(log) - 1} files written; log: _build/tools/image-import-log.tsv")

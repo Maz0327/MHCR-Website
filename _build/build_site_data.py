@@ -47,7 +47,8 @@ def load(data_dir):
     # ---- site
     _check(re.fullmatch(r"\+1\d{10}", site["phone"]["tel"] or ""), "site.phone.tel must look like +17204924326")
     _az(site["cities"], "name", "site.cities")
-    _az(site["nav"], "label", "site.nav")
+    _az(site["more"], "label", "site.more")
+    _check(re.fullmatch(r"https://[^\s/]+(/[^\s]*[^/\s])?", site["site_url"] or ""), "site.site_url must be https://host[/path] with no trailing slash")
 
     # ---- jobs
     slugs = [j["slug"] for j in all_jobs]

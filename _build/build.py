@@ -102,7 +102,9 @@ def build(pages_dir, out_dir, quiet=False):
     for src, meta, body in metas:
         path, name = meta["path"], os.path.relpath(src, SITE)
         prefix = "../" * path.count("/")
+        public = re.sub(r"(^|/)index\.html$", r"\1", path)          # index.html -> "", blog/index.html -> "blog/"
         page = {"path": path, "root": prefix, "is_home": path == "index.html", "description": meta.get("description", ""),
+                "url": f"{ctx['site']['site_url']}/{public}",
                 "scripts": meta.get("scripts", "").split()}
         scopes = [ctx, {"page": page}]
         try:

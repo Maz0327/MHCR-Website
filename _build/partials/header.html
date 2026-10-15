@@ -4,7 +4,7 @@
     <span class="hdr__word"><b>Mile High</b><span>Custom Remodels</span></span>
   </a>
   <nav class="hdr__nav" aria-label="Main">
-{{#each site.nav}}    <a href="{{href}}">{{label}}</a>
+{{#each site.nav}}    <a href="{{#if page.is_home}}{{#if home_href}}{{home_href}}{{else}}{{href}}{{/if}}{{else}}{{href}}{{/if}}">{{label}}</a>
 {{/each}}  </nav>
   <button class="hdr__menu" type="button" aria-controls="menu" aria-expanded="false">Menu</button>
   <a class="hdr__call" href="tel:{{site.phone.tel}}" aria-label="Call {{site.phone.display}}">
@@ -19,7 +19,8 @@
   </div>
   <nav aria-label="Menu">
     <ul class="menu__main">
-{{#each site.nav}}      <li><a href="{{href}}">{{label}}</a></li>
+{{#each site.nav}}      <li><a href="{{#if page.is_home}}{{#if home_href}}{{home_href}}{{else}}{{href}}{{/if}}{{else}}{{href}}{{/if}}">{{label}}</a></li>
+{{/each}}{{#each site.more}}      <li><a href="{{href}}">{{label}}</a></li>
 {{/each}}    </ul>
     <p class="menu__label">Services</p>
     <ul class="menu__svc">

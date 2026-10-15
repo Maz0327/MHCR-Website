@@ -2,6 +2,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{{page.title}}</title>
 {{#if page.description}}<meta name="description" content="{{page.description}}">
+{{/if}}<link rel="canonical" href="{{page.url}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{page.url}}">
+<meta property="og:title" content="{{page.title}}">
+{{#if page.description}}<meta property="og:description" content="{{page.description}}">
 {{/if}}<meta name="theme-color" content="#0b0b0c">
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">

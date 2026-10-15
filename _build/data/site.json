@@ -1,6 +1,7 @@
 {
-  "_readme": "Site-wide facts. Edit here, then run: python3 _build/build.py. Lists marked A-Z are checked by the build. form.endpoint empty = the quote sheet falls back to call/text (never a 405). email stays empty until Omar confirms a working inbox (the live site shows info@milehighcustomremodels.com, but that domain's DNS is not live yet). phone.texts = also offer \"Text\" (off: the copy deck has Call only until Omar confirms the number takes texts). home_jobs = the homepage 2x2 (Bathroom 1 stands in for Kitchen 1 while K1 is unpublished).",
+  "_readme": "Site-wide facts. Edit here, then run: python3 _build/build.py. Lists marked A-Z are checked by the build (cities, more). site_url = the ONE canonical base (no trailing slash): canonicals, og:url, sitemap and schema @id all derive from it; switch it when Maz names the domain. nav = the 3 header links in comp order (home_href = same-page anchor on the homepage); more = About/Contact/FAQ/Service areas, A-Z (footer + phone menu). form.endpoint empty = the quote sheet falls back to call/text (never a 405). email stays empty until Omar confirms a working inbox (the live site shows info@milehighcustomremodels.com, but that domain's DNS is not live yet). phone.texts = also offer \"Text\" (off: the copy deck has Call only until Omar confirms the number takes texts). home_jobs = the homepage 2x2 (Bathroom 1 stands in for Kitchen 1 while K1 is unpublished).",
   "name": "Mile High Custom Remodels",
+  "site_url": "https://maz0327.github.io/MHCR-Website",
   "phone": {
     "display": "(720) 492-4326",
     "tel": "+17204924326",
@@ -55,6 +56,22 @@
   ],
   "nav": [
     {
+      "label": "Services",
+      "href": "services.html"
+    },
+    {
+      "label": "Our jobs",
+      "href": "gallery.html",
+      "home_href": "#jobs"
+    },
+    {
+      "label": "Our process",
+      "href": "index.html#process",
+      "home_href": "#process"
+    }
+  ],
+  "more": [
+    {
       "label": "About",
       "href": "about.html"
     },
@@ -67,16 +84,8 @@
       "href": "faq.html"
     },
     {
-      "label": "Our jobs",
-      "href": "gallery.html"
-    },
-    {
       "label": "Service areas",
       "href": "service-areas.html"
-    },
-    {
-      "label": "Services",
-      "href": "services.html"
     }
   ],
   "form": {

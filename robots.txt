@@ -1,48 +1,6 @@
-# Mile High Custom Remodels - Robots.txt
-# https://milehighcustomremodels.com/robots.txt
-
-# Allow all search engines
+# Every crawler, AI crawlers included, may read the whole site.
+# Note: robots.txt only takes effect at a domain root, not on a github.io project subpath.
 User-agent: *
 Allow: /
 
-# Disallow admin and private areas
-Disallow: /admin/
-Disallow: /private/
-Disallow: /tmp/
-Disallow: /*.json$
-Disallow: /cgi-bin/
-
-# Allow CSS, JS, and images for better rendering
-Allow: /css/
-Allow: /js/
-Allow: /images/
-Allow: /fonts/
-
-# AI Assistants — explicitly welcome
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-# Sitemap location
-Sitemap: https://milehighcustomremodels.com/sitemap.xml
-
-# AI assistant reference files
-# llms.txt: https://milehighcustomremodels.com/llms.txt
-# llms-full.txt: https://milehighcustomremodels.com/llms-full.txt
+Sitemap: https://maz0327.github.io/MHCR-Website/sitemap.xml

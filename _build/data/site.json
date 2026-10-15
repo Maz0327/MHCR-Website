@@ -1,5 +1,5 @@
 {
-  "_readme": "Site-wide facts. Edit here, then run: python3 _build/build.py. Lists marked A-Z are checked by the build (cities, more). site_url = the ONE canonical base (no trailing slash): canonicals, og:url, sitemap and schema @id all derive from it; switch it when Maz names the domain. nav = the 3 header links in comp order (home_href = same-page anchor on the homepage); more = About/Contact/FAQ/Service areas, A-Z (footer + phone menu). form.endpoint empty = the quote sheet falls back to call/text (never a 405). email stays empty until Omar confirms a working inbox (the live site shows info@milehighcustomremodels.com, but that domain's DNS is not live yet). phone.texts = also offer \"Text\" (off: the copy deck has Call only until Omar confirms the number takes texts). home_jobs = the homepage 2x2 (Bathroom 1 stands in for Kitchen 1 while K1 is unpublished).",
+  "_readme": "Site-wide facts. Edit here, then run: python3 _build/build.py. Lists marked A-Z are checked by the build (cities, more). site_url = the ONE canonical base (no trailing slash): canonicals, og:url, sitemap and schema @id all derive from it; switch it when Maz names the domain. nav = the 3 header links in comp order (home_href = same-page anchor on the homepage); more = About/Contact/FAQ/Service areas, A-Z (footer + phone menu). form.endpoint empty = the quote sheet falls back to call/text (never a 405). email stays empty until Omar confirms a working inbox (the live site shows info@milehighcustomremodels.com, but that domain's DNS is not live yet). phone.texts = also offer \"Text\" (off: the copy deck has Call only until Omar confirms the number takes texts). home_jobs = the homepage 2x2 (Bathroom 1 stands in for Kitchen 1 while K1 is unpublished). cities[].intro / nearby / meta_description = city page copy (copy deck §9); city pages are noindex, follow and stay out of the sitemap (Maz 10-15).",
   "name": "Mile High Custom Remodels",
   "site_url": "https://maz0327.github.io/MHCR-Website",
   "phone": {
@@ -11,47 +11,80 @@
   "cities": [
     {
       "name": "Arvada",
-      "href": "locations/arvada.html"
+      "href": "locations/arvada.html",
+      "intro": "We take repair and remodeling jobs in Arvada, northwest of Denver, on both the Jefferson County and Adams County sides of the city.",
+      "nearby": "We also work in nearby Westminster, Golden and Lakewood.",
+      "meta_description": "Home repairs and remodels in Arvada, northwest of Denver: kitchens, bathrooms, basements, electrical, plumbing, HVAC and more. Free quote: (720) 492-4326."
     },
     {
       "name": "Aurora",
-      "href": "locations/aurora.html"
+      "href": "locations/aurora.html",
+      "intro": "Aurora covers a lot of ground on Denver's east side, and we take repair and remodeling jobs there, big and small.",
+      "nearby": "We also work in nearby Denver, Centennial and Parker.",
+      "meta_description": "Home repairs and remodels in Aurora, on Denver's east side: kitchens, bathrooms, basements, drywall and emergency repairs. Free quote: (720) 492-4326."
     },
     {
       "name": "Centennial",
-      "href": "locations/centennial.html"
+      "href": "locations/centennial.html",
+      "intro": "If you live in Centennial, south of Denver, call us about a sticking door or a new bathroom. We take both.",
+      "nearby": "We also work in nearby Littleton, Highlands Ranch and Aurora.",
+      "meta_description": "Repairs and remodels in Centennial, CO, big or small: kitchens, bathrooms, basements, electrical, plumbing and HVAC. Free quote: (720) 492-4326."
     },
     {
       "name": "Denver",
-      "href": "locations/denver.html"
+      "href": "locations/denver.html",
+      "intro": "Denver is in the middle of everywhere we work. We repair and remodel homes in the city and in the 10 cities around it.",
+      "nearby": "We also work in Arvada, Aurora, Centennial, Golden, Highlands Ranch, Lakewood, Littleton, Parker, Thornton and Westminster.",
+      "meta_description": "We repair and remodel homes in Denver: kitchens, bathrooms, basements, drywall, electrical, plumbing and HVAC. Free quote: (720) 492-4326."
     },
     {
       "name": "Golden",
-      "href": "locations/golden.html"
+      "href": "locations/golden.html",
+      "intro": "We work in Golden, west of Denver at the edge of the foothills. Call us for a repair or a remodel.",
+      "nearby": "We also work in nearby Lakewood and Arvada.",
+      "meta_description": "Home repairs and remodels in Golden, CO, west of Denver: kitchens, bathrooms, basements, electrical, plumbing and more. Free quote: (720) 492-4326."
     },
     {
       "name": "Highlands Ranch",
-      "href": "locations/highlands-ranch.html"
+      "href": "locations/highlands-ranch.html",
+      "intro": "We repair and remodel homes in Highlands Ranch, south of Denver in Douglas County.",
+      "nearby": "We also work in nearby Littleton, Centennial and Parker.",
+      "meta_description": "Home repairs and remodels in Highlands Ranch, south of Denver: kitchens, bathrooms, basements, electrical, plumbing and HVAC. Free quote: (720) 492-4326."
     },
     {
       "name": "Lakewood",
-      "href": "locations/lakewood.html"
+      "href": "locations/lakewood.html",
+      "intro": "Lakewood is right next door to Denver on the west side. We take Lakewood jobs of any size.",
+      "nearby": "We also work in nearby Denver, Golden and Littleton.",
+      "meta_description": "Home repairs and remodels in Lakewood, just west of Denver. Jobs of any size: kitchens, bathrooms, basements and drywall. Free quote: (720) 492-4326."
     },
     {
       "name": "Littleton",
-      "href": "locations/littleton.html"
+      "href": "locations/littleton.html",
+      "intro": "Littleton is just south of Denver. Call us there for a single repair or a full remodel.",
+      "nearby": "We also work in nearby Centennial, Highlands Ranch and Lakewood.",
+      "meta_description": "Home repairs and remodels in Littleton, CO: kitchens, bathrooms, basements, electrical, plumbing, HVAC and emergency repairs. Free quote: (720) 492-4326."
     },
     {
       "name": "Parker",
-      "href": "locations/parker.html"
+      "href": "locations/parker.html",
+      "intro": "We work in Parker, southeast of Denver, on small repairs and full remodels.",
+      "nearby": "We also work in nearby Aurora, Centennial and Highlands Ranch.",
+      "meta_description": "Repairs and remodels in Parker, southeast of Denver. Small fixes and full remodels: kitchens, bathrooms, basements and more. Free quote: (720) 492-4326."
     },
     {
       "name": "Thornton",
-      "href": "locations/thornton.html"
+      "href": "locations/thornton.html",
+      "intro": "We take repair and remodeling jobs in Thornton, north of Denver along I-25.",
+      "nearby": "We also work in nearby Westminster and Denver.",
+      "meta_description": "Home repairs and remodels in Thornton, north of Denver: kitchens, bathrooms, basements, electrical, plumbing and HVAC. Free quote: (720) 492-4326."
     },
     {
       "name": "Westminster",
-      "href": "locations/westminster.html"
+      "href": "locations/westminster.html",
+      "intro": "We repair and remodel homes in Westminster, northwest of Denver along US 36.",
+      "nearby": "We also work in nearby Arvada and Thornton.",
+      "meta_description": "Home repairs and remodels in Westminster, northwest of Denver along US 36: kitchens, bathrooms, basements and more. Free quote: (720) 492-4326."
     }
   ],
   "nav": [
@@ -74,6 +107,10 @@
     {
       "label": "About",
       "href": "about.html"
+    },
+    {
+      "label": "Blog",
+      "href": "blog/index.html"
     },
     {
       "label": "Contact",

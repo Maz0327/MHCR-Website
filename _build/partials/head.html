@@ -1,5 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{{#if page.robots}}<meta name="robots" content="{{page.robots}}">
+{{/if}}
 <title>{{page.title}}</title>
 {{#if page.description}}<meta name="description" content="{{page.description}}">
 {{/if}}<link rel="canonical" href="{{page.url}}">
@@ -15,3 +17,5 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap">
 <link rel="stylesheet" href="css/site.css">
+{{#unless page.is_home}}<link rel="stylesheet" href="css/site-pages.css">
+{{/unless}}

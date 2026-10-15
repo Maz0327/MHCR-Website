@@ -1,0 +1,15 @@
+<!-- path: services.html -->
+<!-- title: Remodeling and Repairs in Denver | Mile High Custom Remodels -->
+<!-- description: Kitchen, bathroom, basement and whole home remodels, plus electrical, plumbing, HVAC, drywall and emergency repairs around Denver. -->
+<!-- Services index, A-Z (comp: wildcard-2 tpl2-index-*; copy: copy deck §3). -->
+<main id="main" class="page page--index">
+  <section class="page-head">
+    <p class="crumb">Services</p>
+    <h1 class="h1 h1--index">What we do</h1>
+    <p class="lede">From a single repair to a full remodel, here's what we take on.</p>
+  </section>
+  <ul class="tiles tiles--index" aria-label="Services, A to Z">
+{{#each services}}    {{> tile}}
+{{/each}}    <li><a class="tile tile--call" href="tel:{{site.phone.tel}}"><b>Something not listed?</b><small>Call {{site.phone.display}}</small></a></li>
+  </ul>
+</main>

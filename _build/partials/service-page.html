@@ -1,0 +1,35 @@
+<!-- Service page (one per services.json entry; scope `svc`). Comp: wildcard-2 tpl2-service-*. Copy: copy deck §4. -->
+<main id="main" class="page">
+  <section class="page-head">
+    <p class="crumb"><a href="services.html">Services</a><i>/</i>{{svc.name}}</p>
+    <h1 class="h1 h1--xl">{{svc.h1}}</h1>
+    <p class="lede">{{svc.intro}}</p>
+  </section>
+{{#if svc.jobs}}  <section class="svc-jobs" aria-label="{{svc.name}} jobs">
+{{#each svc.jobs}}    <a class="card" href="{{href}}">{{pic after sizes="100vw"}}<span class="card__cap"><span class="card__name">{{title}}</span><span class="frame__see">See the job <i aria-hidden="true">&rarr;</i></span></span></a>
+{{/each}}  </section>
+{{/if}}  <section class="svc-end">
+    <div class="svc-end__text">
+      <div class="body">
+{{#each svc.body}}        <p>{{.}}</p>
+{{/each}}      </div>
+      <div class="does">
+        <h2>What we do</h2>
+        <ul>
+{{#each svc.does}}          <li>{{.}}</li>
+{{/each}}        </ul>
+      </div>
+    </div>
+    <div class="ask__body" id="ask">
+{{> ask-body}}
+    </div>
+  </section>
+  <section class="more" aria-labelledby="moreTitle">
+    <p class="kicker" id="moreTitle">More services</p>
+    <ul class="tiles tiles--more">
+{{#each svc.more}}      {{> tile}}
+{{/each}}      <li><a class="tile tile--word" href="services.html"><b>All services</b><small>11 services, A to Z</small><i aria-hidden="true">&rarr;</i></a></li>
+    </ul>
+  </section>
+</main>
+{{ld "service"}}

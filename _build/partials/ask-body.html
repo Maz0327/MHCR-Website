@@ -1,4 +1,7 @@
 <h2 class="h2" id="askTitle">Tell us what you need done.</h2>
 <p class="ask__sub">{{#if page.is_home}}We'll call you back within 24 hours.{{else}}We'll call you back within 24 hours. You'll get a written quote 24–48 hours after that call.{{/if}}</p>
-<a class="btn" href="#quote">Get a free quote</a>
+{{#if svc.urgent}}<a class="btn" href="tel:{{site.phone.tel}}">Call {{site.phone.display}}</a>
+<a class="ask__link" href="#quote">Get a free quote</a>
+{{else}}<a class="btn" href="#quote">Get a free quote</a>
 <a class="ask__urgent" href="tel:{{site.phone.tel}}">If it can't wait, <u>call {{site.phone.display}}.</u></a>
+{{/if}}

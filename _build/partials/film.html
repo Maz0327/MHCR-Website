@@ -1,0 +1,14 @@
+<!-- The stacked stone film (Fireplace 1): homepage opener (with the h1) and the FP1 job page build-up. js/film.js. -->
+  <section class="film{{#unless page.is_home}} film--job{{/unless}}" id="film" aria-label="Stacked stone fireplace, built course by course">
+    <div class="film__stage">
+      <picture class="film__still"><source media="(min-aspect-ratio: 9/10)" srcset="images/jobs/fireplace-1/film-final-d.webp 2400w" sizes="100vw" width="2400" height="1600"><img src="images/jobs/fireplace-1/film-final-m.webp" srcset="images/jobs/fireplace-1/film-final-m.webp 1440w" sizes="100vw" width="1440" height="2217" alt="Floor-to-ceiling charcoal stacked stone fireplace wall with the gas fire lit" fetchpriority="high"></picture>
+      <canvas class="film__canvas" id="filmCanvas" aria-hidden="true"></canvas>
+      {{#each film.frames}}<img data-film-frame="{{name}}" data-film-set="{{set}}" src="{{src}}" alt="" loading="lazy" hidden data-nopic>{{/each}}
+      <div class="film__shade" aria-hidden="true"></div>
+{{#if page.is_home}}      <div class="film__copy"><h1 class="h1">We repair and remodel homes around Denver.</h1></div>
+{{/if}}{{#if page.is_home}}      <p class="film__job">{{job.fireplace-1.title}}</p>
+{{/if}}      <div class="film__cue" id="filmCue" aria-hidden="true"><span></span>Scroll</div>
+      <div class="film__bar" id="filmBar" aria-hidden="true"><i></i></div>
+    </div>
+    <script type="application/json" id="film-data">{{json film}}</script>
+  </section>

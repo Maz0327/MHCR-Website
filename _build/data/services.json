@@ -1,28 +1,259 @@
 {
-  "_readme": "The 11 services, A-Z (az_order = position, checked by the build). path = the page it builds to (existing slugs kept). dial_order = stop on the homepage Dial, small job to big job (1-9; null = not its own stop). dial_label / dial_line override name / line on the Dial only; dial_links = services linked from that word frame (stop 02: Electrical · HVAC · Plumbing, copywriter 261015-0040 §1.2). photo = 'job/frame' from jobs.json (a published, shown frame) or null for a big-word frame; photo_pos = object-position for the full-screen crop. line = one short line (copy deck copy-deck-261015-mhcr-full-site-v1.md, the single source for copy). Each service's jobs list is derived from jobs.json `category`. body = page copy, pending (Phase 01 step 9, copywriter).",
-  "services": [
-    { "name": "Basement", "path": "services/basement-finishing.html", "az_order": 1, "dial_order": 8,
-      "line": "Bare concrete to finished rooms", "body": null, "photo": null },
-    { "name": "Bathroom", "path": "services/bathroom-remodeling.html", "az_order": 2, "dial_order": 4,
-      "line": "Showers, tubs, vanities and tile", "body": null, "photo": "bathroom-2/after", "photo_pos": "50% 50%" },
-    { "name": "Bedroom", "path": "services/bedroom-renovation.html", "az_order": 3, "dial_order": 7,
-      "line": "Accent walls, closets and trim", "body": null, "photo": "wall-1/after", "photo_pos": "45% 50%" },
-    { "name": "Drywall", "path": "services/drywall.html", "az_order": 4, "dial_order": 3,
-      "line": "Patches to whole rooms", "body": null, "photo": null },
-    { "name": "Electrical", "path": "services/electrical.html", "az_order": 5, "dial_order": null,
-      "line": "Outlets, lighting and wiring", "body": null, "photo": null },
-    { "name": "Emergency services", "path": "emergency-repairs.html", "az_order": 6, "dial_order": 1, "urgent": true,
-      "line": "Leaks, water damage and small fixes", "body": null, "photo": null },
-    { "name": "Full home", "path": "services/whole-home-renovation.html", "az_order": 7, "dial_order": 9,
-      "line": "Several rooms as one job", "body": null, "photo": null },
-    { "name": "HVAC", "path": "services/hvac.html", "az_order": 8, "dial_order": 2,
-      "dial_label": "Electrical · HVAC · Plumbing", "dial_line": "Wiring, furnaces, AC and pipes", "dial_links": ["Electrical", "HVAC", "Plumbing"],
-      "line": "Furnaces, AC and ductwork", "body": null, "photo": null },
-    { "name": "Kitchen", "path": "services/kitchen-remodeling.html", "az_order": 9, "dial_order": 5,
-      "line": "Cabinets to a full remodel", "body": null, "photo": "kitchen-1/after", "photo_pos": "30% 50%" },
-    { "name": "Living / dining room", "path": "services/living-room-remodeling.html", "az_order": 10, "dial_order": 6,
-      "line": "Stone fireplace walls", "body": null, "photo": null },
-    { "name": "Plumbing", "path": "services/plumbing.html", "az_order": 11, "dial_order": null,
-      "line": "Fixtures, leaks and new lines", "body": null, "photo": null }
-  ]
+ "_readme": "The 11 services, A-Z (az_order = position, checked by the build). path = the page it builds to (existing slugs kept). dial_order = stop on the homepage Dial, small job to big job (1-9; null = not its own stop). dial_label / dial_line override name / line on the Dial only; dial_links = services linked from that word frame (stop 02: Electrical · HVAC · Plumbing, copywriter 261015-0040 §1.2). photo = 'job/frame' from jobs.json (a published, shown frame) or null for a big-word frame; photo_pos = object-position for the full-screen crop. line = one short line (copy deck copy-deck-261015-mhcr-full-site-v1.md, the single source for copy). Each service's jobs list is derived from jobs.json `category`. h1 / intro / body (paragraphs) / does (the 'What we do' list) / meta_title / meta_description = the service page copy, verbatim from the copy deck §4. The build makes one page per service at `path` from partials/service-page.html.",
+ "services": [
+  {
+   "name": "Basement",
+   "path": "services/basement-finishing.html",
+   "az_order": 1,
+   "dial_order": 8,
+   "line": "Bare concrete to finished rooms",
+   "photo": null,
+   "h1": "Basement finishing",
+   "meta_title": "Basement Finishing in Denver | Mile High Custom Remodels",
+   "meta_description": "Basement finishing around Denver. We frame, wire, drywall and finish bare basements, down to the floors and trim. Free quote: (720) 492-4326.",
+   "intro": "We turn bare concrete basements into finished rooms.",
+   "body": [
+    "We frame the walls, run the wiring, hang and finish the drywall, then put down the floors and trim.",
+    "We work around the posts, ducts and windows that are already there, and lay out the rooms for how you'll use them."
+   ],
+   "does": [
+    "Framing",
+    "Drywall, hung and finished",
+    "Wiring, outlets and lighting",
+    "Flooring, trim and doors"
+   ]
+  },
+  {
+   "name": "Bathroom",
+   "path": "services/bathroom-remodeling.html",
+   "az_order": 2,
+   "dial_order": 4,
+   "line": "Showers, tubs, vanities and tile",
+   "photo": "bathroom-2/after",
+   "photo_pos": "50% 50%",
+   "h1": "Bathroom remodeling",
+   "meta_title": "Bathroom Remodeling in Denver | Mile High Custom Remodels",
+   "meta_description": "Custom tiled showers built by hand, plus tub surrounds, tile floors and vanities, for homes around Denver. Free quote: (720) 492-4326.",
+   "intro": "Custom tiled showers built by hand, plus tub surrounds, tile floors and vanities.",
+   "body": [
+    "Our showers are custom built on site, one phase at a time. We build the curb, then pour and level the mud pan by hand.",
+    "Then we fit the liner, waterproof the walls, and cut and set the tile one piece at a time.",
+    "We also do tub surrounds, tile floors, vanities, faucets and toilets, for a small update or the whole room."
+   ],
+   "does": [
+    "Custom walk-in showers",
+    "Tub surrounds and tile walls",
+    "Tile floors",
+    "Vanities, tops and faucets",
+    "Toilets and fixtures"
+   ]
+  },
+  {
+   "name": "Bedroom",
+   "path": "services/bedroom-renovation.html",
+   "az_order": 3,
+   "dial_order": 7,
+   "line": "Accent walls, closets and trim",
+   "photo": "wall-1/after",
+   "photo_pos": "45% 50%",
+   "h1": "Bedroom renovation",
+   "meta_title": "Bedroom Renovation in Denver | Mile High Custom Remodels",
+   "meta_description": "Board-and-batten accent walls, closets, flooring, trim and lighting for bedrooms around Denver. Free quote: (720) 492-4326.",
+   "intro": "Accent walls, trim, closets and floors, for one wall or the whole room.",
+   "body": [
+    "A bedroom job can start with one wall. For board-and-batten, we lay out the grid on the wall and cut each board to fit.",
+    "We also do closets, flooring, trim, painting, lighting and ceiling fans."
+   ],
+   "does": [
+    "Accent walls, like board-and-batten",
+    "Closets",
+    "Flooring and trim",
+    "Painting",
+    "Lighting and ceiling fans"
+   ]
+  },
+  {
+   "name": "Drywall",
+   "path": "services/drywall.html",
+   "az_order": 4,
+   "dial_order": 3,
+   "line": "Patches to whole rooms",
+   "photo": null,
+   "h1": "Drywall",
+   "meta_title": "Drywall Repair in Denver | Mile High Custom Remodels",
+   "meta_description": "Drywall patches, water-damaged drywall replaced, and new walls hung and finished, around Denver. Free quote: (720) 492-4326.",
+   "intro": "Patches, repairs and new walls, as a job on its own or part of a remodel.",
+   "body": [
+    "We patch holes and cracks, cut out and replace water-damaged drywall, and hang new walls. Then we tape and finish the seams so the walls are ready for paint."
+   ],
+   "does": [
+    "Holes and cracks patched",
+    "Water-damaged drywall replaced",
+    "New walls hung, taped and finished"
+   ]
+  },
+  {
+   "name": "Electrical",
+   "path": "services/electrical.html",
+   "az_order": 5,
+   "dial_order": null,
+   "line": "Outlets, lighting and wiring",
+   "photo": null,
+   "h1": "Electrical",
+   "meta_title": "Electrical Work in Denver | Mile High Custom Remodels",
+   "meta_description": "Outlets, switches, new circuits, lighting and ceiling fans, as a single repair or part of a remodel, around Denver. Free quote: (720) 492-4326.",
+   "intro": "Outlets, lighting and wiring, for one repair or a full remodel.",
+   "body": [
+    "Call us about one outlet that quit or the wiring for a whole basement. We put in outlets, switches and new circuits, light fixtures, recessed lights and ceiling fans."
+   ],
+   "does": [
+    "Outlets, switches and new circuits",
+    "Light fixtures, recessed lights and ceiling fans",
+    "Wiring for remodels and basements"
+   ]
+  },
+  {
+   "name": "Emergency services",
+   "path": "emergency-repairs.html",
+   "az_order": 6,
+   "dial_order": 1,
+   "urgent": true,
+   "line": "Leaks, water damage and small fixes",
+   "photo": null,
+   "h1": "Emergency services",
+   "meta_title": "Emergency Repairs in Denver | Mile High Custom Remodels",
+   "meta_description": "Water leaks, water damage, electrical problems and small fixes around the house, in the Denver area. No charge to come look. Call (720) 492-4326.",
+   "intro": "Leaks, water damage, electrical problems and small fixes around the house.",
+   "body": [
+    "If it can't wait, call (720) 492-4326 and tell us what's going on. For anything urgent, please call instead of using the form. We don't charge to come look at a job, big or small.",
+    "If water is coming in, shut off the main water valve, then call us.",
+    "If you smell gas, get everyone out of the house. Then, from outside, call 911 and Xcel Energy at 1-800-895-2999. For smoke or a burning smell, call 911.",
+    "We also take care of the small fixes on your list. No job is too small."
+   ],
+   "does": [
+    "Water leaks: a pipe, faucet or ceiling that's dripping",
+    "Water damage: wet drywall, ceilings and floors",
+    "Electrical problems: outlets that quit, breakers that keep tripping",
+    "Small fixes: sticking doors, loose trim, cabinet doors that hang crooked"
+   ]
+  },
+  {
+   "name": "Full home",
+   "path": "services/whole-home-renovation.html",
+   "az_order": 7,
+   "dial_order": 9,
+   "line": "Several rooms as one job",
+   "photo": null,
+   "h1": "Full home renovation",
+   "meta_title": "Whole Home Renovation in Denver | Mile High Custom Remodels",
+   "meta_description": "Whole home renovation around Denver: several rooms or the whole house, planned and built as one job. Free quote: (720) 492-4326.",
+   "intro": "Several rooms or the whole house, planned and built as one job.",
+   "body": [
+    "Some jobs are one room. Some are the whole house. When it's several rooms, we plan the work as one job and do it in the right order."
+   ],
+   "does": [
+    "Several rooms at once",
+    "Kitchens, bathrooms and basements together",
+    "Hardwood and tile floors through the house",
+    "Electrical, plumbing and HVAC as part of the job"
+   ]
+  },
+  {
+   "name": "HVAC",
+   "path": "services/hvac.html",
+   "az_order": 8,
+   "dial_order": 2,
+   "dial_label": "Electrical · HVAC · Plumbing",
+   "dial_line": "Wiring, furnaces, AC and pipes",
+   "dial_links": [
+    "Electrical",
+    "HVAC",
+    "Plumbing"
+   ],
+   "line": "Furnaces, AC and ductwork",
+   "photo": null,
+   "h1": "HVAC",
+   "meta_title": "HVAC Services in Denver | Mile High Custom Remodels",
+   "meta_description": "Furnaces, air conditioning, ductwork, vents and returns around Denver, including duct changes for finished basements. Free quote: (720) 492-4326.",
+   "intro": "Furnaces, AC and ductwork, including the changes a remodel needs.",
+   "body": [
+    "We take on heating and cooling jobs: furnaces, AC units, new ductwork, and adding or moving vents and returns.",
+    "When a basement gets finished, the ducts often have to change too. We take care of that as part of the job."
+   ],
+   "does": [
+    "Furnaces",
+    "Air conditioning",
+    "Ductwork, vents and returns",
+    "Heating and cooling for finished basements"
+   ]
+  },
+  {
+   "name": "Kitchen",
+   "path": "services/kitchen-remodeling.html",
+   "az_order": 9,
+   "dial_order": 5,
+   "line": "Cabinets to a full remodel",
+   "photo": "kitchen-1/after",
+   "photo_pos": "30% 50%",
+   "h1": "Kitchen remodeling",
+   "meta_title": "Kitchen Remodeling in Denver | Mile High Custom Remodels",
+   "meta_description": "Kitchen remodeling around Denver: painted cabinets, crown molding, stone-wrapped peninsulas, lighting, floors and full remodels. Free quote.",
+   "intro": "Cabinet painting, crown molding, stone, lighting and floors, up to a full remodel.",
+   "body": [
+    "Not every kitchen needs a tear-out. Painting the cabinets you have, adding crown molding and cutting a half wall down can change the room.",
+    "When it needs more than that, we do the full remodel. Either way, we'll tell you what's worth doing and what isn't.",
+    "The stone and trim work is custom, cut and fit by hand on site."
+   ],
+   "does": [
+    "Cabinet painting, crown molding and under-cabinet lights",
+    "Half walls cut down and counters extended",
+    "Stone work, like a stone-wrapped peninsula",
+    "Hardwood and tile floors",
+    "Full kitchen remodels"
+   ]
+  },
+  {
+   "name": "Living / dining room",
+   "path": "services/living-room-remodeling.html",
+   "az_order": 10,
+   "dial_order": 6,
+   "line": "Stone fireplace walls",
+   "photo": null,
+   "h1": "Living and dining rooms",
+   "meta_title": "Fireplace Remodeling in Denver | Mile High Custom Remodels",
+   "meta_description": "Stacked stone and river rock fireplace walls, accent walls, floors and lighting for living and dining rooms around Denver. Free quote: (720) 492-4326.",
+   "intro": "Stone fireplace walls, accent walls, trim, floors and lighting.",
+   "body": [
+    "A stone fireplace wall is custom work. We set the stone by hand and cut it to fit around the fireplace, the mantel and the switches.",
+    "We also do accent walls, trim, hardwood and tile floors, and lighting in living and dining rooms."
+   ],
+   "does": [
+    "Fireplace walls in stacked stone or river rock",
+    "Accent walls and trim",
+    "Hardwood and tile floors",
+    "Lighting"
+   ]
+  },
+  {
+   "name": "Plumbing",
+   "path": "services/plumbing.html",
+   "az_order": 11,
+   "dial_order": null,
+   "line": "Fixtures, leaks and new lines",
+   "photo": null,
+   "h1": "Plumbing",
+   "meta_title": "Plumbing Services in Denver | Mile High Custom Remodels",
+   "meta_description": "Leaks fixed, faucets, toilets, sinks and showers put in, and drain and supply lines moved or added, around Denver. Free quote: (720) 492-4326.",
+   "intro": "Leaks, fixtures and new drain and supply lines, for a repair or a remodel.",
+   "body": [
+    "We fix leaks, put in faucets, toilets, sinks and showers, and move or add drain and supply lines.",
+    "If water is coming in, shut off the main water valve, then call us."
+   ],
+   "does": [
+    "Leaks",
+    "Faucets, toilets, sinks and showers",
+    "Moving or adding drain and supply lines"
+   ]
+  }
+ ]
 }

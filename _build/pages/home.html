@@ -6,19 +6,7 @@
 {{#if site.flags.home_film}}
   <!-- 1. THE FILM (opener): opens on the finished wall + headline; on scroll the stone goes up course by course,
        then the finished wall hands off to the Dial (the Dial slides up over the film's last screen). -->
-  <section class="film" id="film" aria-label="Stacked stone fireplace, built course by course">
-    <div class="film__stage">
-      <picture class="film__still"><source media="(min-aspect-ratio: 9/10)" srcset="images/jobs/fireplace-1/film-final-d.webp 2400w" sizes="100vw" width="2400" height="1600"><img src="images/jobs/fireplace-1/film-final-m.webp" srcset="images/jobs/fireplace-1/film-final-m.webp 1440w" sizes="100vw" width="1440" height="2217" alt="Floor-to-ceiling charcoal stacked stone fireplace wall with the gas fire lit" fetchpriority="high"></picture>
-      <canvas class="film__canvas" id="filmCanvas" aria-hidden="true"></canvas>
-      {{#each film.frames}}<img data-film-frame="{{name}}" data-film-set="{{set}}" src="{{src}}" alt="" loading="lazy" hidden data-nopic>{{/each}}
-      <div class="film__shade" aria-hidden="true"></div>
-      <div class="film__copy"><h1 class="h1">We repair and remodel homes around Denver.</h1></div>
-      <p class="film__job">Stacked stone fireplace</p>
-      <div class="film__cue" id="filmCue" aria-hidden="true"><span></span>Scroll</div>
-      <div class="film__bar" id="filmBar" aria-hidden="true"><i></i></div>
-    </div>
-    <script type="application/json" id="film-data">{{json film}}</script>
-  </section>
+{{> film}}
 {{/if}}
 
   <!-- 2. THE DIAL (100svh): small job to big job. Stops are pre-rendered <template>s (js/dial.js clones them). -->
@@ -73,7 +61,7 @@
 
   <!-- 5. THE ASK -->
   <section class="sec ask" id="ask" aria-labelledby="askTitle">
-    <figure class="ask__photo">{{pic bathroom-1/after sizes="(min-width:1024px) 50vw, 100vw"}}<figcaption>{{job.bathroom-1.title}}</figcaption></figure>
+    <figure class="ask__photo">{{pic fireplace-1/detail sizes="(min-width:1024px) 50vw, 100vw"}}<figcaption>{{job.fireplace-1.title}}</figcaption></figure>
     <div class="ask__body">
 {{> ask-body}}
     </div>

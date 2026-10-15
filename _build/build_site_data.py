@@ -6,6 +6,10 @@ Template context (all keys available in every page):
   jobs      published jobs only (jobs.json order: they get a page), each with .frames (held frames removed) and .after
   job       {slug: job} for every job whose photos may be shown (photos != false), published or not
   home_jobs the homepage 2x2 (site.home_jobs as job dicts; use {{pic after}})
+  job_groups services (A-Z) that have published jobs: the gallery groups (each has .anchor and .jobs)
+  faq       data/faq.json, when present
+  Each service also gets .tile (its first job's after, or None) and .anchor; each job gets .service
+  (name, h1, path, anchor), frame .label (Before / In progress / After) and .steps (the buildup frames).
   dial      the dial stops, 1..N: n, nn, total, label, line, kind (photo|word|urgent), urgent, links [{name, path}],
             photo (job/frame or None), pos, job (title), href (job page), alt
   film      film.json (frame files + geometry for js/film.js)
@@ -80,7 +84,22 @@ def load(data_dir):
         _check(re.fullmatch(r"[a-z0-9/-]+\.html", s["path"]), f"services.json {s['name']}: bad path {s['path']!r}")
         if s.get("photo"):
             _frame(by_slug, s["photo"], f"services.json {s['name']}.photo")
-        out_services.append(dict(s, jobs=[j for j in jobs if j["category"] == s["name"]]))
+        mine = [j for j in jobs if j["category"] == s["name"]]
+        home = [j for j in mine if j["slug"] in site.get("home_jobs", [])]  # tiles reuse the homepage's pick first
+        out_services.append(dict(s, jobs=mine, tile=(home or mine)[0]["after"] if mine else None,
+                                 anchor=re.sub(r"[^a-z0-9]+", "-", s["name"].lower()).strip("-")))
+    by_service = {x["name"]: x for x in out_services}
+    for j in by_slug.values():                     # each job knows its service page (H1 + path) and frame labels
+        j["service"] = {k: by_service[j["category"]][k] for k in ("name", "h1", "path", "anchor")}
+        for f in j["frames"]:
+            f["label"] = "Before" if f["name"] == "before" else "After" if f["name"] == "after" else "In progress"
+            f["ref"] = f"{j['slug']}/{f['name']}"
+        j["steps"] = [f for f in j["frames"] if f["name"] in ("before", "after") or f["name"].startswith("process")]
+        j["before"] = f"{j['slug']}/before" if any(f["name"] == "before" for f in j["frames"]) else None
+        j["is_film"], j["is_frames"] = j.get("buildup") == "film", j.get("buildup") == "frames"
+    for x in out_services:                         # "More services": 3 others, photo tiles first (A-Z), then word tiles
+        others = [o for o in out_services if o is not x]
+        x["more"] = ([o for o in others if o["tile"]] + [o for o in others if not o["tile"]])[:3]
     stops = sorted((s for s in out_services if s.get("dial_order")), key=lambda s: s["dial_order"])
     orders = [s["dial_order"] for s in stops]
     _check(orders == list(range(1, len(stops) + 1)), f"services.json: dial_order must run 1..N once each, got {orders}")
@@ -106,8 +125,10 @@ def load(data_dir):
     _check(1 <= site["dial"]["default_stop"] <= len(dial), "site.dial.default_stop is outside the dial")
 
     home_jobs = [by_slug[s] for s in site.get("home_jobs", [])]
-    return {"site": site, "services": out_services, "jobs": jobs, "job": by_slug, "dial": dial, "film": film,
-            "home_jobs": home_jobs}
+    job_groups = [dict(x, jobs=sorted(x["jobs"], key=lambda j: j["title"])) for x in out_services if x["jobs"]]  # gallery, A-Z
+    extra = {n[:-5]: _load(data_dir, n) for n in ("faq.json",) if os.path.exists(os.path.join(data_dir, n))}
+    return dict({"site": site, "services": out_services, "jobs": jobs, "job": by_slug, "dial": dial, "film": film,
+                 "home_jobs": home_jobs, "job_groups": job_groups}, **extra)
 
 
 def _frame(by_slug, ref, where):

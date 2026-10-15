@@ -1,0 +1,102 @@
+file	width	height	source	note
+images/jobs/fireplace-1/before-m-800.webp	600	800	photo-batch/final/fireplace-1/before	byte copy
+images/jobs/fireplace-1/before-m-1200.webp	900	1200	photo-batch/final/fireplace-1/before	byte copy
+images/jobs/fireplace-1/before-d-1600.webp	1600	1067	photo-batch/final/fireplace-1/before	byte copy
+images/jobs/fireplace-1/before-d-2400.webp	2400	1600	photo-batch/final/fireplace-1/before	byte copy
+images/jobs/fireplace-1/process-1-m-800.webp	600	800	photo-batch/final/fireplace-1/process-1	byte copy
+images/jobs/fireplace-1/process-1-m-1200.webp	900	1200	photo-batch/final/fireplace-1/process-1	byte copy
+images/jobs/fireplace-1/process-1-d-1600.webp	1600	1067	photo-batch/final/fireplace-1/process-1	byte copy
+images/jobs/fireplace-1/process-1-d-2400.webp	2400	1600	photo-batch/final/fireplace-1/process-1	byte copy
+images/jobs/fireplace-1/detail-m-800.webp	600	800	photo-batch/final/fireplace-1/detail	byte copy
+images/jobs/fireplace-1/detail-m-1200.webp	900	1200	photo-batch/final/fireplace-1/detail	byte copy
+images/jobs/fireplace-1/detail-d-1600.webp	1600	1067	photo-batch/final/fireplace-1/detail	byte copy
+images/jobs/fireplace-1/detail-d-2400.webp	2400	1600	photo-batch/final/fireplace-1/detail	byte copy
+images/jobs/fireplace-1/after-m-800.webp	800	1067	photo-batch/final/service-cards/fp1-film-final-crop	m-800 resized from the 3:4 final
+images/jobs/fireplace-1/after-m-1200.webp	1032	1376	photo-batch/final/service-cards/fp1-film-final-crop	m-800 resized from the 3:4 final
+images/jobs/fireplace-1/after-d-1600.webp	1600	1067	photo-batch/final/service-cards/fp1-film-final-crop	m-800 resized from the 3:4 final
+images/jobs/fireplace-1/after-d-2400.webp	2400	1600	photo-batch/final/service-cards/fp1-film-final-crop	m-800 resized from the 3:4 final
+images/jobs/fireplace-2/before-m-800.webp	800	1067	photo-batch/final/fireplace-2/before	unstretched 1/1.09 from master2/wide_fp2_before_s.png
+images/jobs/fireplace-2/before-m-1200.webp	1200	1600	photo-batch/final/fireplace-2/before	unstretched 1/1.09 from master2/wide_fp2_before_s.png
+images/jobs/fireplace-2/before-d-1600.webp	1600	1067	photo-batch/final/fireplace-2/before	unstretched 1/1.09 from master2/wide_fp2_before_s.png
+images/jobs/fireplace-2/before-d-2400.webp	1879	1253	photo-batch/final/fireplace-2/before	unstretched 1/1.09 from master2/wide_fp2_before_s.png
+images/jobs/fireplace-2/process-1-m-800.webp	800	1067	photo-batch/final/fireplace-2/process-1	byte copy
+images/jobs/fireplace-2/process-1-m-1200.webp	1200	1600	photo-batch/final/fireplace-2/process-1	byte copy
+images/jobs/fireplace-2/process-1-d-1600.webp	1600	1067	photo-batch/final/fireplace-2/process-1	byte copy
+images/jobs/fireplace-2/process-1-d-2400.webp	2400	1600	photo-batch/final/fireplace-2/process-1	byte copy
+images/jobs/fireplace-2/process-2-m-800.webp	800	1067	photo-batch/final/fireplace-2/process-2	byte copy
+images/jobs/fireplace-2/process-2-m-1200.webp	1200	1600	photo-batch/final/fireplace-2/process-2	byte copy
+images/jobs/fireplace-2/process-2-d-1600.webp	1600	1067	photo-batch/final/fireplace-2/process-2	byte copy
+images/jobs/fireplace-2/process-2-d-2400.webp	2400	1600	photo-batch/final/fireplace-2/process-2	byte copy
+images/jobs/fireplace-2/after-m-800.webp	800	1067	photo-batch/final/fireplace-2/after	unstretched 1/1.05 from master2/wide_fp2_after_s.png
+images/jobs/fireplace-2/after-m-1200.webp	1200	1600	photo-batch/final/fireplace-2/after	unstretched 1/1.05 from master2/wide_fp2_after_s.png
+images/jobs/fireplace-2/after-d-1600.webp	1600	1067	photo-batch/final/fireplace-2/after	unstretched 1/1.05 from master2/wide_fp2_after_s.png
+images/jobs/fireplace-2/after-d-2400.webp	1950	1300	photo-batch/final/fireplace-2/after	unstretched 1/1.05 from master2/wide_fp2_after_s.png
+images/jobs/bathroom-1/before-m-800.webp	800	1067	photo-batch/final/bathroom-1/before	byte copy
+images/jobs/bathroom-1/before-m-1200.webp	1200	1600	photo-batch/final/bathroom-1/before	byte copy
+images/jobs/bathroom-1/before-d-1600.webp	1600	1067	photo-batch/final/bathroom-1/before	byte copy
+images/jobs/bathroom-1/before-d-2400.webp	2400	1600	photo-batch/final/bathroom-1/before	byte copy
+images/jobs/bathroom-1/process-1-m-800.webp	800	1067	photo-batch/final/bathroom-1/process-1	byte copy
+images/jobs/bathroom-1/process-1-m-1200.webp	1200	1600	photo-batch/final/bathroom-1/process-1	byte copy
+images/jobs/bathroom-1/process-1-d-1600.webp	1600	1067	photo-batch/final/bathroom-1/process-1	byte copy
+images/jobs/bathroom-1/process-1-d-2400.webp	2400	1600	photo-batch/final/bathroom-1/process-1	byte copy
+images/jobs/bathroom-1/process-2-m-800.webp	800	1067	photo-batch/final/bathroom-1/process-2	byte copy
+images/jobs/bathroom-1/process-2-m-1200.webp	1200	1600	photo-batch/final/bathroom-1/process-2	byte copy
+images/jobs/bathroom-1/process-2-d-1600.webp	1600	1067	photo-batch/final/bathroom-1/process-2	byte copy
+images/jobs/bathroom-1/process-2-d-2400.webp	2400	1600	photo-batch/final/bathroom-1/process-2	byte copy
+images/jobs/bathroom-1/after-m-800.webp	800	1067	photo-batch/final/bathroom-1/after	byte copy
+images/jobs/bathroom-1/after-m-1200.webp	1200	1600	photo-batch/final/bathroom-1/after	byte copy
+images/jobs/bathroom-1/after-d-1600.webp	1600	1067	photo-batch/final/bathroom-1/after	byte copy
+images/jobs/bathroom-1/after-d-2400.webp	2400	1600	photo-batch/final/bathroom-1/after	byte copy
+images/jobs/bathroom-2/before-m-800.webp	800	1067	photo-batch/final/bathroom-2/before	byte copy
+images/jobs/bathroom-2/before-m-1200.webp	1200	1600	photo-batch/final/bathroom-2/before	byte copy
+images/jobs/bathroom-2/before-d-1600.webp	1600	1067	photo-batch/final/bathroom-2/before	byte copy
+images/jobs/bathroom-2/before-d-2400.webp	2400	1600	photo-batch/final/bathroom-2/before	byte copy
+images/jobs/bathroom-2/process-1-m-800.webp	800	1067	photo-batch/final/bathroom-2/process-1	unstretched 1/1.11 from master2/wide_b2_p1_s.png
+images/jobs/bathroom-2/process-1-m-1200.webp	1200	1600	photo-batch/final/bathroom-2/process-1	unstretched 1/1.11 from master2/wide_b2_p1_s.png
+images/jobs/bathroom-2/process-1-d-1600.webp	1600	1067	photo-batch/final/bathroom-2/process-1	unstretched 1/1.11 from master2/wide_b2_p1_s.png
+images/jobs/bathroom-2/process-1-d-2400.webp	1845	1230	photo-batch/final/bathroom-2/process-1	unstretched 1/1.11 from master2/wide_b2_p1_s.png
+images/jobs/bathroom-2/process-2-m-800.webp	800	1067	photo-batch/final/bathroom-2/process-2	unstretched 1/1.175 from master2/wide_b2_p2_s.png
+images/jobs/bathroom-2/process-2-m-1200.webp	1200	1600	photo-batch/final/bathroom-2/process-2	unstretched 1/1.175 from master2/wide_b2_p2_s.png
+images/jobs/bathroom-2/process-2-d-1600.webp	1600	1067	photo-batch/final/bathroom-2/process-2	unstretched 1/1.175 from master2/wide_b2_p2_s.png
+images/jobs/bathroom-2/process-2-d-2400.webp	1743	1162	photo-batch/final/bathroom-2/process-2	unstretched 1/1.175 from master2/wide_b2_p2_s.png
+images/jobs/bathroom-2/after-m-800.webp	800	1067	photo-batch/final/bathroom-2/after	byte copy
+images/jobs/bathroom-2/after-m-1200.webp	1200	1600	photo-batch/final/bathroom-2/after	byte copy
+images/jobs/bathroom-2/after-d-1600.webp	1600	1067	photo-batch/final/bathroom-2/after	byte copy
+images/jobs/bathroom-2/after-d-2400.webp	2400	1600	photo-batch/final/bathroom-2/after	byte copy
+images/jobs/wall-1/before-m-800.webp	800	1067	photo-batch/final/wall-1/before	unstretched 1/1.155 from master2/wide_w1_before_s.png
+images/jobs/wall-1/before-m-1200.webp	1200	1600	photo-batch/final/wall-1/before	unstretched 1/1.155 from master2/wide_w1_before_s.png
+images/jobs/wall-1/before-d-1600.webp	1600	1067	photo-batch/final/wall-1/before	unstretched 1/1.155 from master2/wide_w1_before_s.png
+images/jobs/wall-1/before-d-2400.webp	1773	1182	photo-batch/final/wall-1/before	unstretched 1/1.155 from master2/wide_w1_before_s.png
+images/jobs/wall-1/process-1-m-800.webp	800	1067	photo-batch/final/wall-1/process-1	byte copy
+images/jobs/wall-1/process-1-m-1200.webp	1200	1600	photo-batch/final/wall-1/process-1	byte copy
+images/jobs/wall-1/process-1-d-1600.webp	1600	1067	photo-batch/final/wall-1/process-1	byte copy
+images/jobs/wall-1/process-1-d-2400.webp	2400	1600	photo-batch/final/wall-1/process-1	byte copy
+images/jobs/wall-1/after-m-800.webp	800	1067	photo-batch/final/wall-1/after	byte copy
+images/jobs/wall-1/after-m-1200.webp	1200	1600	photo-batch/final/wall-1/after	byte copy
+images/jobs/wall-1/after-d-1600.webp	1600	1067	photo-batch/final/wall-1/after	byte copy
+images/jobs/wall-1/after-d-2400.webp	2400	1600	photo-batch/final/wall-1/after	byte copy
+images/jobs/kitchen-1/before-m-800.webp	800	1067	photo-batch/final/kitchen-1/before	unstretched 1/1.095 from master2/wide_k1_before_s.png
+images/jobs/kitchen-1/before-m-1200.webp	1200	1600	photo-batch/final/kitchen-1/before	unstretched 1/1.095 from master2/wide_k1_before_s.png
+images/jobs/kitchen-1/before-d-1600.webp	1600	1067	photo-batch/final/kitchen-1/before	unstretched 1/1.095 from master2/wide_k1_before_s.png
+images/jobs/kitchen-1/before-d-2400.webp	1870	1247	photo-batch/final/kitchen-1/before	unstretched 1/1.095 from master2/wide_k1_before_s.png
+images/jobs/kitchen-1/process-1-m-800.webp	800	1067	photo-batch/final/kitchen-1/process-1	byte copy
+images/jobs/kitchen-1/process-1-m-1200.webp	1200	1600	photo-batch/final/kitchen-1/process-1	byte copy
+images/jobs/kitchen-1/process-1-d-1600.webp	1600	1067	photo-batch/final/kitchen-1/process-1	byte copy
+images/jobs/kitchen-1/process-1-d-2400.webp	2400	1600	photo-batch/final/kitchen-1/process-1	byte copy
+images/jobs/kitchen-1/process-2-m-800.webp	800	1067	photo-batch/final/kitchen-1/process-2	unstretched 1/1.045 from master2/wide_k1_p2_s.png
+images/jobs/kitchen-1/process-2-m-1200.webp	1200	1600	photo-batch/final/kitchen-1/process-2	unstretched 1/1.045 from master2/wide_k1_p2_s.png
+images/jobs/kitchen-1/process-2-d-1600.webp	1600	1067	photo-batch/final/kitchen-1/process-2	unstretched 1/1.045 from master2/wide_k1_p2_s.png
+images/jobs/kitchen-1/process-2-d-2400.webp	1960	1307	photo-batch/final/kitchen-1/process-2	unstretched 1/1.045 from master2/wide_k1_p2_s.png
+images/jobs/kitchen-1/after-m-800.webp	800	1067	photo-batch/final/kitchen-1/after	unstretched 1/1.105 from master2/wide_k1_after_s.png
+images/jobs/kitchen-1/after-m-1200.webp	1200	1600	photo-batch/final/kitchen-1/after	unstretched 1/1.105 from master2/wide_k1_after_s.png
+images/jobs/kitchen-1/after-d-1600.webp	1600	1067	photo-batch/final/kitchen-1/after	unstretched 1/1.105 from master2/wide_k1_after_s.png
+images/jobs/kitchen-1/after-d-2400.webp	1853	1235	photo-batch/final/kitchen-1/after	unstretched 1/1.105 from master2/wide_k1_after_s.png
+images/jobs/fireplace-1/film-before-m.webp	1440	2217	mhcr-stone-film/f/before-m.webp	film frame, byte copy
+images/jobs/fireplace-1/film-before-s.webp	1600	908	mhcr-stone-film/f/before-s.webp	film frame, byte copy
+images/jobs/fireplace-1/film-before-l.webp	3200	1815	mhcr-stone-film/f/before-l.webp	film frame, byte copy
+images/jobs/fireplace-1/film-prep-m.webp	1440	2217	mhcr-stone-film/f/prep-m.webp	film frame, byte copy
+images/jobs/fireplace-1/film-prep-s.webp	1600	908	mhcr-stone-film/f/prep-s.webp	film frame, byte copy
+images/jobs/fireplace-1/film-prep-l.webp	3200	1815	mhcr-stone-film/f/prep-l.webp	film frame, byte copy
+images/jobs/fireplace-1/film-final-m.webp	1440	2217	mhcr-stone-film/f/final-m.webp	film frame, byte copy
+images/jobs/fireplace-1/film-final-s.webp	1600	908	mhcr-stone-film/f/final-s.webp	film frame, byte copy
+images/jobs/fireplace-1/film-final-l.webp	3200	1815	mhcr-stone-film/f/final-l.webp	film frame, byte copy

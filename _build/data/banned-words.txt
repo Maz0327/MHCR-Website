@@ -1,0 +1,29 @@
+# MHCR claims list. Python regex, matched case-insensitively.
+#   <regex>            BANNED: build.py fails and qa_claims.sh fails on any hit (unverified trust claims)
+#   check: <regex>     NOT banned: only listed in scrub-inventory.tsv for the copywriter to look at
+#   allow: <phrase>    always OK, even inside a banned/check hit (removed before matching)
+# Label = text after "  ## " (shown in reports and the scrub inventory).
+
+licens                                   ## licensed
+\binsur                                  ## insured
+\bbonded\b                               ## bonded
+contract(?:or|ors|ing)\b                 ## contractor
+since\s+(?:19|20)\d\d                    ## since 2009
+\b\d+\+?\s*(?:years?|yrs)\b              ## N years
+years?\s+of\s+experience                 ## years of experience
+\breviews?\b                             ## reviews
+\bratings?\b                             ## ratings
+\b5[- ]?stars?\b|\bstar\s+rating         ## star rating
+testimonial                              ## testimonials
+financ                                   ## financing
+warrant(?:y|ies|ied)\b                   ## warranty
+guarantee                                ## guarantee
+24\s*/\s*7|\b24-7\b|around the clock|24 hours a day   ## 24/7
+free\s+(?:in[- ]home\s+)?(?:estimates?|quotes?|bids?)   ## free estimate
+\b(?:storm|hail)\b                       ## storm/hail (until the owner confirms storm work)
+1234[ +]Renovation                       ## fabricated address
+(?<![\d,.])\b\d{2,}\+(?![A-Za-z\d])                ## N+ count (500+ projects, 15+ years)
+
+check: \bfree\b                          ## free (other)
+
+allow: Free consultation

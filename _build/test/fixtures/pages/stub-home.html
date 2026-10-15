@@ -1,0 +1,22 @@
+<!-- path: stub-home.html -->
+<!-- description: Stub page that exercises every build feature (Phase 01 check). -->
+<main id="main">
+  <h1>Stub page</h1>
+  {{pic kitchen-1/after eager sizes="100vw" style="object-position:30% 50%"}}
+  <ul class="grid">{{#each home_jobs}}<li>{{pic after}}<span>{{title}}</span></li>{{/each}}</ul>
+  <section class="frame is-turned" id="frame" data-default-stop="{{site.dial.default_stop}}"{{#if site.dial.keep_turned}} data-keep-turned{{/if}}{{#if site.dial.sweep_on_view}} data-sweep-on-view{{/if}}>
+    <div id="stage"></div>
+    <a id="jobLink" href="#jobs"><span id="jobName"></span></a>
+    <div id="dial"><svg id="dialSvg" viewBox="0 0 390 100" aria-hidden="true"></svg>
+      <button id="prev" type="button" aria-label="Smaller job">&lt;</button>
+      <div id="dialLabel" role="slider" tabindex="0" aria-label="Service" aria-valuemin="1"></div>
+      <button id="next" type="button" aria-label="Bigger job">&gt;</button></div>
+    {{#each dial}}<template data-dial-stop data-kind="{{#if photo}}photo{{else}}{{#if urgent}}urgent{{else}}word{{/if}}{{/if}}" data-label="{{label}}" data-job="{{job}}">{{#if photo}}{{pic photo pos=pos}}{{else}}<p>{{nn}} / {{total}}</p><p>{{line}}</p><a href="#quote">Get a quote</a>{{/if}}</template>{{/each}}
+  </section>
+  <section id="jobs"><h2>Jobs</h2></section>
+  {{> ask}}
+  <script type="application/json" id="film-data">{{json film}}</script>
+  {{#each film.frames}}<img data-film-frame="{{name}}" data-film-set="{{set}}" data-nopic src="{{src}}" alt="" hidden>{{/each}}
+  <p><a href="services/stub-sub.html">Sub page</a></p>
+</main>
+<script src="js/dial.js" defer></script>

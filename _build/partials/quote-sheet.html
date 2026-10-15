@@ -1,0 +1,7 @@
+<!-- STUB (Phase 01): Phase 03 replaces this with the approved quote sheet. Empty form.endpoint = call/text only. -->
+<dialog class="sheet" id="quote" aria-labelledby="quoteTitle">
+  <h2 id="quoteTitle">Get a quote</h2>
+  {{#if site.form.endpoint}}<form method="post" action="{{site.form.endpoint}}"></form>
+  {{else}}<p><a href="tel:{{site.phone.tel}}">Call {{site.phone.display}}</a> or <a href="sms:{{site.phone.tel}}">text us</a>.</p>
+  {{/if}}
+</dialog>

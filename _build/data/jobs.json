@@ -1,0 +1,102 @@
+{
+  "_readme": "MHCR jobs. Frames run in viewer order (first photo ... finished); the LAST shown frame must be 'after' (the tile/dial photo). Each shown frame of a published job has 4 files in images/jobs/<slug>/<frame>-{m-800,m-1200,d-1600,d-2400}.webp (made by _build/tools/import_job_images.py; templates use {{pic slug/frame}}). category = a service name from services.json. buildup = 'film' (Fireplace 1's stone film) or 'frames' (step-through of the frames). hold = frame kept in the data but never shown (reason given). publish:false = no page, no images imported, and {{pic}} refuses it. provenance: owner photo IMG number + what was done (feeds the Terms photo line). Alt text: plain descriptions, confirmed facts only; copywriter may tighten. NEVER add Kitchen 1 IMG_9626-9630 / IMG_0029 or Bathroom 3 IMG_9638-9640 (MLS listing photos).",
+  "jobs": [
+    {
+      "slug": "fireplace-1", "category": "Living / dining room", "title": "Stacked stone fireplace", "publish": true, "buildup": "film",
+      "frames": [
+        { "name": "before", "alt": "The fireplace wall at the start: beige drywall and a small diamond-tile surround",
+          "provenance": "IMG_4294 (owner photo); relit and straightened. Desktop: real centre, sides AI-extended" },
+        { "name": "process-1", "alt": "The tile surround removed and cement board up around the gas insert",
+          "provenance": "IMG_4300 (owner photo); relit and straightened. Desktop: real centre, sides AI-extended" },
+        { "name": "process-2", "alt": "Charcoal stacked stone going up around the gas insert, course by course",
+          "provenance": "IMG_4370 (owner photo); relit", "hold": "no approved 3:2 desktop version yet (wide on hold)" },
+        { "name": "detail", "alt": "Stacked stone cut cleanly around a light switch plate",
+          "provenance": "IMG_4684 (owner photo); relit. Desktop: stone texture AI-extended" },
+        { "name": "after", "alt": "Floor-to-ceiling charcoal stacked stone fireplace wall with the gas fire lit",
+          "provenance": "IMG_4695 (owner photo); relit film final. Desktop: real crop of the same final" }
+      ]
+    },
+    {
+      "slug": "fireplace-2", "category": "Living / dining room", "title": "River rock fireplace", "publish": true, "buildup": "frames",
+      "frames": [
+        { "name": "before", "alt": "The fireplace wall at the start: a wood mantel over plain painted drywall",
+          "provenance": "IMG_6504 (owner photo); relit (job set: TV, photos, clothes and toys removed). Desktop: sides AI-extended, unstretched" },
+        { "name": "process-1", "alt": "Fireplace wall taped off and prepped before the stone went up",
+          "provenance": "IMG_6509 (owner photo); relit. Desktop: sides AI-extended" },
+        { "name": "process-2", "alt": "River rock covering the fireplace wall floor to ceiling, around the wood mantel",
+          "provenance": "IMG_6905 (owner photo); relit. Desktop: sides AI-extended" },
+        { "name": "after", "alt": "River rock fireplace wall with a wood mantel",
+          "provenance": "IMG_8037 (owner photo); relit (job set: TV, photos, clothes and toys removed). Desktop: sides AI-extended, unstretched" }
+      ]
+    },
+    {
+      "slug": "bathroom-1", "category": "Bathroom", "title": "Bathroom remodel", "publish": true, "buildup": "frames",
+      "frames": [
+        { "name": "before", "alt": "The bathroom at the start: old patched wall tile around the tub",
+          "provenance": "IMG_5233 (owner photo); light only, original tile pixels kept. Desktop: real crop" },
+        { "name": "process-1", "alt": "The tub wall opened to the studs, with the plumbing exposed",
+          "provenance": "IMG_5367 (owner photo); relit. Desktop: sides AI-extended" },
+        { "name": "process-2", "alt": "New tile going up around the tub",
+          "provenance": "IMG_5697 (owner photo); relit. Desktop: sides AI-extended" },
+        { "name": "after", "alt": "Finished bathroom: beige tile tub surround with a mosaic band",
+          "provenance": "IMG_5919 (owner photo); relit. Desktop: sides AI-extended" }
+      ]
+    },
+    {
+      "slug": "bathroom-2", "category": "Bathroom", "title": "Tiled walk-in shower", "publish": true, "buildup": "frames",
+      "frames": [
+        { "name": "before", "alt": "A tub with white square wall tile, before the work",
+          "provenance": "IMG_1009 (owner photo); relit. Desktop: real crop" },
+        { "name": "process-1", "alt": "Shower walls covered in waterproofing membrane, with the pebble floor in",
+          "provenance": "IMG_2514 (owner photo); relit. Desktop: sides AI-extended, unstretched" },
+        { "name": "process-2", "alt": "Large marble-look tile up on the shower walls",
+          "provenance": "IMG_3654 (owner photo); relit. Desktop: sides AI-extended, unstretched" },
+        { "name": "after", "alt": "Walk-in shower with large marble-look tile, a glass door and a pebble floor",
+          "provenance": "IMG_3972 (owner photo); relit. Desktop: AI-widened" }
+      ]
+    },
+    {
+      "slug": "wall-1", "category": "Bedroom", "title": "Navy board-and-batten wall", "publish": true, "buildup": "frames",
+      "frames": [
+        { "name": "before", "alt": "The bedroom wall at the start: plain beige paint",
+          "provenance": "IMG_9491 (owner photo); relit, floor cleared. Desktop: sides AI-extended, unstretched" },
+        { "name": "process-1", "alt": "Bedroom wall with new board-and-batten trim up, before paint",
+          "provenance": "IMG_9613 (owner photo); relit. Desktop: sides AI-extended" },
+        { "name": "after", "alt": "Bedroom with a navy board-and-batten accent wall behind the bed",
+          "provenance": "IMG_9652 (owner photo); relit. Desktop: real crop of the same relight" }
+      ]
+    },
+    {
+      "slug": "kitchen-1", "category": "Kitchen", "title": "Painted cabinets, stone-wrapped peninsula", "publish": true, "buildup": "frames",
+      "frames": [
+        { "name": "before", "alt": "The kitchen at the start: wood cabinets and a plain drywall peninsula",
+          "provenance": "IMG_7258 (owner photo); relit. Desktop: sides AI-extended, unstretched" },
+        { "name": "process-1", "alt": "The peninsula with its countertop off and the first rows of stone at the bottom",
+          "provenance": "IMG_7276 (owner photo); relit. Desktop: sides AI-extended" },
+        { "name": "process-2", "alt": "Stacked stone going up the sides of the peninsula",
+          "provenance": "IMG_9298 (owner photo); relit. Desktop: sides AI-extended, unstretched" },
+        { "name": "after", "alt": "Kitchen with white painted cabinets and a peninsula wrapped in stacked stone",
+          "provenance": "IMG_7617 (owner photo); relit, re-angled to match IMG_7258. Desktop: sides AI-extended, unstretched" }
+      ]
+    },
+    {
+      "slug": "bathroom-3", "category": "Bathroom", "title": "Vanity top and faucets", "publish": false, "buildup": "frames",
+      "_why_unpublished": "The vanity 'after' is not the finished job (the cabinet was painted later). Waiting on Omar's corrected final.",
+      "frames": [
+        { "name": "before", "alt": "The double vanity at the start: oval sinks and brass faucets", "provenance": "IMG_9319 (owner photo); relit" },
+        { "name": "process-1", "alt": "The vanity with a new top and two undermount sinks, before the faucets", "provenance": "IMG_9328 (owner photo); relit" },
+        { "name": "after", "alt": "Vanity with a new white top, two sinks and black faucets", "provenance": "IMG_9333 (owner photo); relit" }
+      ]
+    },
+    {
+      "slug": "fireplace-3", "category": "Living / dining room", "title": "Floor-to-ceiling fireplace wall", "publish": false, "buildup": "frames",
+      "_why_unpublished": "Not to be featured (client decision 2026-10-15).",
+      "frames": [
+        { "name": "before", "alt": "The fireplace wall at the start", "provenance": "IMG_0909 (owner photo); relit" },
+        { "name": "process-1", "alt": "The fireplace wall during the work", "provenance": "IMG_1446 (owner photo); relit" },
+        { "name": "process-2", "alt": "Marble-look tile going up around the fireplace", "provenance": "IMG_2513 (owner photo); relit" },
+        { "name": "after", "alt": "Fireplace wall tiled floor to ceiling in white marble-look tile", "provenance": "IMG_3305 (owner photo); relit and re-angled to face the wall" }
+      ]
+    }
+  ]
+}

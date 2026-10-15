@@ -1,0 +1,29 @@
+{
+  "_readme": "The 11 services, A-Z (az_order = position, checked by the build). path = the page it builds to (existing slugs kept). dial_order = stop on the homepage Dial, small job to big job (1-9; null = not its own stop). dial_label / dial_line override name / line on the Dial only. photo = 'job/frame' from jobs.json (a published, shown frame) or null for a big-word frame; photo_pos = object-position for the full-screen crop. line = one short line (strategist report 261014-2315 section 5 + the 10-15 client-call dial stops). Each service's jobs list is derived from jobs.json `category`. body = page copy, pending (Phase 01 step 9, copywriter).",
+  "_todo": "Electrical, HVAC and Plumbing lines are drafts cut from the approved combined line 'Furnaces, AC, wiring and pipes'; copywriter to confirm.",
+  "services": [
+    { "name": "Basement", "path": "services/basement-finishing.html", "az_order": 1, "dial_order": 8,
+      "line": "Bare concrete to finished rooms", "body": null, "photo": null },
+    { "name": "Bathroom", "path": "services/bathroom-remodeling.html", "az_order": 2, "dial_order": 4,
+      "line": "Showers, tubs, vanities and tile", "body": null, "photo": "bathroom-2/after", "photo_pos": "50% 50%" },
+    { "name": "Bedroom", "path": "services/bedroom-renovation.html", "az_order": 3, "dial_order": 7,
+      "line": "Accent walls, closets and trim", "body": null, "photo": "wall-1/after", "photo_pos": "45% 50%" },
+    { "name": "Drywall", "path": "services/drywall.html", "az_order": 4, "dial_order": 3,
+      "line": "Patches to whole rooms", "body": null, "photo": null },
+    { "name": "Electrical", "path": "services/electrical.html", "az_order": 5, "dial_order": null,
+      "line": "Wiring", "body": null, "photo": null },
+    { "name": "Emergency services", "path": "emergency-repairs.html", "az_order": 6, "dial_order": 1, "urgent": true,
+      "line": "Leaks, water damage and small fixes", "body": null, "photo": null },
+    { "name": "Full home", "path": "services/whole-home-renovation.html", "az_order": 7, "dial_order": 9,
+      "line": "Several rooms as one job", "body": null, "photo": null },
+    { "name": "HVAC", "path": "services/hvac.html", "az_order": 8, "dial_order": 2,
+      "dial_label": "HVAC/electrical/plumbing", "dial_line": "Furnaces, AC, wiring and pipes",
+      "line": "Furnaces and AC", "body": null, "photo": null },
+    { "name": "Kitchen", "path": "services/kitchen-remodeling.html", "az_order": 9, "dial_order": 5,
+      "line": "Cabinets to a full remodel", "body": null, "photo": "kitchen-1/after", "photo_pos": "30% 50%" },
+    { "name": "Living / dining room", "path": "services/living-room-remodeling.html", "az_order": 10, "dial_order": 6,
+      "line": "Stone and tile fireplace walls", "body": null, "photo": null },
+    { "name": "Plumbing", "path": "services/plumbing.html", "az_order": 11, "dial_order": null,
+      "line": "Pipes", "body": null, "photo": null }
+  ]
+}

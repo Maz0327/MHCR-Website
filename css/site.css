@@ -40,6 +40,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .hdr__word { display: flex; flex-direction: column; font: 800 11.5px/1.18 var(--f); letter-spacing: .07em; text-transform: uppercase; }
 .hdr__word b { color: var(--orange); font-weight: 800; }
 .hdr__word span { color: var(--paper); font-weight: 600; }
+.hdr__word b, .hdr__word span { white-space: nowrap; }
+@media (max-width: 400px) {                 /* 360-400px phones: keep the wordmark on 2 lines next to Menu + Call */
+  .hdr { gap: 4px; padding-left: 10px; }
+  .hdr__brand { gap: 7px; }
+  .hdr__word { font-size: 11px; letter-spacing: .045em; }
+  .hdr__menu { padding: 0 8px; }
+  .hdr__call { padding: 0 13px; }
+}
 .hdr__nav, .hdr__num { display: none; }
 .hdr__menu { height: 44px; padding: 0 12px; border-radius: 12px; font: 700 11px/1 var(--m); letter-spacing: .12em; text-transform: uppercase; color: var(--paper); }
 .hdr__call { display: inline-flex; align-items: center; gap: 7px; height: 44px; padding: 0 16px; border-radius: 12px; flex: none;

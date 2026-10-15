@@ -2,7 +2,8 @@
    Open: any [aria-controls="<dialog id>"] button, or any link to "#<dialog id>" on this page (e.g. "Get a free quote").
    showModal() gives the focus trap and Esc. Also: tap on the backdrop closes, [data-close] closes, and the phone's
    back button closes (one history entry is pushed on open and popped on close). Focus returns to the opener.
-   Links inside the menu close it. A page loaded with #quote in the URL opens the sheet. */
+   Links inside the menu close it without the history pop, so they navigate (other pages) or jump (#jobs).
+   A page loaded with #quote in the URL opens the sheet. */
 (() => {
   "use strict";
   const state = new WeakMap(); // dialog -> { opener, pushed }
@@ -29,7 +30,11 @@
     dlg.addEventListener("click", (e) => {
       if (e.target === dlg) dlg.close();                                  // backdrop
       else if (e.target.closest("[data-close]")) dlg.close();
-      else if (dlg.id === "menu" && e.target.closest("a")) dlg.close();  // menu link: close, then follow it
+      else if (dlg.id === "menu" && e.target.closest("a")) {            // menu link: close, then follow it
+        // No history.back() on close here: it would cancel the link (another page) or undo the jump (#jobs).
+        const st = state.get(dlg); if (st) st.pushed = false;
+        dlg.close();
+      }
     });
     dlg.addEventListener("close", () => {
       const s = state.get(dlg); if (!s) return;

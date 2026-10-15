@@ -1,27 +1,117 @@
 {
-  "_readme": "The stacked stone film (Fireplace 1), read by js/film.js. Templates put {{json film}} in <script type=\"application/json\" id=\"film-data\"> and one <img data-film-frame data-film-set data-nopic> per entry of `frames` (hidden; the canvas draws them). Sets: m = phone portrait, s / l = desktop 16:9 (l on big screens). geo = stone wall, gas insert and props boxes as fractions of each frame (both sets share one camera). timeline = film scroll progress 0..1. cells = [row height, cell width] for the course-by-course stone reveal. focus = where the wall centre sits across the screen (cover framing, per set).",
-  "frames": [
-    { "name": "before", "set": "m", "src": "images/jobs/fireplace-1/film-before-m.webp" },
-    { "name": "prep", "set": "m", "src": "images/jobs/fireplace-1/film-prep-m.webp" },
-    { "name": "final", "set": "m", "src": "images/jobs/fireplace-1/film-final-m.webp" },
-    { "name": "before", "set": "s", "src": "images/jobs/fireplace-1/film-before-s.webp" },
-    { "name": "prep", "set": "s", "src": "images/jobs/fireplace-1/film-prep-s.webp" },
-    { "name": "final", "set": "s", "src": "images/jobs/fireplace-1/film-final-s.webp" },
-    { "name": "before", "set": "l", "src": "images/jobs/fireplace-1/film-before-l.webp" },
-    { "name": "prep", "set": "l", "src": "images/jobs/fireplace-1/film-prep-l.webp" },
-    { "name": "final", "set": "l", "src": "images/jobs/fireplace-1/film-final-l.webp" }
-  ],
-  "geo": {
-    "d": { "STONE": { "x0": 0.3281, "x1": 0.6600, "y0": 0.0290, "y1": 0.9210 },
-           "INSERT": { "x0": 0.4271, "x1": 0.6057, "y0": 0.5645, "y1": 0.8632 },
-           "PROPS": [ { "x0": 0.563, "x1": 0.628, "y0": 0.862, "y1": 1 }, { "x0": 0.605, "x1": 0.619, "y0": 0.834, "y1": 0.866 },
-                      { "x0": 0.330, "x1": 0.536, "y0": 0.905, "y1": 1 } ] },
-    "m": { "STONE": { "x0": 0.1464, "x1": 0.8542, "y0": 0.0470, "y1": 0.7490 },
-           "INSERT": { "x0": 0.3589, "x1": 0.7385, "y0": 0.4689, "y1": 0.7037 },
-           "PROPS": [ { "x0": 0.6474, "x1": 0.7859, "y0": 0.7027, "y1": 0.8400 }, { "x0": 0.7370, "x1": 0.7667, "y0": 0.6807, "y1": 0.7060 },
-                      { "x0": 0.1505, "x1": 0.5896, "y0": 0.7365, "y1": 0.8400 } ] }
+ "_readme": "The stacked stone film (Fireplace 1) that opens the homepage, read by js/film.js. Templates put {{json film}} in <script type=\"application/json\" id=\"film-data\"> and one hidden <img data-film-frame data-film-set data-nopic loading=lazy> per entry of `frames`. Sets: m = phone portrait (1440x2217), d = everything wider than 9:10, the cleaned 3:2 card crop of the 4K keys (x 1338-2706, y 1184-2096 of 4096x2323: no bar shelves or bottles; same crop + upscale as fireplace-1/after-d-2400). The film OPENS on the finished wall (final), cuts to the prepped wall as you scroll (timeline.open), the stone goes up course by course (timeline.stone) and the finished wall fades back in (timeline.finalIn). geo = stone wall, gas insert and props boxes as fractions of each set's frame. cells = [row height, cell width] for the stone reveal. focus = where the wall centre sits across the screen (cover framing).",
+ "frames": [
+  {
+   "name": "prep",
+   "set": "m",
+   "src": "images/jobs/fireplace-1/film-prep-m.webp"
   },
-  "timeline": { "prepIn": [0.12, 0.24], "stone": [0.26, 0.84], "finalIn": [0.84, 0.93] },
-  "focus": { "m": 0.5, "d": 0.56 },
-  "cells": { "d": [0.030, 0.030], "m": [0.0225, 0.0625] }
+  {
+   "name": "final",
+   "set": "m",
+   "src": "images/jobs/fireplace-1/film-final-m.webp"
+  },
+  {
+   "name": "prep",
+   "set": "d",
+   "src": "images/jobs/fireplace-1/film-prep-d.webp"
+  },
+  {
+   "name": "final",
+   "set": "d",
+   "src": "images/jobs/fireplace-1/film-final-d.webp"
+  }
+ ],
+ "geo": {
+  "d": {
+   "STONE": {
+    "x0": 0.0043,
+    "x1": 0.9981,
+    "y0": 0,
+    "y1": 1
+   },
+   "INSERT": {
+    "x0": 0.3007,
+    "x1": 0.8355,
+    "y0": 0.1396,
+    "y1": 0.9005
+   },
+   "PROPS": [
+    {
+     "x0": 0.7076,
+     "x1": 0.9023,
+     "y0": 0.8974,
+     "y1": 1
+    },
+    {
+     "x0": 0.8334,
+     "x1": 0.8753,
+     "y0": 0.8261,
+     "y1": 0.9076
+    }
+   ]
+  },
+  "m": {
+   "STONE": {
+    "x0": 0.1464,
+    "x1": 0.8542,
+    "y0": 0.047,
+    "y1": 0.749
+   },
+   "INSERT": {
+    "x0": 0.3589,
+    "x1": 0.7385,
+    "y0": 0.4689,
+    "y1": 0.7037
+   },
+   "PROPS": [
+    {
+     "x0": 0.6474,
+     "x1": 0.7859,
+     "y0": 0.7027,
+     "y1": 0.84
+    },
+    {
+     "x0": 0.737,
+     "x1": 0.7667,
+     "y0": 0.6807,
+     "y1": 0.706
+    },
+    {
+     "x0": 0.1505,
+     "x1": 0.5896,
+     "y0": 0.7365,
+     "y1": 0.84
+    }
+   ]
+  }
+ },
+ "timeline": {
+  "open": [
+   0.03,
+   0.12
+  ],
+  "stone": [
+   0.16,
+   0.84
+  ],
+  "finalIn": [
+   0.84,
+   0.94
+  ]
+ },
+ "focus": {
+  "m": 0.5,
+  "d": 0.5
+ },
+ "cells": {
+  "d": [
+   0.0764,
+   0.0898
+  ],
+  "m": [
+   0.0225,
+   0.0625
+  ]
+ }
 }

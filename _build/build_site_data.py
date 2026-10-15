@@ -3,10 +3,11 @@
 Template context (all keys available in every page):
   site      site.json as-is (phone, cities, nav, form, flags, dial, home_jobs)
   services  services.json list, A-Z, each + .jobs (its PUBLISHED jobs, derived from jobs.json `category`)
-  jobs      published jobs only (jobs.json order), each with .frames (held frames removed) and .after
-  job       {slug: job} for every published job
+  jobs      published jobs only (jobs.json order: they get a page), each with .frames (held frames removed) and .after
+  job       {slug: job} for every job whose photos may be shown (photos != false), published or not
   home_jobs the homepage 2x2 (site.home_jobs as job dicts; use {{pic after}})
-  dial      the dial stops, 1..N: n, nn, total, label, line, urgent, photo (job/frame or None), pos, job (title), alt
+  dial      the dial stops, 1..N: n, nn, total, label, line, kind (photo|word|urgent), urgent, links [{name, path}],
+            photo (job/frame or None), pos, job (title), href (job page), alt
   film      film.json (frame files + geometry for js/film.js)
 Every rule below fails the build loudly; data mistakes must never ship as blanks.
 """
@@ -59,11 +60,13 @@ def load(data_dir):
         for f in j["frames"]:
             _check(f.get("alt", "").strip(), f"jobs.json {j['slug']}/{f['name']}: alt text is required")
             _check(f.get("provenance", "").strip(), f"jobs.json {j['slug']}/{f['name']}: provenance is required")
-        if j.get("publish"):
+        if j.get("photos", True):
             live = [dict(f) for f in j["frames"] if not f.get("hold")]
             _check(live and live[-1]["name"] == "after", f"jobs.json {j['slug']}: last shown frame must be 'after'")
-            by_slug[j["slug"]] = dict(j, frames=live, after=f"{j['slug']}/after")
-    jobs = [by_slug[s] for s in slugs if s in by_slug]
+            by_slug[j["slug"]] = dict(j, frames=live, after=f"{j['slug']}/after", href=j.get("page") if j.get("publish") else "")
+        else:
+            _check(not j.get("publish"), f"jobs.json {j['slug']}: publish:true needs photos")
+    jobs = [by_slug[s] for s in slugs if s in by_slug and by_slug[s].get("publish")]
 
     # ---- services (A-Z, dial order 1..N, photos must be published frames)
     _az(services, "name", "services.json")
@@ -84,15 +87,21 @@ def load(data_dir):
     for s in stops:
         n, photo = s["dial_order"], s.get("photo")
         job, frame = (_frame(by_slug, photo, "dial") if photo else (None, None))
+        by_name = {x["name"]: x for x in out_services}
+        links = []
+        for name in s.get("dial_links", []):
+            _check(name in by_name, f"services.json {s['name']}.dial_links: unknown service {name!r}")
+            links.append({"name": name, "path": by_name[name]["path"]})
         dial.append({"n": n, "nn": f"{n:02d}", "total": f"{len(stops):02d}", "label": s.get("dial_label") or s["name"],
                      "line": s.get("dial_line") or s["line"], "urgent": bool(s.get("urgent")), "path": s["path"],
+                     "kind": "photo" if photo else ("urgent" if s.get("urgent") else "word"), "links": links,
                      "photo": photo, "pos": s.get("photo_pos", "50% 50%"),
                      "job": job["title"] if job else "", "job_slug": job["slug"] if job else "",
-                     "alt": frame["alt"] if frame else ""})
+                     "href": job["href"] if job else "", "alt": frame["alt"] if frame else ""})
 
     # ---- homepage 2x2: finished afters of published jobs
     for slug in site.get("home_jobs", []):
-        _check(slug in by_slug, f"site.home_jobs: {slug!r} is not a published job")
+        _check(slug in by_slug and by_slug[slug].get("publish"), f"site.home_jobs: {slug!r} must be a published job (tiles link to its page)")
     _check(1 <= site["dial"]["default_stop"] <= len(dial), "site.dial.default_stop is outside the dial")
 
     home_jobs = [by_slug[s] for s in site.get("home_jobs", [])]
@@ -104,7 +113,7 @@ def _frame(by_slug, ref, where):
     """'job/frame' -> (job, frame) for a published job and a frame that isn't on hold."""
     _check(isinstance(ref, str) and ref.count("/") == 1, f"{where}: frame ref must be 'job/frame', got {ref!r}")
     slug, name = ref.split("/")
-    _check(slug in by_slug, f"{where}: job {slug!r} is not published (or does not exist)")
+    _check(slug in by_slug, f"{where}: job {slug!r} has photos:false (never shown) or does not exist")
     for f in by_slug[slug]["frames"]:
         if f["name"] == name:
             return by_slug[slug], f

@@ -6,7 +6,7 @@ Syntax (everything else is copied as-is):
   {{> name}}                        include partials/name.html, rendered in the same scope
   {{#each path}} .. {{/each}}       loop. Inside: names resolve on the item first, then outward.
                                     {{.}} = the item itself, {{@n}} = 1-based index, {{@first}} / {{@last}}
-  {{#if path}} .. {{else}} .. {{/if}}   truthy test ({{#unless path}} .. {{/unless}} is the inverse)
+  {{#if path}} .. {{else}} .. {{/if}}   truthy test; a missing key counts as false ({{#unless}} is the inverse)
   {{helper arg arg key="value" key=name}}  call a helper (build.py registers `pic` and `json`).
                                     An arg that resolves as a name gives its value; anything else is a literal.
                                     key="text" is literal; key=name (no quotes) must resolve.
@@ -132,7 +132,8 @@ class Renderer:
                     raise TemplateError(f"{name}: {{{{{n[1]} ...}}}}: {e}") from e
             else:
                 _, block, path, body, other = n
-                val = self._need(scopes, path, name)
+                val = self._need(scopes, path, name) if block == "each" else lookup(scopes, path)
+                val = None if val is MISSING else val          # #if/#unless: a missing optional key is just false
                 if block == "each":
                     items = list(val or [])
                     for i, item in enumerate(items):

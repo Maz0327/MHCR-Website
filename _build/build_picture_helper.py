@@ -2,7 +2,7 @@
 
 Every job frame ships as 4 files in images/jobs/<job>/ (made by tools/import_job_images.py):
   <frame>-m-800.webp  <frame>-m-1200.webp   3:4 portrait  (phones; the <img>)
-  <frame>-d-1600.webp <frame>-d-2400.webp   3:2 landscape (>= 900px; the <source>)
+  <frame>-d-1600.webp <frame>-d-2400.webp   3:2 landscape (>= 1024px; the <source>)
 The -800/-1200/-1600/-2400 names are size SLOTS: a slot is never upscaled past its master, so the real
 width can be smaller. The helper reads each file's real pixel size, so srcset `w` values and width/height are true.
 """
@@ -10,7 +10,7 @@ import html
 import os
 import struct
 
-BREAKPOINT = "(min-width:900px)"
+BREAKPOINT = "(min-width:1024px)"   # matches the comps: desktop layout and 3:2 photos from 1024px
 SLOTS = {"m": ("m-800", "m-1200"), "d": ("d-1600", "d-2400")}
 
 

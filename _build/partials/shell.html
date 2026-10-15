@@ -1,12 +1,16 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 {{> head}}
 </head>
-<body>
+<body{{#if page.is_home}} class="home"{{/if}}>
+<a class="skip" href="#main">Skip to content</a>
 {{> header}}
 {{& content}}
 {{> footer}}
 {{> quote-sheet}}
-</body>
+<script src="js/dialog.js" defer></script>
+<script src="js/quote-sheet.js" defer></script>
+{{#each page.scripts}}<script src="js/{{.}}.js" defer></script>
+{{/each}}</body>
 </html>

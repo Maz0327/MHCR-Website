@@ -140,7 +140,7 @@ def page_problems(page_path, html_text, claims, exists):
             bad.append(f"root-absolute URL breaks on the github.io subpath: {attr}={url!r}")
         elif url.startswith("#") and attr == "href" and len(url) > 1 and url[1:] not in ids:
             bad.append(f"anchor {url} has no matching id on this page")
-        elif LOCAL.match(url) and (attr != "href" or tag == "link"):
+        elif LOCAL.match(url) and (attr not in ("href", "data-href") or tag == "link"):
             target = os.path.normpath(os.path.join(here, url.split("#")[0].split("?")[0])).replace(os.sep, "/")
             if not exists(target):
                 bad.append(f"missing file: {attr}={url!r} -> {target}")
@@ -151,7 +151,7 @@ def dead_links(page_path, html_text, exists):
     """Local <a href> targets that don't exist (a warning: later phases build some of them)."""
     here, out = os.path.dirname(page_path), []
     for tag, attr, url in scan(html_text).urls:
-        if tag == "a" and attr == "href" and LOCAL.match(url) and not url.startswith("/"):
+        if (tag == "a" and attr == "href" or attr == "data-href") and LOCAL.match(url) and not url.startswith("/"):
             target = os.path.normpath(os.path.join(here, url.split("#")[0].split("?")[0])).replace(os.sep, "/")
             if target and not exists(target):
                 out.append(f"{url} -> {target}")

@@ -1,9 +1,12 @@
-/* The stacked stone film: Fireplace 1 goes from drywall to stone, course by course, as you scroll.
-   Logic ported from the approved stone film (mhcr-stone-film/home_part4.js). Removed for good: the .beat
-   captions and the #rail stage strip. Framing now follows the comp: full-bleed cover on phone and desktop.
+/* The stacked stone film that opens the homepage (Fireplace 1). It opens on the finished wall; as you scroll it cuts
+   to the prepped wall and the stone goes up course by course, then the finished wall (fire lit) returns.
+   Logic ported from the approved stone film (mhcr-stone-film/home_part4.js). Removed for good: the .beat captions
+   and the #rail stage strip. Framing follows the comp: full-bleed cover; phones get the portrait set, everything
+   wider than 9:10 gets the cleaned 3:2 card set (no bar shelves or bottles).
    Data-driven: <script type="application/json" id="film-data"> = _build/data/film.json (geo, timeline, cells, focus).
    Page hooks: #film (tall scroll section), #filmCanvas, optional #filmBar (> i scales with progress) and #filmCue,
-   and hidden frames <img data-film-frame="before|prep|final" data-film-set="m|s|l" data-nopic>. */
+   hidden frames <img data-film-frame="prep|final" data-film-set="m|d" data-nopic loading="lazy">.
+   Sets --film-p (0..1) on #film for CSS, and .is-live once the canvas has painted (CSS shows a still until then). */
 (() => {
   const film = document.getElementById("film"), cv = document.getElementById("filmCanvas");
   const dataEl = document.getElementById("film-data");
@@ -12,7 +15,7 @@
   const ctx = cv.getContext("2d", { alpha: false });
   const bar = document.querySelector("#filmBar i"), cue = document.getElementById("filmCue");
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const NAMES = ["before", "prep", "final"];
+  const NAMES = ["prep", "final"];
   const INK = getComputedStyle(film).backgroundColor || "#0b0b0c";
 
   // Seeded random so the stone order is the same on every visit.
@@ -37,16 +40,14 @@
   }
   const CELLS = { d: buildCells(GEO.d.STONE, ...D.cells.d), m: buildCells(GEO.m.STONE, ...D.cells.m) };
 
-  // Portrait frames on phones, wide frames elsewhere (l on big screens). Frames are real <img> tags in the page.
-  let set = "", imgs = {}, ready = 0;
+  // Portrait frames on phones, the 3:2 card set elsewhere. Frames are real <img> tags in the page (lazy until picked).
+  let set = "", imgs = {}, ready = 0, live = false;
   function pickSet() {
     const want = innerWidth / innerHeight < 0.9 ? "m" : "d";
     if (want === set) return;
     set = want; ready = 0; imgs = {};
-    const big = Math.max(innerWidth, innerHeight) * Math.min(devicePixelRatio || 1, 2) > 1700;
-    const size = set === "m" ? "m" : (big ? "l" : "s");
     NAMES.forEach((n) => {
-      const im = film.querySelector(`img[data-film-frame="${n}"][data-film-set="${size}"]`);
+      const im = film.querySelector(`img[data-film-frame="${n}"][data-film-set="${set}"]`);
       if (!im) return;
       imgs[n] = im;
       if (im.loading === "lazy") im.loading = "eager";
@@ -85,19 +86,18 @@
       L.dx + r.x0 * L.dw, L.dy + r.y0 * L.dh + dy, (r.x1 - r.x0) * L.dw, (r.y1 - r.y0) * L.dh);
   }
 
+  const ok = (im) => im && im.complete && im.naturalWidth;
   function draw(force) {
     const p = shown, key = p.toFixed(4) + W + "x" + H + ready + set;
     if (!force && key === lastKey) return;
     lastKey = key;
-    const b = imgs.before, pr = imgs.prep, f = imgs.final, G = GEO[set];
+    const pr = imgs.prep, f = imgs.final, G = GEO[set];
+    if (!ok(pr) || !ok(f)) return;                       // the still under the canvas shows until both are in
+    const L = layout(pr), full = { x0: 0, x1: 1, y0: 0, y1: 1 };
     ctx.globalAlpha = 1; ctx.fillStyle = INK; ctx.fillRect(0, 0, W, H);
-    if (!b || !b.complete || !b.naturalWidth) return;
-    const L = layout(b), full = { x0: 0, x1: 1, y0: 0, y1: 1 };
-    region(b, L, full, 1);
-    const prepA = ease(span(p, T.prepIn));
-    if (pr && pr.naturalWidth && prepA > 0) region(pr, L, full, prepA);
-    const q = span(p, T.stone); // stone goes up over the prepped wall
-    if (f && f.naturalWidth && q > 0 && prepA >= 1) {
+    region(pr, L, full, 1);
+    const q = span(p, T.stone);                          // stone goes up over the prepped wall
+    if (q > 0) {
       for (const c of CELLS[set]) {
         const a = clamp((q - c.t) / c.d);
         if (a > 0) region(f, L, c, ease(a), (1 - ease(a)) * -8);
@@ -112,14 +112,17 @@
         ctx.globalAlpha = Math.abs(k); ctx.fillStyle = k > 0 ? "#fff4e6" : "#000"; ctx.fillRect(0, 0, W, H);
       }
     }
-    const finA = ease(span(p, T.finalIn));
-    if (f && f.naturalWidth && finA > 0) region(f, L, full, finA);
+    // The finished wall: the opener (fades out as the build starts) and the end (fades back in).
+    const finA = Math.max(1 - ease(span(p, T.open)), ease(span(p, T.finalIn)));
+    if (finA > 0) region(f, L, full, finA);
     ctx.globalAlpha = 1;
+    if (!live) { live = true; film.classList.add("is-live"); }
   }
 
   function progress() {
     const r = film.getBoundingClientRect();
-    return clamp(-r.top / Math.max(1, r.height - innerHeight));
+    const tail = parseFloat(getComputedStyle(film).getPropertyValue("--film-tail")) || 0; // hand-off overlap, in viewports
+    return clamp(-r.top / Math.max(1, r.height - innerHeight * (1 + tail)));
   }
 
   function tick() {

@@ -1,976 +1,228 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="no-js">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mile High Custom Remodels is Denver's trusted home remodeling contractor. Kitchen, bathroom, basement remodeling, handyman services & repairs. Licensed & insured. Free estimates. Call (720) 492-4326.">
-    <meta name="keywords" content="Denver remodeling, kitchen remodeling Denver, bathroom renovation Denver, home remodeling Denver Metro, handyman Denver, basement finishing Denver, home repairs Denver">
-    <meta name="author" content="Mile High Custom Remodels">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://milehighcustomremodels.com/">
-    <meta property="og:title" content="Mile High Custom Remodels | Denver's Premier Home Remodeling Contractor">
-    <meta property="og:description" content="Transform your home with Denver's most trusted remodeling contractor. Kitchen, bathroom, basement renovations & handyman services. Licensed & insured, serving Denver since 2009.">
-    <meta property="og:image" content="https://milehighcustomremodels.com/images/og-image.jpg">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mile High Custom Remodels | Denver Home Remodeling">
-    <meta name="twitter:description" content="Transform your home with Denver's most trusted remodeling contractor.">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://milehighcustomremodels.com/">
-    
-    <title>Mile High Custom Remodels | Denver Home Remodeling & Renovation Contractor</title>
-    
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Fraunces (editorial serif headings) + Inter (body text) -->
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Denver Home Repairs and Remodels | Mile High Custom Remodels</title>
+<meta name="description" content="We repair and remodel homes around Denver: kitchens, bathrooms, basements, drywall, electrical, plumbing and HVAC. Free quote: (720) 492-4326.">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<script>document.documentElement.className = "js";</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="css/site.css">
 
-    <!-- Preload hero photo: portrait file on phones, landscape set on tablet/desktop (media queries match the <picture> sources) -->
-    <link rel="preload" as="image" type="image/webp" media="(max-width: 767px)" imagesrcset="images/hero/stacked-stone-fireplace-wall-phone-800.webp 800w, images/hero/stacked-stone-fireplace-wall-phone-1200.webp 1200w" imagesizes="100vw" fetchpriority="high">
-    <link rel="preload" as="image" type="image/webp" media="(min-width: 768px)" imagesrcset="images/hero/stacked-stone-fireplace-wall-1600.webp 1600w, images/hero/stacked-stone-fireplace-wall-2400.webp 2400w, images/hero/stacked-stone-fireplace-wall-3200.webp 3200w" imagesizes="(min-width: 1200px) 55vw, 100vw" fetchpriority="high">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-
-    <!-- Schema.org LocalBusiness Markup for SEO & LLM Optimization -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "HomeAndConstructionBusiness",
-        "@id": "https://milehighcustomremodels.com/#business",
-        "name": "Mile High Custom Remodels",
-        "alternateName": "MHCR",
-        "description": "Mile High Custom Remodels is a full-service home remodeling contractor serving the Denver Metro Area. We specialize in kitchen remodeling, bathroom renovation, basement finishing, living room updates, bedroom remodels, and general handyman services. Our licensed and insured team has over 15 years of experience transforming homes throughout Colorado.",
-        "url": "https://milehighcustomremodels.com",
-        "telephone": "+1-720-492-4326",
-        "email": "info@milehighcustomremodels.com",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "1234 Renovation Way",
-            "addressLocality": "Denver",
-            "addressRegion": "CO",
-            "postalCode": "80202",
-            "addressCountry": "US"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 39.7392,
-            "longitude": -104.9903
-        },
-        "areaServed": [
-            {
-                "@type": "City",
-                "name": "Denver",
-                "containedInPlace": {
-                    "@type": "State",
-                    "name": "Colorado"
-                }
-            },
-            {
-                "@type": "City",
-                "name": "Aurora"
-            },
-            {
-                "@type": "City",
-                "name": "Lakewood"
-            },
-            {
-                "@type": "City",
-                "name": "Arvada"
-            },
-            {
-                "@type": "City",
-                "name": "Centennial"
-            },
-            {
-                "@type": "City",
-                "name": "Littleton"
-            },
-            {
-                "@type": "City",
-                "name": "Highlands Ranch"
-            },
-            {
-                "@type": "City",
-                "name": "Parker"
-            },
-            {
-                "@type": "City",
-                "name": "Castle Rock"
-            },
-            {
-                "@type": "City",
-                "name": "Golden"
-            },
-            {
-                "@type": "City",
-                "name": "Westminster"
-            },
-            {
-                "@type": "City",
-                "name": "Thornton"
-            },
-            {
-                "@type": "City",
-                "name": "Broomfield"
-            },
-            {
-                "@type": "City",
-                "name": "Englewood"
-            }
-        ],
-        "openingHoursSpecification": [
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday"
-                ],
-                "opens": "07:00",
-                "closes": "18:00"
-            },
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Saturday",
-                "opens": "08:00",
-                "closes": "14:00"
-            }
-        ],
-        "priceRange": "$$",
-        "paymentAccepted": [
-            "Cash",
-            "Credit Card",
-            "Check",
-            "Financing Available"
-        ],
-        "currenciesAccepted": "USD",
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Home Remodeling Services",
-            "itemListElement": [
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Kitchen Remodeling"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Bathroom Renovation"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Basement Finishing"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Living Room Remodeling"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Bedroom Renovation"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Handyman Services"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Home Repairs"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Light Plumbing"
-                    }
-                }
-            ]
-        },
-        "sameAs": [
-            "https://www.facebook.com/milehighcustomremodels",
-            "https://www.instagram.com/mhcr_denver",
-            "https://www.linkedin.com/company/mile-high-custom-remodels",
-            "https://www.yelp.com/biz/mile-high-custom-remodels-denver"
-        ],
-        "image": "https://milehighcustomremodels.com/images/logo.png",
-        "logo": "https://milehighcustomremodels.com/images/logo.png"
-    }
-    </script>
 </head>
-<body>
-    <!-- Skip Navigation for Accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Top Bar with Contact Info -->
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-content">
-                <span class="top-bar-item">
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-                    <a href="tel:+17204924326">(720) 492-4326</a>
-                </span>
-                <span class="top-bar-item">
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polyline points="12 6 12 12 16 14"></polyline>
-                    </svg>
-                    Mon-Fri: 7AM-6PM | Sat: 8AM-2PM
-                </span>
-                <span class="top-bar-item">
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Serving Denver Metro Area
-                </span>
-            </div>
-        </div>
+<body class="home">
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr" aria-label="Site header">
+  <a class="hdr__brand" href="index.html" aria-label="Mile High Custom Remodels, home">
+    <img src="images/brand/mhcr-logo-mark-orange.png" alt="" width="46" height="23" data-nopic>
+    <span class="hdr__word"><b>Mile High</b><span>Custom Remodels</span></span>
+  </a>
+  <nav class="hdr__nav" aria-label="Main">
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="faq.html">FAQ</a>
+    <a href="gallery.html">Our jobs</a>
+    <a href="service-areas.html">Service areas</a>
+    <a href="services.html">Services</a>
+  </nav>
+  <button class="hdr__menu" type="button" aria-controls="menu" aria-expanded="false">Menu</button>
+  <a class="hdr__call" href="tel:+17204924326" aria-label="Call (720) 492-4326">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+    Call<span class="hdr__num">&nbsp;(720) 492-4326</span>
+  </a>
+</header>
+<dialog class="menu" id="menu" aria-label="Menu">
+  <div class="menu__top">
+    <a class="hdr__brand" href="index.html" aria-label="Mile High Custom Remodels, home"><img src="images/brand/mhcr-logo-mark-orange.png" alt="" width="46" height="23" data-nopic><span class="hdr__word"><b>Mile High</b><span>Custom Remodels</span></span></a>
+    <button class="menu__close" type="button" data-close>Close</button>
+  </div>
+  <nav aria-label="Menu">
+    <ul class="menu__main">
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="gallery.html">Our jobs</a></li>
+      <li><a href="service-areas.html">Service areas</a></li>
+      <li><a href="services.html">Services</a></li>
+    </ul>
+    <p class="menu__label">Services</p>
+    <ul class="menu__svc">
+      <li><a href="services/basement-finishing.html">Basement</a></li>
+      <li><a href="services/bathroom-remodeling.html">Bathroom</a></li>
+      <li><a href="services/bedroom-renovation.html">Bedroom</a></li>
+      <li><a href="services/drywall.html">Drywall</a></li>
+      <li><a href="services/electrical.html">Electrical</a></li>
+      <li><a href="emergency-repairs.html">Emergency services</a></li>
+      <li><a href="services/whole-home-renovation.html">Full home</a></li>
+      <li><a href="services/hvac.html">HVAC</a></li>
+      <li><a href="services/kitchen-remodeling.html">Kitchen</a></li>
+      <li><a href="services/living-room-remodeling.html">Living / dining room</a></li>
+      <li><a href="services/plumbing.html">Plumbing</a></li>
+    </ul>
+  </nav>
+  <a class="btn" href="tel:+17204924326">Call (720) 492-4326</a>
+</dialog>
+
+<main id="main">
+
+  <!-- 1. THE FILM (opener): opens on the finished wall + headline; on scroll the stone goes up course by course,
+       then the finished wall hands off to the Dial (the Dial slides up over the film's last screen). -->
+  <section class="film" id="film" aria-label="Stacked stone fireplace, built course by course">
+    <div class="film__stage">
+      <picture class="film__still"><source media="(min-aspect-ratio: 9/10)" srcset="images/jobs/fireplace-1/film-final-d.webp 2400w" sizes="100vw" width="2400" height="1600"><img src="images/jobs/fireplace-1/film-final-m.webp" srcset="images/jobs/fireplace-1/film-final-m.webp 1440w" sizes="100vw" width="1440" height="2217" alt="Floor-to-ceiling charcoal stacked stone fireplace wall with the gas fire lit" fetchpriority="high"></picture>
+      <canvas class="film__canvas" id="filmCanvas" aria-hidden="true"></canvas>
+      <img data-film-frame="prep" data-film-set="m" src="images/jobs/fireplace-1/film-prep-m.webp" alt="" loading="lazy" hidden data-nopic><img data-film-frame="final" data-film-set="m" src="images/jobs/fireplace-1/film-final-m.webp" alt="" loading="lazy" hidden data-nopic><img data-film-frame="prep" data-film-set="d" src="images/jobs/fireplace-1/film-prep-d.webp" alt="" loading="lazy" hidden data-nopic><img data-film-frame="final" data-film-set="d" src="images/jobs/fireplace-1/film-final-d.webp" alt="" loading="lazy" hidden data-nopic>
+      <div class="film__shade" aria-hidden="true"></div>
+      <div class="film__copy"><h1 class="h1">We repair and remodel homes around Denver.</h1></div>
+      <p class="film__job">Stacked stone fireplace</p>
+      <div class="film__cue" id="filmCue" aria-hidden="true"><span></span>Scroll</div>
+      <div class="film__bar" id="filmBar" aria-hidden="true"><i></i></div>
     </div>
-    
-    <!-- Header / Navigation -->
-    <header class="header" id="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="index.html" class="logo">
-                    <img src="images/logo.png" alt="Mile High Custom Remodels Logo" class="logo-image" width="60" height="50">
-                    <div class="logo-text-wrapper">
-                        <span class="logo-text">Mile High<span class="logo-accent">Custom Remodels</span></span>
-                        <span class="logo-tagline">You Dream It, We Build It</span>
-                    </div>
-                </a>
-                
-                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-                    <span class="hamburger"></span>
-                </button>
-                
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link active">Home</a></li>
-                    <li class="nav-dropdown">
-                        <a href="services.html" class="nav-link">Services</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="services/kitchen-remodeling.html">Kitchen Remodeling</a></li>
-                            <li><a href="services/bathroom-remodeling.html">Bathroom Renovation</a></li>
-                            <li><a href="services/basement-finishing.html">Basement Finishing</a></li>
-                            <li><a href="services/living-room-remodeling.html">Living Room Remodeling</a></li>
-                            <li><a href="services/bedroom-renovation.html">Bedroom Renovation</a></li>
-                            <li><a href="services/handyman-services.html">Handyman Services</a></li>
-                            <li><a href="services/whole-home-renovation.html">Whole Home Renovation</a></li>
-                            <li><a href="emergency-repairs.html">Emergency Repairs</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-dropdown">
-                        <a href="service-areas.html" class="nav-link">Service Areas</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="locations/denver.html">Denver</a></li>
-                            <li><a href="locations/aurora.html">Aurora</a></li>
-                            <li><a href="locations/lakewood.html">Lakewood</a></li>
-                            <li><a href="locations/arvada.html">Arvada</a></li>
-                            <li><a href="locations/highlands-ranch.html">Highlands Ranch</a></li>
-                            <li><a href="locations/centennial.html">Centennial</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-                    <li><a href="about.html" class="nav-link">About Us</a></li>
-                    <li><a href="blog/" class="nav-link">Blog</a></li>
-                    <li><a href="contact.html" class="nav-link">Contact</a></li>
-                </ul>
-                
-                <a href="tel:+17204924326" class="btn btn-primary nav-cta">
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-                    Call Now
-                </a>
-            </nav>
-        </div>
-    </header>
+    <script type="application/json" id="film-data">{"frames":[{"name":"prep","set":"m","src":"images/jobs/fireplace-1/film-prep-m.webp"},{"name":"final","set":"m","src":"images/jobs/fireplace-1/film-final-m.webp"},{"name":"prep","set":"d","src":"images/jobs/fireplace-1/film-prep-d.webp"},{"name":"final","set":"d","src":"images/jobs/fireplace-1/film-final-d.webp"}],"geo":{"d":{"STONE":{"x0":0.0043,"x1":0.9981,"y0":0,"y1":1},"INSERT":{"x0":0.3007,"x1":0.8355,"y0":0.1396,"y1":0.9005},"PROPS":[{"x0":0.7076,"x1":0.9023,"y0":0.8974,"y1":1},{"x0":0.8334,"x1":0.8753,"y0":0.8261,"y1":0.9076}]},"m":{"STONE":{"x0":0.1464,"x1":0.8542,"y0":0.047,"y1":0.749},"INSERT":{"x0":0.3589,"x1":0.7385,"y0":0.4689,"y1":0.7037},"PROPS":[{"x0":0.6474,"x1":0.7859,"y0":0.7027,"y1":0.84},{"x0":0.737,"x1":0.7667,"y0":0.6807,"y1":0.706},{"x0":0.1505,"x1":0.5896,"y0":0.7365,"y1":0.84}]}},"timeline":{"open":[0.03,0.12],"stone":[0.16,0.84],"finalIn":[0.84,0.94]},"focus":{"m":0.5,"d":0.5},"cells":{"d":[0.0764,0.0898],"m":[0.0225,0.0625]}}</script>
+  </section>
 
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-background">
-                <!-- Finished stacked stone fireplace wall (relit job photo). Phones get the portrait crop. -->
-                <picture>
-                    <source media="(max-width: 767px)" type="image/webp" srcset="images/hero/stacked-stone-fireplace-wall-phone-800.webp 800w, images/hero/stacked-stone-fireplace-wall-phone-1200.webp 1200w" sizes="100vw" width="1200" height="1848">
-                    <img src="images/hero/stacked-stone-fireplace-wall-1600.webp" srcset="images/hero/stacked-stone-fireplace-wall-1600.webp 1600w, images/hero/stacked-stone-fireplace-wall-2400.webp 2400w, images/hero/stacked-stone-fireplace-wall-3200.webp 3200w" sizes="(min-width: 1200px) 55vw, 100vw" width="1600" height="907" alt="" role="presentation" loading="eager" fetchpriority="high">
-                </picture>
-                <div class="hero-overlay"></div>
-            </div>
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-badges">
-                        <span class="badge">Licensed & Insured</span>
-                        <span class="badge">15+ Years Experience</span>
-                        <span class="badge">Free Estimates</span>
-                    </div>
-                    <h1 class="hero-title">Denver's Most Trusted<br><em class="highlight">Home Remodeling</em> Experts</h1>
-                    <p class="hero-subtitle">We transform kitchens, bathrooms, and basements across the Denver Metro Area. Quality craftsmanship, transparent pricing, and results that exceed expectations.</p>
-                    <div class="hero-cta">
-                        <a href="contact.html" class="btn btn-primary btn-lg">Get Your Free Estimate</a>
-                        <a href="tel:+17204924326" class="btn btn-outline btn-lg">
-                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                            </svg>
-                            (720) 492-4326
-                        </a>
-                    </div>
-                    <div class="hero-trust">
-                        <div class="trust-item">
-                            <span class="trust-number">Free</span>
-                            <span class="trust-label">In-Home Estimates</span>
-                        </div>
-                        <div class="trust-item">
-                            <span class="trust-number">Licensed</span>
-                            <span class="trust-label">& Insured</span>
-                        </div>
-                        <div class="trust-item">
-                            <span class="trust-number">15+</span>
-                            <span class="trust-label">Years Experience</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Trust Badges Bar -->
-        <section class="trust-bar">
-            <div class="container">
-                <div class="trust-bar-content">
-                    <div class="trust-badge">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                        <span>Fully Licensed</span>
-                    </div>
-                    <div class="trust-badge">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                        <span>Fully Insured</span>
-                    </div>
-                    <div class="trust-badge">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                        </svg>
-                        <span>Serving Since 2009</span>
-                    </div>
-                    <div class="trust-badge">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                        <span>Satisfaction Guaranteed</span>
-                    </div>
-                    <div class="trust-badge">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                            <line x1="1" y1="10" x2="23" y2="10"></line>
-                        </svg>
-                        <span>Financing Available</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section - Optimized for LLM extractability -->
-        <section class="services-section" id="services">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Our Services</span>
-                    <h2 class="section-title">Everything Your Home Needs, Done Right</h2>
-                    <p class="section-subtitle">From complete kitchen transformations to same-day repairs — our experienced Denver team handles it all, with licensed craftsmen and a satisfaction guarantee on every project.</p>
-                </div>
-                
-                <div class="services-grid">
-                    <!-- Kitchen Remodeling -->
-                    <article class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M3 9h18M9 21V9M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Kitchen Remodeling</h3>
-                        <p class="service-description">Custom cabinetry, stone countertops, kitchen islands, and full gut renovations. We deliver kitchens that balance beauty and function — on time, on budget.</p>
-                        <a href="services/kitchen-remodeling.html" class="service-link">Kitchen Remodeling →</a>
-                    </article>
-
-                    <!-- Bathroom Renovation -->
-                    <article class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M4 12h16M4 12a2 2 0 01-2-2V6a2 2 0 012-2h1m15 8a2 2 0 002-2V6a2 2 0 00-2-2h-1M4 12v6a2 2 0 002 2h12a2 2 0 002-2v-6"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Bathroom Renovation</h3>
-                        <p class="service-description">Walk-in showers, freestanding tubs, custom vanities, and ADA-compliant upgrades. Most bathroom remodels complete in 2–4 weeks with minimal disruption to your home.</p>
-                        <a href="services/bathroom-remodeling.html" class="service-link">Bathroom Renovation →</a>
-                    </article>
-
-                    <!-- Basement Finishing -->
-                    <article class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Basement Finishing</h3>
-                        <p class="service-description">Turn unused square footage into living space. Entertainment rooms, home offices, gyms, wet bars, and legal bedroom additions — fully permitted and inspected.</p>
-                        <a href="services/basement-finishing.html" class="service-link">Basement Finishing →</a>
-                    </article>
-
-                    <!-- Living Room Remodeling -->
-                    <article class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M20 7h-4a2 2 0 00-2 2v.5M20 7v10a2 2 0 01-2 2H6a2 2 0 01-2-2V7m16 0a2 2 0 00-2-2H6a2 2 0 00-2 2m0 0v.5m8 6v2m-3-2h6"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Living Room Remodeling</h3>
-                        <p class="service-description">Open-concept conversions, hardwood flooring, custom built-ins, fireplace surrounds, and ceiling treatments. We maximize your main living space and natural light.</p>
-                        <a href="services/living-room-remodeling.html" class="service-link">Living Room Remodeling →</a>
-                    </article>
-
-                    <!-- Bedroom Renovation -->
-                    <article class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Bedroom Renovation</h3>
-                        <p class="service-description">Custom closet systems, accent walls, wainscoting, crown molding, and master suite additions with en-suite bathrooms. Your retreat, designed around how you live.</p>
-                        <a href="services/bedroom-renovation.html" class="service-link">Bedroom Renovation →</a>
-                    </article>
-
-                    <!-- Handyman Services -->
-                    <article class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Handyman Services & Repairs</h3>
-                        <p class="service-description">Drywall repairs, fixture installations, door and window fixes, light plumbing, and interior painting. Most small jobs completed same-day or next-day. No job too small.</p>
-                        <a href="services/handyman-services.html" class="service-link">Handyman Services →</a>
-                    </article>
-                </div>
-                
-                <div class="services-cta">
-                    <p>Not sure where to start? Our team provides free consultations to help you plan your project.</p>
-                    <a href="contact.html" class="btn btn-primary">Schedule Free Consultation</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Why Choose Us Section -->
-        <section class="why-us-section">
-            <div class="container">
-                <div class="why-us-grid">
-                    <div class="why-us-content">
-                        <span class="section-label">Why Choose Us</span>
-                        <h2 class="section-title">Denver's Most Trusted Home Renovation Specialists</h2>
-                        <p>Mile High Custom Remodels has been transforming homes throughout the Denver Metro Area for over 15 years. Our commitment to quality craftsmanship, transparent communication, and customer satisfaction sets us apart from other contractors.</p>
-                        
-                        <div class="why-us-features">
-                            <div class="feature">
-                                <div class="feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                    </svg>
-                                </div>
-                                <div class="feature-content">
-                                    <h4>Quality Guaranteed</h4>
-                                    <p>Every project backed by our satisfaction guarantee and warranty on workmanship.</p>
-                                </div>
-                            </div>
-                            <div class="feature">
-                                <div class="feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <polyline points="12 6 12 12 16 14"></polyline>
-                                    </svg>
-                                </div>
-                                <div class="feature-content">
-                                    <h4>On-Time Completion</h4>
-                                    <p>We respect your time with detailed timelines and consistent project updates.</p>
-                                </div>
-                            </div>
-                            <div class="feature">
-                                <div class="feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <line x1="12" y1="1" x2="12" y2="23"></line>
-                                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                                    </svg>
-                                </div>
-                                <div class="feature-content">
-                                    <h4>Transparent Pricing</h4>
-                                    <p>Detailed quotes with no hidden fees. We honor our estimates.</p>
-                                </div>
-                            </div>
-                            <div class="feature">
-                                <div class="feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="9" cy="7" r="4"></circle>
-                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                    </svg>
-                                </div>
-                                <div class="feature-content">
-                                    <h4>Expert Team</h4>
-                                    <p>Skilled craftsmen with extensive experience in all types of remodeling.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="why-us-image">
-                        <!-- PLACEHOLDER: Replace src with images/why-us-photo.jpg when ready. See PLACEHOLDER-GUIDE.md #2 -->
-                        <img src="images/projects/kitchen/kitchen-in-progress.webp" alt="Kitchen peninsula during a stacked stone install" class="why-us-photo" loading="lazy" srcset="images/projects/kitchen/kitchen-in-progress-800.webp 800w, images/projects/kitchen/kitchen-in-progress.webp 1200w, images/projects/kitchen/kitchen-in-progress-1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 100vw" width="1200" height="1607" decoding="async">
-                        <div class="stats-card">
-                            <div class="stat">
-                                <span class="stat-number">15+</span>
-                                <span class="stat-label">Years Experience</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">Licensed</span>
-                                <span class="stat-label">& Insured</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Service Areas Section - Important for Local SEO -->
-        <section class="areas-section" id="service-areas">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Service Areas</span>
-                    <h2 class="section-title">Serving the Entire Denver Metro Area</h2>
-                    <p class="section-subtitle">Mile High Custom Remodels provides home remodeling services throughout the Denver Metro Area and surrounding communities. Our team travels to you for free consultations and estimates.</p>
-                </div>
-                
-                <div class="areas-grid">
-                    <a href="locations/denver.html" class="area-card">
-                        <h3>Denver</h3>
-                        <p>Downtown, Capitol Hill, Cherry Creek, Highlands, Washington Park & more</p>
-                    </a>
-                    <a href="locations/aurora.html" class="area-card">
-                        <h3>Aurora</h3>
-                        <p>Complete remodeling services for Aurora homeowners</p>
-                    </a>
-                    <a href="locations/lakewood.html" class="area-card">
-                        <h3>Lakewood</h3>
-                        <p>Kitchen, bath & whole-home renovations in Lakewood</p>
-                    </a>
-                    <a href="locations/arvada.html" class="area-card">
-                        <h3>Arvada</h3>
-                        <p>Trusted renovation specialists serving Arvada families</p>
-                    </a>
-                    <a href="locations/highlands-ranch.html" class="area-card">
-                        <h3>Highlands Ranch</h3>
-                        <p>Premium home renovations in Highlands Ranch</p>
-                    </a>
-                    <a href="locations/centennial.html" class="area-card">
-                        <h3>Centennial</h3>
-                        <p>Quality craftsmanship for Centennial homes</p>
-                    </a>
-                    <a href="locations/littleton.html" class="area-card">
-                        <h3>Littleton</h3>
-                        <p>Full-service remodeling in Littleton</p>
-                    </a>
-                    <a href="locations/parker.html" class="area-card">
-                        <h3>Parker</h3>
-                        <p>Home improvement experts serving Parker</p>
-                    </a>
-                    <a href="locations/golden.html" class="area-card">
-                        <h3>Golden</h3>
-                        <p>Custom renovations for Golden homeowners</p>
-                    </a>
-                    <a href="locations/westminster.html" class="area-card">
-                        <h3>Westminster</h3>
-                        <p>Reliable remodeling services in Westminster</p>
-                    </a>
-                    <a href="locations/thornton.html" class="area-card">
-                        <h3>Thornton</h3>
-                        <p>Quality home improvements in Thornton</p>
-                    </a>
-                </div>
-                
-                <p class="areas-note">Don't see your area listed? We may still serve your location. <a href="contact.html">Contact us</a> to confirm service availability.</p>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="testimonials-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Customer Reviews</span>
-                    <h2 class="section-title">What Our Denver Customers Say</h2>
-                    <p class="section-subtitle">Here's what homeowners throughout the Denver Metro Area have to say about working with Mile High Custom Remodels.</p>
-                </div>
-                
-                <div class="testimonials-grid">
-                    <article class="testimonial-card">
-                        <div class="testimonial-rating" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
-                        <blockquote class="testimonial-text">"Mile High Custom Remodels completely transformed our outdated kitchen. The team was professional, stayed on schedule, and the quality of work exceeded our expectations. Highly recommend for any Denver homeowner!"</blockquote>
-                        <div class="testimonial-author">
-                            <!-- PLACEHOLDER: Replace src with images/testimonials/sarah-m.jpg. See PLACEHOLDER-GUIDE.md #3 -->
-                            <img src="images/placeholders/avatar-placeholder.svg" alt="Sarah M." class="author-avatar" width="48" height="48" loading="lazy">
-                            <div>
-                                <span class="author-name">Sarah M.</span>
-                                <span class="author-location">Highlands Ranch, CO</span>
-                            </div>
-                        </div>
-                        <span class="testimonial-service">Kitchen Remodeling</span>
-                    </article>
-                    
-                    <article class="testimonial-card">
-                        <div class="testimonial-rating" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
-                        <blockquote class="testimonial-text">"We hired MHCR to finish our basement and couldn't be happier. They handled everything from permits to final inspection. The new space has added so much value to our home. Great communication throughout!"</blockquote>
-                        <div class="testimonial-author">
-                            <!-- PLACEHOLDER: Replace src with images/testimonials/david-t.jpg. See PLACEHOLDER-GUIDE.md #4 -->
-                            <img src="images/placeholders/avatar-placeholder.svg" alt="David & Jennifer T." class="author-avatar" width="48" height="48" loading="lazy">
-                            <div>
-                                <span class="author-name">David & Jennifer T.</span>
-                                <span class="author-location">Centennial, CO</span>
-                            </div>
-                        </div>
-                        <span class="testimonial-service">Basement Finishing</span>
-                    </article>
-                    
-                    <article class="testimonial-card">
-                        <div class="testimonial-rating" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
-                        <blockquote class="testimonial-text">"Best contractor experience we've ever had. They remodeled both our bathrooms on time and on budget. The attention to detail was impressive, and they cleaned up every day. Will definitely use them again!"</blockquote>
-                        <div class="testimonial-author">
-                            <!-- PLACEHOLDER: Replace src with images/testimonials/mike-r.jpg. See PLACEHOLDER-GUIDE.md #5 -->
-                            <img src="images/placeholders/avatar-placeholder.svg" alt="Mike R." class="author-avatar" width="48" height="48" loading="lazy">
-                            <div>
-                                <span class="author-name">Mike R.</span>
-                                <span class="author-location">Lakewood, CO</span>
-                            </div>
-                        </div>
-                        <span class="testimonial-service">Bathroom Renovation</span>
-                    </article>
-                </div>
-                
-                <div class="testimonials-cta">
-                    <p>Read more reviews on <a href="#" class="review-link">Google</a>, <a href="#" class="review-link">Yelp</a>, and <a href="#" class="review-link">HomeAdvisor</a></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Process Section -->
-        <section class="process-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Our Process</span>
-                    <h2 class="section-title">How We Work</h2>
-                    <p class="section-subtitle">From initial consultation to final walkthrough, we make the remodeling process simple and stress-free.</p>
-                </div>
-                
-                <div class="process-steps">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <h3>Free Consultation</h3>
-                        <p class="step-duration">Same week scheduling</p>
-                        <p>We come to you. Discuss your vision, take measurements, and understand your goals and budget — no commitment required.</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <h3>Design & Quote</h3>
-                        <p class="step-duration">3–5 business days</p>
-                        <p>Detailed plans, material options, and a fixed written quote. No surprise costs, no vague estimates.</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <h3>Construction</h3>
-                        <p class="step-duration">Project dependent</p>
-                        <p>Our licensed craftsmen execute with precision. Daily updates keep you informed at every stage of the build.</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <h3>Final Walkthrough</h3>
-                        <p class="step-duration">Day of completion</p>
-                        <p>A detailed inspection together. We don't consider a project done until you're completely satisfied.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section - Critical for LLM SEO -->
-        <section class="faq-section" id="faq">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">FAQ</span>
-                    <h2 class="section-title">Common Questions</h2>
-                </div>
-                
-                <div class="faq-grid">
-                    <details class="faq-item" open>
-                        <summary class="faq-question">How much does a kitchen remodel cost in Denver?</summary>
-                        <div class="faq-answer">
-                            <p>Kitchen remodeling costs in Denver typically range from $25,000 to $100,000+ depending on the scope and finishes. A basic kitchen remodel with cabinet refacing, new countertops, and updated fixtures averages $25,000-$40,000. A mid-range renovation with new cabinets, stone countertops, and appliance upgrades runs $40,000-$70,000. Luxury kitchen remodels with custom cabinetry, high-end appliances, and premium materials can exceed $100,000. Mile High Custom Remodels provides free detailed estimates for all kitchen projects.</p>
-                        </div>
-                    </details>
-                    
-                    <details class="faq-item">
-                        <summary class="faq-question">How long does a bathroom renovation take in Denver?</summary>
-                        <div class="faq-answer">
-                            <p>Bathroom renovation timelines in Denver typically range from 2-6 weeks depending on the project scope. A basic bathroom update with new fixtures, vanity, and tile takes approximately 2-3 weeks. A full master bathroom renovation with layout changes, custom tile work, and new plumbing averages 4-6 weeks. Our project managers provide detailed timelines during the planning phase and keep you updated throughout construction.</p>
-                        </div>
-                    </details>
-                    
-                    <details class="faq-item">
-                        <summary class="faq-question">Do I need a permit for home remodeling in Denver?</summary>
-                        <div class="faq-answer">
-                            <p>Permit requirements for home remodeling in Denver depend on the scope of work. Structural changes, electrical work, plumbing modifications, and additions typically require permits from the City of Denver. Cosmetic updates like painting, flooring replacement, and cabinet installation usually don't need permits. Mile High Custom Remodels handles all permit applications and inspections as part of our full-service approach, ensuring your project meets all local building codes.</p>
-                        </div>
-                    </details>
-                    
-                    <details class="faq-item">
-                        <summary class="faq-question">What areas do you serve in Colorado?</summary>
-                        <div class="faq-answer">
-                            <p>Mile High Custom Remodels serves the entire Denver Metro Area including Denver, Aurora, Lakewood, Arvada, Centennial, Littleton, Highlands Ranch, Parker, Castle Rock, Golden, Westminster, Thornton, Broomfield, and Englewood. We also serve communities outside the metro area on a case-by-case basis. Contact us to confirm service availability in your area.</p>
-                        </div>
-                    </details>
-                    
-                    <details class="faq-item">
-                        <summary class="faq-question">How do I get a free estimate for my remodeling project?</summary>
-                        <div class="faq-answer">
-                            <p>Getting a free estimate from Mile High Custom Remodels is easy. Call us at (720) 492-4326, fill out our online contact form, or request a callback. We'll schedule a convenient time for an in-home consultation where we'll discuss your project, take measurements, and understand your vision and budget. Within 3-5 business days, you'll receive a detailed written estimate with material options and project timeline.</p>
-                        </div>
-                    </details>
-                    
-                    <details class="faq-item">
-                        <summary class="faq-question">Do you offer financing for remodeling projects?</summary>
-                        <div class="faq-answer">
-                            <p>Yes, Mile High Custom Remodels offers flexible financing options for qualified homeowners. We partner with leading home improvement lenders to provide competitive rates and terms. Financing options include no-interest plans for smaller projects and extended payment plans for larger renovations. Our team can discuss financing during your consultation to help make your dream renovation affordable.</p>
-                        </div>
-                    </details>
-                    
-                    <details class="faq-item">
-                        <summary class="faq-question">Are you licensed and insured?</summary>
-                        <div class="faq-answer">
-                            <p>Yes, Mile High Custom Remodels is fully licensed and insured in the State of Colorado. We carry general liability insurance, workers' compensation coverage, and maintain all required trade licenses. We're happy to provide proof of insurance and licensing upon request. Our credentials ensure your investment is protected throughout the remodeling process.</p>
-                        </div>
-                    </details>
-                    
-                    <details class="faq-item">
-                        <summary class="faq-question">What's the best remodeling company in Denver?</summary>
-                        <div class="faq-answer">
-                            <p>Mile High Custom Remodels has been remodeling homes throughout the Denver Metro Area since 2009. We're fully licensed and insured, and what sets us apart is our commitment to quality craftsmanship, transparent pricing, on-time project completion, and exceptional customer communication. We back all of our work with our satisfaction guarantee.</p>
-                        </div>
-                    </details>
-                </div>
-            </div>
-            
-            <!-- FAQ Schema for SEO -->
-            <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "How much does a kitchen remodel cost in Denver?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Kitchen remodeling costs in Denver typically range from $25,000 to $100,000+ depending on the scope and finishes. A basic kitchen remodel averages $25,000-$40,000. A mid-range renovation runs $40,000-$70,000. Luxury kitchen remodels can exceed $100,000."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How long does a bathroom renovation take in Denver?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Bathroom renovation timelines in Denver typically range from 2-6 weeks. A basic bathroom update takes 2-3 weeks. A full master bathroom renovation averages 4-6 weeks."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Do I need a permit for home remodeling in Denver?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Permit requirements depend on the scope of work. Structural changes, electrical work, plumbing modifications, and additions require permits. Cosmetic updates usually don't need permits. Mile High Custom Remodels handles all permit applications."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What areas do you serve in Colorado?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Mile High Custom Remodels serves the entire Denver Metro Area including Denver, Aurora, Lakewood, Arvada, Centennial, Littleton, Highlands Ranch, Parker, Castle Rock, Golden, Westminster, Thornton, Broomfield, and Englewood."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What's the best remodeling company in Denver?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Mile High Custom Remodels has been remodeling homes throughout the Denver Metro Area since 2009. We're fully licensed and insured, and what sets us apart is our commitment to quality craftsmanship, transparent pricing, on-time project completion, and exceptional customer communication. We back all of our work with our satisfaction guarantee."
-                        }
-                    }
-                ]
-            }
-            </script>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="cta-section">
-            <div class="container">
-                <div class="cta-content">
-                    <h2>Ready to Transform Your Home?</h2>
-                    <p>Get your free estimate today. Our team is ready to help bring your vision to life.</p>
-                    <div class="cta-buttons">
-                        <a href="contact.html" class="btn btn-white btn-lg">Request Free Estimate</a>
-                        <a href="tel:+17204924326" class="btn btn-outline-white btn-lg">
-                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                            </svg>
-                            (720) 492-4326
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <a href="index.html" class="logo">
-                        <img src="images/logo.png" alt="Mile High Custom Remodels Logo" class="logo-image" width="60" height="50">
-                        <div class="logo-text-wrapper">
-                            <span class="logo-text">Mile High<span class="logo-accent">Custom Remodels</span></span>
-                            <span class="logo-tagline">You Dream It, We Build It</span>
-                        </div>
-                    </a>
-                    <p>Denver's trusted home renovation specialists since 2009. We transform kitchens, bathrooms, basements, and more with quality craftsmanship and exceptional service.</p>
-                    <div class="footer-contact">
-                        <p><strong>Phone:</strong> <a href="tel:+17204924326">(720) 492-4326</a></p>
-                        <p><strong>Email:</strong> <a href="mailto:info@milehighcustomremodels.com">info@milehighcustomremodels.com</a></p>
-                        <p><strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=1234+Renovation+Way+Denver+CO+80202" target="_blank" rel="noopener noreferrer">1234 Renovation Way, Denver, CO 80202</a></p>
-                    </div>
-                </div>
-                
-                <nav aria-label="Footer navigation">
-                <div class="footer-links">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="services/kitchen-remodeling.html">Kitchen Remodeling</a></li>
-                        <li><a href="services/bathroom-remodeling.html">Bathroom Renovation</a></li>
-                        <li><a href="services/basement-finishing.html">Basement Finishing</a></li>
-                        <li><a href="services/living-room-remodeling.html">Living Room Remodeling</a></li>
-                        <li><a href="services/bedroom-renovation.html">Bedroom Renovation</a></li>
-                        <li><a href="services/handyman-services.html">Handyman Services</a></li>
-                        <li><a href="services/whole-home-renovation.html">Whole Home Renovation</a></li>
-                        <li><a href="emergency-repairs.html">Emergency Repairs</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Service Areas</h4>
-                    <ul>
-                        <li><a href="locations/denver.html">Denver</a></li>
-                        <li><a href="locations/aurora.html">Aurora</a></li>
-                        <li><a href="locations/lakewood.html">Lakewood</a></li>
-                        <li><a href="locations/arvada.html">Arvada</a></li>
-                        <li><a href="locations/highlands-ranch.html">Highlands Ranch</a></li>
-                        <li><a href="locations/centennial.html">Centennial</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="gallery.html">Project Gallery</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="blog/">Blog</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                    </ul>
-                </div>
-                </nav>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Mile High Custom Remodels. All rights reserved. Licensed & Insured in Colorado.</p>
-                <div class="footer-social">
-                    <a href="https://www.facebook.com/milehighcustomremodels" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                    </a>
-                    <a href="https://www.instagram.com/mhcr_denver" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                    </a>
-                    <a href="https://www.yelp.com/biz/mile-high-custom-remodels-denver" target="_blank" rel="noopener noreferrer" aria-label="Yelp">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.27 13.6l-2.55 1.97c-.33.25-.79.04-.83-.37L8.5 12.1c-.04-.4.38-.69.74-.51l2.79 1.36c.36.18.47.63.24.95zM8.93 10.4l2.98-.59c.39-.08.58-.53.36-.86L10.6 6.68c-.22-.34-.7-.3-.87.06L8.49 9.62c-.17.37.06.8.44.78zm3.98 2.08l2.85-1.27c.37-.16.43-.65.11-.91l-2.46-1.91c-.32-.25-.77-.05-.82.35L12.23 12c-.05.4.33.7.68.48zm.6 2.49l.57 3.06c.07.41.54.57.82.3l2.23-2.16c.28-.27.19-.71-.17-.87l-2.8-1.2c-.36-.15-.74.1-.65.87zm-4.17 2.27l1.95 2.37c.25.31.71.22.85-.16l1.05-2.92c.13-.38-.18-.77-.58-.72l-3.01.37c-.4.05-.54.53-.26.76z"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/company/mile-high-custom-remodels" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Sticky Mobile CTA -->
-    <div class="mobile-cta">
-        <a href="tel:+17204924326" class="mobile-cta-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            Call Now
-        </a>
-        <a href="contact.html" class="mobile-cta-btn secondary">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-            </svg>
-            Free Quote
-        </a>
+  <!-- 2. THE DIAL (100svh): small job to big job. Stops are pre-rendered <template>s (js/dial.js clones them). -->
+  <section class="frame is-turned is-intro is-clear" id="frame" aria-label="Our work, from small jobs to big jobs" data-default-stop="5" data-keep-turned data-sweep-on-view>
+    <div class="frame__stage" id="stage" aria-live="polite"></div>
+    <div class="frame__shade" aria-hidden="true"></div>
+    <a class="frame__job" id="jobLink" hidden>
+      <span class="frame__jobname" id="jobName"></span>
+      <span class="frame__see">See the job <i aria-hidden="true">&rarr;</i></span>
+    </a>
+    <div class="dial" id="dial">
+      <p class="dial__note">No job too big or too small.</p>
+      <svg class="dial__svg" id="dialSvg" viewBox="0 0 390 100" aria-hidden="true"></svg>
+      <div class="dial__row">
+        <button class="dial__step" id="prev" type="button" aria-label="Smaller job"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <div class="dial__label" id="dialLabel" role="slider" tabindex="0" aria-label="Service" aria-valuemin="1"></div>
+        <button class="dial__step" id="next" type="button" aria-label="Bigger job"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
     </div>
+    <ol class="dial__list">
+      <li><a href="emergency-repairs.html"><b>Emergency services</b> <span>Leaks, water damage and small fixes</span></a></li>
+      <li><a href="services/hvac.html"><b>Electrical · HVAC · Plumbing</b> <span>Wiring, furnaces, AC and pipes</span></a></li>
+      <li><a href="services/drywall.html"><b>Drywall</b> <span>Patches to whole rooms</span></a></li>
+      <li><a href="services/bathroom-remodeling.html"><b>Bathroom</b> <span>Showers, tubs, vanities and tile</span></a></li>
+      <li><a href="services/kitchen-remodeling.html"><b>Kitchen</b> <span>Cabinets to a full remodel</span></a></li>
+      <li><a href="services/living-room-remodeling.html"><b>Living / dining room</b> <span>Stone fireplace walls</span></a></li>
+      <li><a href="services/bedroom-renovation.html"><b>Bedroom</b> <span>Accent walls, closets and trim</span></a></li>
+      <li><a href="services/basement-finishing.html"><b>Basement</b> <span>Bare concrete to finished rooms</span></a></li>
+      <li><a href="services/whole-home-renovation.html"><b>Full home</b> <span>Several rooms as one job</span></a></li>
+    </ol>
+    <template data-dial-stop data-kind="urgent" data-label="Emergency services" data-job="" data-href=""><p class="word__kicker">Leaks, water damage and small fixes</p><p class="word__big">If it can't wait, call us.</p><a class="btn btn--call" href="tel:+17204924326">Call (720) 492-4326</a></template>
+    <template data-dial-stop data-kind="word" data-label="Electrical · HVAC · Plumbing" data-job="" data-href=""><p class="word__kicker">02 / 09</p><p class="word__big">Wiring, furnaces, AC and pipes</p><p class="word__links"><a class="word__link" href="services/electrical.html">Electrical <i aria-hidden="true">&rarr;</i></a><a class="word__link" href="services/hvac.html">HVAC <i aria-hidden="true">&rarr;</i></a><a class="word__link" href="services/plumbing.html">Plumbing <i aria-hidden="true">&rarr;</i></a></p></template>
+    <template data-dial-stop data-kind="word" data-label="Drywall" data-job="" data-href=""><p class="word__kicker">03 / 09</p><p class="word__big">Patches to whole rooms</p><a class="word__link" href="#quote">Get a free quote <i aria-hidden="true">&rarr;</i></a></template>
+    <template data-dial-stop data-kind="photo" data-label="Bathroom" data-job="Tiled walk-in shower" data-href="jobs/tiled-walk-in-shower.html"><picture><source media="(min-width:1024px)" srcset="images/jobs/bathroom-2/after-d-1600.webp 1600w, images/jobs/bathroom-2/after-d-2400.webp 2400w" sizes="100vw" width="2400" height="1600"><img src="images/jobs/bathroom-2/after-m-800.webp" srcset="images/jobs/bathroom-2/after-m-800.webp 800w, images/jobs/bathroom-2/after-m-1200.webp 1200w" sizes="100vw" width="1200" height="1600" alt="Walk-in shower with large marble-look tile, a glass door and a pebble floor" loading="lazy" decoding="async" style="object-position:50% 50%;"></picture></template>
+    <template data-dial-stop data-kind="photo" data-label="Kitchen" data-job="Painted cabinets, stone-wrapped peninsula" data-href=""><picture><source media="(min-width:1024px)" srcset="images/jobs/kitchen-1/after-d-1600.webp 1600w, images/jobs/kitchen-1/after-d-2400.webp 1853w" sizes="100vw" width="1853" height="1235"><img src="images/jobs/kitchen-1/after-m-800.webp" srcset="images/jobs/kitchen-1/after-m-800.webp 800w, images/jobs/kitchen-1/after-m-1200.webp 1200w" sizes="100vw" width="1200" height="1600" alt="Kitchen with white painted cabinets and a peninsula wrapped in stacked stone" loading="lazy" decoding="async" style="object-position:30% 50%;"></picture></template>
+    <template data-dial-stop data-kind="word" data-label="Living / dining room" data-job="" data-href=""><p class="word__kicker">06 / 09</p><p class="word__big">Stone fireplace walls</p><a class="word__link" href="#quote">Get a free quote <i aria-hidden="true">&rarr;</i></a></template>
+    <template data-dial-stop data-kind="photo" data-label="Bedroom" data-job="Navy board-and-batten wall" data-href="jobs/navy-board-and-batten-wall.html"><picture><source media="(min-width:1024px)" srcset="images/jobs/wall-1/after-d-1600.webp 1600w, images/jobs/wall-1/after-d-2400.webp 2400w" sizes="100vw" width="2400" height="1600"><img src="images/jobs/wall-1/after-m-800.webp" srcset="images/jobs/wall-1/after-m-800.webp 800w, images/jobs/wall-1/after-m-1200.webp 1200w" sizes="100vw" width="1200" height="1600" alt="Bedroom with a navy board-and-batten accent wall behind the bed" loading="lazy" decoding="async" style="object-position:45% 50%;"></picture></template>
+    <template data-dial-stop data-kind="word" data-label="Basement" data-job="" data-href=""><p class="word__kicker">08 / 09</p><p class="word__big">Bare concrete to finished rooms</p><a class="word__link" href="#quote">Get a free quote <i aria-hidden="true">&rarr;</i></a></template>
+    <template data-dial-stop data-kind="word" data-label="Full home" data-job="" data-href=""><p class="word__kicker">09 / 09</p><p class="word__big">Several rooms as one job</p><a class="word__link" href="#quote">Get a free quote <i aria-hidden="true">&rarr;</i></a></template>
+  </section>
 
-    <script src="js/main.js"></script>
-    <script src="js/editor.js" defer></script>
-<script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+  <!-- 3. OUR JOBS: full-bleed 2x2 of finished work (approved comp dial-v2-screen-5b) -->
+  <section class="sec jobs is-bleed" id="jobs" aria-labelledby="jobsTitle">
+    <div class="sec__head"><h2 class="h2" id="jobsTitle">Our jobs</h2></div>
+    <ul class="grid">
+      <li><a href="jobs/bathroom-remodel.html"><picture><source media="(min-width:1024px)" srcset="images/jobs/bathroom-1/after-d-1600.webp 1600w, images/jobs/bathroom-1/after-d-2400.webp 2400w" sizes="50vw" width="2400" height="1600"><img src="images/jobs/bathroom-1/after-m-800.webp" srcset="images/jobs/bathroom-1/after-m-800.webp 800w, images/jobs/bathroom-1/after-m-1200.webp 1200w" sizes="50vw" width="1200" height="1600" alt="Finished bathroom: beige tile tub surround with a mosaic band" loading="lazy" decoding="async"></picture><span>Bathroom remodel</span></a></li>
+      <li><a href="jobs/tiled-walk-in-shower.html"><picture><source media="(min-width:1024px)" srcset="images/jobs/bathroom-2/after-d-1600.webp 1600w, images/jobs/bathroom-2/after-d-2400.webp 2400w" sizes="50vw" width="2400" height="1600"><img src="images/jobs/bathroom-2/after-m-800.webp" srcset="images/jobs/bathroom-2/after-m-800.webp 800w, images/jobs/bathroom-2/after-m-1200.webp 1200w" sizes="50vw" width="1200" height="1600" alt="Walk-in shower with large marble-look tile, a glass door and a pebble floor" loading="lazy" decoding="async"></picture><span>Tiled walk-in shower</span></a></li>
+      <li><a href="jobs/river-rock-fireplace.html"><picture><source media="(min-width:1024px)" srcset="images/jobs/fireplace-2/after-d-1600.webp 1600w, images/jobs/fireplace-2/after-d-2400.webp 1950w" sizes="50vw" width="1950" height="1300"><img src="images/jobs/fireplace-2/after-m-800.webp" srcset="images/jobs/fireplace-2/after-m-800.webp 800w, images/jobs/fireplace-2/after-m-1200.webp 1200w" sizes="50vw" width="1200" height="1600" alt="River rock fireplace wall with a wood mantel" loading="lazy" decoding="async"></picture><span>River rock fireplace</span></a></li>
+      <li><a href="jobs/navy-board-and-batten-wall.html"><picture><source media="(min-width:1024px)" srcset="images/jobs/wall-1/after-d-1600.webp 1600w, images/jobs/wall-1/after-d-2400.webp 2400w" sizes="50vw" width="2400" height="1600"><img src="images/jobs/wall-1/after-m-800.webp" srcset="images/jobs/wall-1/after-m-800.webp 800w, images/jobs/wall-1/after-m-1200.webp 1200w" sizes="50vw" width="1200" height="1600" alt="Bedroom with a navy board-and-batten accent wall behind the bed" loading="lazy" decoding="async" style="object-position:40% 50%;"></picture><span>Navy board-and-batten wall</span></a></li>
+    </ul>
+  </section>
+
+  <!-- 4. OUR PROCESS: 4 steps + photos from jobs while the work was underway -->
+  <section class="sec proc" id="process" aria-labelledby="procTitle">
+    <div class="sec__head"><h2 class="h2" id="procTitle">Our process</h2></div>
+    <ol class="steps">
+      <li><span>01</span><p>Free consultation<small>We'll call you back within 24 hours and talk through the job.</small></p></li>
+      <li><span>02</span><p>Written quote<small>You'll get a written quote 24–48 hours after that call.</small></p></li>
+      <li><span>03</span><p>The build<small>We custom build every phase of the job, piece by piece.</small></p></li>
+      <li><span>04</span><p>Final walkthrough<small>We walk through the finished work with you before we call it done.</small></p></li>
+    </ol>
+    <a class="link-arrow proc__cta" href="#quote">Get a free quote <i aria-hidden="true">&rarr;</i></a>
+    <div class="rail" tabindex="0" role="region" aria-label="Photos from our jobs while the work was underway">
+      <figure><picture><source media="(min-width:1024px)" srcset="images/jobs/bathroom-1/process-2-d-1600.webp 1600w, images/jobs/bathroom-1/process-2-d-2400.webp 2400w" sizes="(min-width:1024px) 30vw, 316px" width="2400" height="1600"><img src="images/jobs/bathroom-1/process-2-m-800.webp" srcset="images/jobs/bathroom-1/process-2-m-800.webp 800w, images/jobs/bathroom-1/process-2-m-1200.webp 1200w" sizes="(min-width:1024px) 30vw, 316px" width="1200" height="1600" alt="New tile going up around the tub" loading="lazy" decoding="async"></picture><figcaption>Bathroom remodel</figcaption></figure>
+      <figure><picture><source media="(min-width:1024px)" srcset="images/jobs/wall-1/process-1-d-1600.webp 1600w, images/jobs/wall-1/process-1-d-2400.webp 2400w" sizes="(min-width:1024px) 30vw, 316px" width="2400" height="1600"><img src="images/jobs/wall-1/process-1-m-800.webp" srcset="images/jobs/wall-1/process-1-m-800.webp 800w, images/jobs/wall-1/process-1-m-1200.webp 1200w" sizes="(min-width:1024px) 30vw, 316px" width="1200" height="1600" alt="Bedroom wall with new board-and-batten trim up, before paint" loading="lazy" decoding="async"></picture><figcaption>Navy board-and-batten wall</figcaption></figure>
+      <figure><picture><source media="(min-width:1024px)" srcset="images/jobs/fireplace-2/process-1-d-1600.webp 1600w, images/jobs/fireplace-2/process-1-d-2400.webp 2400w" sizes="(min-width:1024px) 30vw, 316px" width="2400" height="1600"><img src="images/jobs/fireplace-2/process-1-m-800.webp" srcset="images/jobs/fireplace-2/process-1-m-800.webp 800w, images/jobs/fireplace-2/process-1-m-1200.webp 1200w" sizes="(min-width:1024px) 30vw, 316px" width="1200" height="1600" alt="Fireplace wall taped off and prepped before the stone went up" loading="lazy" decoding="async"></picture><figcaption>River rock fireplace</figcaption></figure>
+      <figure><picture><source media="(min-width:1024px)" srcset="images/jobs/bathroom-1/process-1-d-1600.webp 1600w, images/jobs/bathroom-1/process-1-d-2400.webp 2400w" sizes="(min-width:1024px) 30vw, 316px" width="2400" height="1600"><img src="images/jobs/bathroom-1/process-1-m-800.webp" srcset="images/jobs/bathroom-1/process-1-m-800.webp 800w, images/jobs/bathroom-1/process-1-m-1200.webp 1200w" sizes="(min-width:1024px) 30vw, 316px" width="1200" height="1600" alt="The tub wall opened to the studs, with the plumbing exposed" loading="lazy" decoding="async"></picture><figcaption>Bathroom remodel</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- 5. THE ASK -->
+  <section class="sec ask" id="ask" aria-labelledby="askTitle">
+    <figure class="ask__photo"><picture><source media="(min-width:1024px)" srcset="images/jobs/bathroom-1/after-d-1600.webp 1600w, images/jobs/bathroom-1/after-d-2400.webp 2400w" sizes="(min-width:1024px) 50vw, 100vw" width="2400" height="1600"><img src="images/jobs/bathroom-1/after-m-800.webp" srcset="images/jobs/bathroom-1/after-m-800.webp 800w, images/jobs/bathroom-1/after-m-1200.webp 1200w" sizes="(min-width:1024px) 50vw, 100vw" width="1200" height="1600" alt="Finished bathroom: beige tile tub surround with a mosaic band" loading="lazy" decoding="async"></picture><figcaption>Bathroom remodel</figcaption></figure>
+    <div class="ask__body">
+<h2 class="h2" id="askTitle">Tell us what you need done.</h2>
+<p class="ask__sub">We'll call you back within 24 hours.</p>
+<a class="btn" href="#quote">Get a free quote</a>
+<a class="ask__urgent" href="tel:+17204924326">If it can't wait, <u>call (720) 492-4326.</u></a>
+
+    </div>
+  </section>
+</main>
+<footer class="ftr">
+  <p><b>Mile High Custom Remodels</b> · <a href="tel:+17204924326">(720) 492-4326</a></p>
+  <p><a href="locations/arvada.html">Arvada</a>, <a href="locations/aurora.html">Aurora</a>, <a href="locations/centennial.html">Centennial</a>, <a href="locations/denver.html">Denver</a>, <a href="locations/golden.html">Golden</a>, <a href="locations/highlands-ranch.html">Highlands Ranch</a>, <a href="locations/lakewood.html">Lakewood</a>, <a href="locations/littleton.html">Littleton</a>, <a href="locations/parker.html">Parker</a>, <a href="locations/thornton.html">Thornton</a>, <a href="locations/westminster.html">Westminster</a></p>
+  <p><a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · © 2026</p>
+</footer>
+
+<dialog class="sheet" id="quote" aria-labelledby="quoteTitle">
+  <div class="sheet__in">
+    <button class="sheet__x" type="button" data-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="sheet__form" id="quoteForm">
+      <section class="sheet__step" data-step="1">
+        <h2 class="sheet__title" id="quoteTitle">Get a free quote</h2>
+        <fieldset class="chips" aria-describedby="e-project">
+          <legend class="sheet__prompt">Pick the kind of work.</legend>
+          <div class="chips__grid">
+            <label class="chip"><input type="radio" name="project" value="Basement"><span>Basement</span></label>
+            <label class="chip"><input type="radio" name="project" value="Bathroom"><span>Bathroom</span></label>
+            <label class="chip"><input type="radio" name="project" value="Bedroom"><span>Bedroom</span></label>
+            <label class="chip"><input type="radio" name="project" value="Drywall"><span>Drywall</span></label>
+            <label class="chip"><input type="radio" name="project" value="Electrical"><span>Electrical</span></label>
+            <label class="chip"><input type="radio" name="project" value="Emergency services" data-urgent><span>Emergency services</span></label>
+            <label class="chip"><input type="radio" name="project" value="Full home"><span>Full home</span></label>
+            <label class="chip"><input type="radio" name="project" value="HVAC"><span>HVAC</span></label>
+            <label class="chip"><input type="radio" name="project" value="Kitchen"><span>Kitchen</span></label>
+            <label class="chip"><input type="radio" name="project" value="Living / dining room"><span>Living / dining room</span></label>
+            <label class="chip"><input type="radio" name="project" value="Plumbing"><span>Plumbing</span></label>
+            <label class="chip"><input type="radio" name="project" value="Something else" data-other><span>Something else</span></label>
+          </div>
+        </fieldset>
+        <p class="sheet__err" id="e-project" role="alert"></p>
+        <div class="sheet__other" data-other-box hidden>
+          <label for="q-other">Tell us what it is</label>
+          <textarea id="q-other" name="other" rows="3" aria-describedby="e-other"></textarea>
+          <p class="sheet__err" id="e-other" role="alert"></p>
+        </div>
+        <div class="sheet__urgent" data-urgent-box hidden>
+          <p>If it can't wait, call us instead of using the form.</p>
+          <a class="btn" href="tel:+17204924326">Call (720) 492-4326</a>
+          <button class="link-arrow" type="button" data-continue>Continue with the form</button>
+        </div>
+        <button class="btn sheet__next" type="button" data-next>Next</button>
+      </section>
+      <section class="sheet__step" data-step="2" hidden>
+        <p class="sheet__pick" data-pick></p>
+        <p class="sheet__line">Call us at (720) 492-4326 and tell us what you need.</p>
+        <a class="btn" href="tel:+17204924326">Call (720) 492-4326</a>
+        <button class="link-arrow sheet__back" type="button" data-back>Back</button>
+      </section>
+      <div class="sheet__done" data-done tabindex="-1" hidden><p class="sheet__title">Got it. We'll call you back within 24 hours.</p></div>
+    </div>
+  </div>
+</dialog>
+
+<script src="js/dialog.js" defer></script>
+<script src="js/quote-sheet.js" defer></script>
+<script src="js/film.js" defer></script>
+<script src="js/dial.js" defer></script>
 </body>
 </html>

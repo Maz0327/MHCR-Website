@@ -1,31 +1,99 @@
 {
-  "_readme": "Site-wide facts. Edit here, then run: python3 _build/build.py. Lists marked A-Z are checked by the build. form.endpoint empty = the quote sheet falls back to call/text (never a 405). email stays empty until Omar confirms a working inbox (the live site shows info@milehighcustomremodels.com, but that domain's DNS is not live yet).",
+  "_readme": "Site-wide facts. Edit here, then run: python3 _build/build.py. Lists marked A-Z are checked by the build. form.endpoint empty = the quote sheet falls back to call/text (never a 405). email stays empty until Omar confirms a working inbox (the live site shows info@milehighcustomremodels.com, but that domain's DNS is not live yet). phone.texts = also offer \"Text\" (off: the copy deck has Call only until Omar confirms the number takes texts). home_jobs = the homepage 2x2 (Bathroom 1 stands in for Kitchen 1 while K1 is unpublished).",
   "name": "Mile High Custom Remodels",
-  "phone": { "display": "(720) 492-4326", "tel": "+17204924326" },
+  "phone": {
+    "display": "(720) 492-4326",
+    "tel": "+17204924326",
+    "texts": false
+  },
   "email": "",
   "cities": [
-    { "name": "Arvada", "href": "locations/arvada.html" },
-    { "name": "Aurora", "href": "locations/aurora.html" },
-    { "name": "Centennial", "href": "locations/centennial.html" },
-    { "name": "Denver", "href": "locations/denver.html" },
-    { "name": "Golden", "href": "locations/golden.html" },
-    { "name": "Highlands Ranch", "href": "locations/highlands-ranch.html" },
-    { "name": "Lakewood", "href": "locations/lakewood.html" },
-    { "name": "Littleton", "href": "locations/littleton.html" },
-    { "name": "Parker", "href": "locations/parker.html" },
-    { "name": "Thornton", "href": "locations/thornton.html" },
-    { "name": "Westminster", "href": "locations/westminster.html" }
+    {
+      "name": "Arvada",
+      "href": "locations/arvada.html"
+    },
+    {
+      "name": "Aurora",
+      "href": "locations/aurora.html"
+    },
+    {
+      "name": "Centennial",
+      "href": "locations/centennial.html"
+    },
+    {
+      "name": "Denver",
+      "href": "locations/denver.html"
+    },
+    {
+      "name": "Golden",
+      "href": "locations/golden.html"
+    },
+    {
+      "name": "Highlands Ranch",
+      "href": "locations/highlands-ranch.html"
+    },
+    {
+      "name": "Lakewood",
+      "href": "locations/lakewood.html"
+    },
+    {
+      "name": "Littleton",
+      "href": "locations/littleton.html"
+    },
+    {
+      "name": "Parker",
+      "href": "locations/parker.html"
+    },
+    {
+      "name": "Thornton",
+      "href": "locations/thornton.html"
+    },
+    {
+      "name": "Westminster",
+      "href": "locations/westminster.html"
+    }
   ],
   "nav": [
-    { "label": "About", "href": "about.html" },
-    { "label": "Contact", "href": "contact.html" },
-    { "label": "FAQ", "href": "faq.html" },
-    { "label": "Our jobs", "href": "gallery.html" },
-    { "label": "Service areas", "href": "service-areas.html" },
-    { "label": "Services", "href": "services.html" }
+    {
+      "label": "About",
+      "href": "about.html"
+    },
+    {
+      "label": "Contact",
+      "href": "contact.html"
+    },
+    {
+      "label": "FAQ",
+      "href": "faq.html"
+    },
+    {
+      "label": "Our jobs",
+      "href": "gallery.html"
+    },
+    {
+      "label": "Service areas",
+      "href": "service-areas.html"
+    },
+    {
+      "label": "Services",
+      "href": "services.html"
+    }
   ],
-  "form": { "endpoint": "" },
-  "flags": { "home_film": true },
-  "home_jobs": ["kitchen-1", "bathroom-2", "fireplace-2", "wall-1"],
-  "dial": { "default_stop": 5, "keep_turned": true, "sweep_on_view": true }
+  "form": {
+    "endpoint": ""
+  },
+  "flags": {
+    "home_film": true
+  },
+  "home_jobs": [
+    "bathroom-1",
+    "bathroom-2",
+    "fireplace-2",
+    "wall-1"
+  ],
+  "dial": {
+    "default_stop": 5,
+    "keep_turned": true,
+    "sweep_on_view": true
+  }
 }

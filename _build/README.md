@@ -10,11 +10,13 @@ GitHub Pages runs Jekyll, so this `_`-prefixed folder is never published. Python
 | `python3 -m unittest discover -s _build/test` | Build-system tests. |
 | `python3 _build/tools/make_scrub_inventory.py` | Rewrite `scrub-inventory.tsv` (every claims hit in the live pages + `llms*.txt`). |
 | `_build/qa/qa_all.sh index.html [pages...]` | Claims grep, picture check, browser QA, breathing-room QA. |
+| `python3 -I _build/qa/shots_home_vs_comps.py` | Homepage vs approved comps, side by side (`~/Documents/Projects/MHCR-Redesign/build-qa/`). |
 | `/usr/local/bin/python3 _build/tools/import_job_images.py` | Re-import job photos (needs Pillow; not part of the build). |
 
 - `data/`: `site.json`, `services.json`, `jobs.json`, `film.json`, `banned-words.txt` (each JSON has a `_readme`).
 - `partials/`: shared HTML (`shell`, `head`, `header`, `footer`, `ask`, `quote-sheet`).
-- `pages/`: one fragment per page; header comments `path` / `title` / `description` / `layout`.
-- `js-src/`: copied to `js/` on build (`dial.js`, `film.js`).
+- `pages/`: one fragment per page; header comments `path` / `title` / `description` / `layout` / `scripts`.
+- CSS is hand-written in `css/site.css` (not generated). Desktop layout and 3:2 photos start at 1024px (the comps).
+- `js-src/`: copied to `js/` on build: `dialog.js` + `quote-sheet.js` (every page), `film.js` + `dial.js` (pages that list them in `<!-- scripts: film dial -->`).
 - Templates: `{{name}}`, `{{& raw}}`, `{{> partial}}`, `{{#each}}`, `{{#if}}/{{else}}`, `{{pic job/frame [eager] [pos=..] [sizes=".."]}}`, `{{json name}}`.
 - Every content `<img>` comes from `{{pic}}` (3:4 phone + 3:2 desktop). Use `data-nopic` only for the logo, icons and film frames.

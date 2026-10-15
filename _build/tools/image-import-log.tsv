@@ -91,12 +91,7 @@ images/jobs/kitchen-1/after-m-800.webp	800	1067	photo-batch/final/kitchen-1/afte
 images/jobs/kitchen-1/after-m-1200.webp	1200	1600	photo-batch/final/kitchen-1/after	unstretched 1/1.105 from master2/wide_k1_after_s.png
 images/jobs/kitchen-1/after-d-1600.webp	1600	1067	photo-batch/final/kitchen-1/after	unstretched 1/1.105 from master2/wide_k1_after_s.png
 images/jobs/kitchen-1/after-d-2400.webp	1853	1235	photo-batch/final/kitchen-1/after	unstretched 1/1.105 from master2/wide_k1_after_s.png
-images/jobs/fireplace-1/film-before-m.webp	1440	2217	mhcr-stone-film/f/before-m.webp	film frame, byte copy
-images/jobs/fireplace-1/film-before-s.webp	1600	908	mhcr-stone-film/f/before-s.webp	film frame, byte copy
-images/jobs/fireplace-1/film-before-l.webp	3200	1815	mhcr-stone-film/f/before-l.webp	film frame, byte copy
 images/jobs/fireplace-1/film-prep-m.webp	1440	2217	mhcr-stone-film/f/prep-m.webp	film frame, byte copy
-images/jobs/fireplace-1/film-prep-s.webp	1600	908	mhcr-stone-film/f/prep-s.webp	film frame, byte copy
-images/jobs/fireplace-1/film-prep-l.webp	3200	1815	mhcr-stone-film/f/prep-l.webp	film frame, byte copy
+images/jobs/fireplace-1/film-prep-d.webp	2400	1600	fp1/keys/prep_4k.png	film card crop x1338-2706 y1184-2096
 images/jobs/fireplace-1/film-final-m.webp	1440	2217	mhcr-stone-film/f/final-m.webp	film frame, byte copy
-images/jobs/fireplace-1/film-final-s.webp	1600	908	mhcr-stone-film/f/final-s.webp	film frame, byte copy
-images/jobs/fireplace-1/film-final-l.webp	3200	1815	mhcr-stone-film/f/final-l.webp	film frame, byte copy
+images/jobs/fireplace-1/film-final-d.webp	2400	1600	fp1/keys/final_4k.png	film card crop x1338-2706 y1184-2096

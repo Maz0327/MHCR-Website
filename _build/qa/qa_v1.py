@@ -325,7 +325,7 @@ def check_banned(browser_pages):
 
 
 def check_images(page, base_url, log):
-    bad = page.evaluate("""() => [...document.images].filter(i => (i.complete && i.naturalWidth === 0) || !i.complete)
+    bad = page.evaluate("""() => [...document.images].filter(i => (i.complete && i.naturalWidth === 0) || (!i.complete && i.loading !== 'lazy'))
         .map(i => (i.complete ? 'broken ' : 'never finished ') + (i.currentSrc || i.src || '(no src)').slice(-90))""")
     srcs = page.evaluate("[...document.scripts].map(s => s.src ? {src: s.src} : {inline: s.textContent})")
     for s in srcs:
@@ -484,7 +484,7 @@ def check_fallback(page):
     r = page.evaluate("""() => { const s = document.getElementById('quote'); if (!s) return null;
       return {forms: document.querySelectorAll('form').length, tel: !!s.querySelector('a[href^="tel:"]'), sms: !!s.querySelector('a[href^="sms:"]')}; }""")
     if r is None: return ["no #quote sheet on this page"], []
-    bad = [m for ok, m in ((r["tel"], "#quote has no tel: link"), (r["sms"], "#quote has no sms: link"),
+    bad = [m for ok, m in ((r["tel"], "#quote has no tel: link"), (r["sms"] or not SITE["phone"].get("texts"), "#quote has no sms: link (site.phone.texts is on)"),
                            (not r["forms"], f"{r['forms']} <form> on the page while form.endpoint is empty (would 405)")) if not ok]
     return bad, ["form.endpoint is empty: checked the call/text fallback instead of a submit"]
 

@@ -8,6 +8,7 @@ Page fragments (_build/pages/**/*.html) start with header comments, then the bod
   <!-- path: services/kitchen-remodeling.html -->     required: where the page is written (existing slugs)
   <!-- title: ... -->  <!-- description: ... -->       optional (title defaults to the <h1> + site name)
   <!-- layout: none -->                               optional: the fragment is a whole document (no shell)
+  <!-- scripts: film dial -->                         optional: page scripts, js/<name>.js (deferred)
 Bodies use the template syntax in build_template_engine.py. Write every URL from the site root without a
 leading slash ("services.html", "images/jobs/..."); the build adds ../ for pages in subfolders.
 Nothing is written unless EVERY page passes: banned claims, duplicate ids, <img> without a mobile + desktop
@@ -32,7 +33,7 @@ import build_site_data as site_data       # noqa: E402
 from build_template_engine import Renderer, TemplateError  # noqa: E402
 
 SITE = os.path.dirname(HERE)
-HEADER = re.compile(r"\s*<!--\s*(path|title|description|layout):\s*(.*?)\s*-->", re.S)
+HEADER = re.compile(r"\s*<!--\s*(path|title|description|layout|scripts):\s*(.*?)\s*-->", re.S)
 SKIP_URL = re.compile(r"^(?:#|[a-z][a-z0-9+.-]*:|//|/|\.\./)", re.I)
 REBASE_ATTRS = r"href|src|poster|action|data-href"
 
@@ -69,10 +70,14 @@ def make_helpers(ctx):
         job, frame = site_data.frame(ctx, ref)
         files = pics.frame_files(SITE, job["slug"], frame["name"])
         alt = kw.pop("alt", frame["alt"])
+        kw.setdefault("pos", frame.get("pos"))
         return pics.picture(files, alt, eager="eager" in flags, **kw)
 
     def as_json(value, scopes=None):
-        return json.dumps(value, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+        """JSON for an inline <script type="application/json">; drops "_readme"-style keys and escapes </."""
+        strip = lambda v: {k: strip(x) for k, x in v.items() if not k.startswith("_")} if isinstance(v, dict) else (
+            [strip(x) for x in v] if isinstance(v, list) else v)
+        return json.dumps(strip(value), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     return {"pic": pic, "json": as_json}
 
 
@@ -97,7 +102,8 @@ def build(pages_dir, out_dir, quiet=False):
     for src, meta, body in metas:
         path, name = meta["path"], os.path.relpath(src, SITE)
         prefix = "../" * path.count("/")
-        page = {"path": path, "root": prefix, "is_home": path == "index.html", "description": meta.get("description", "")}
+        page = {"path": path, "root": prefix, "is_home": path == "index.html", "description": meta.get("description", ""),
+                "scripts": meta.get("scripts", "").split()}
         scopes = [ctx, {"page": page}]
         try:
             content = renderer.render(body, scopes, name)

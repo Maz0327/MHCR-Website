@@ -33,11 +33,11 @@ PROPOSE = {
     "warranty": "delete (no warranty claim)",
     "guarantee": "delete (no guarantee claim)",
     "24/7": f'replace: "Call {PHONE}" (no hours claim)',
-    "free estimate": 'replace: "Free consultation" (client OK) or "Get a quote"',
+    "free estimate": 'replace: "Get a free quote" (main button) or "Free consultation" (process step)',
     "storm/hail (until the owner confirms storm work)": 'delete; emergency line = "Leaks, water damage and small fixes"',
     "fabricated address": "delete (no street address until Omar gives one)",
     "N+ count (500+ projects, 15+ years)": "delete (unverified count)",
-    "free (other)": 'keep only as "Free consultation"; otherwise delete or confirm with owner',
+    "free (other)": 'keep only as "Get a free quote" / "Free consultation" / "We don\'t charge to come look at a job"; otherwise delete',
 }
 
 

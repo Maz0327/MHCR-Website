@@ -1,0 +1,81 @@
+<!-- path: index.html -->
+<!-- title: Denver Home Repairs and Remodels | Mile High Custom Remodels -->
+<!-- description: We repair and remodel homes around Denver: kitchens, bathrooms, basements, drywall, electrical, plumbing and HVAC. Free quote: (720) 492-4326. -->
+<!-- scripts: film dial -->
+<main id="main">
+{{#if site.flags.home_film}}
+  <!-- 1. THE FILM (opener): opens on the finished wall + headline; on scroll the stone goes up course by course,
+       then the finished wall hands off to the Dial (the Dial slides up over the film's last screen). -->
+  <section class="film" id="film" aria-label="Stacked stone fireplace, built course by course">
+    <div class="film__stage">
+      <picture class="film__still"><source media="(min-aspect-ratio: 9/10)" srcset="images/jobs/fireplace-1/film-final-d.webp 2400w" sizes="100vw" width="2400" height="1600"><img src="images/jobs/fireplace-1/film-final-m.webp" srcset="images/jobs/fireplace-1/film-final-m.webp 1440w" sizes="100vw" width="1440" height="2217" alt="Floor-to-ceiling charcoal stacked stone fireplace wall with the gas fire lit" fetchpriority="high"></picture>
+      <canvas class="film__canvas" id="filmCanvas" aria-hidden="true"></canvas>
+      {{#each film.frames}}<img data-film-frame="{{name}}" data-film-set="{{set}}" src="{{src}}" alt="" loading="lazy" hidden data-nopic>{{/each}}
+      <div class="film__shade" aria-hidden="true"></div>
+      <div class="film__copy"><h1 class="h1">We repair and remodel homes around Denver.</h1></div>
+      <p class="film__job">Stacked stone fireplace</p>
+      <div class="film__cue" id="filmCue" aria-hidden="true"><span></span>Scroll</div>
+      <div class="film__bar" id="filmBar" aria-hidden="true"><i></i></div>
+    </div>
+    <script type="application/json" id="film-data">{{json film}}</script>
+  </section>
+{{/if}}
+
+  <!-- 2. THE DIAL (100svh): small job to big job. Stops are pre-rendered <template>s (js/dial.js clones them). -->
+  <section class="frame is-turned{{#if site.flags.home_film}} is-intro is-clear{{/if}}" id="frame" aria-label="Our work, from small jobs to big jobs" data-default-stop="{{site.dial.default_stop}}"{{#if site.dial.keep_turned}} data-keep-turned{{/if}}{{#if site.dial.sweep_on_view}} data-sweep-on-view{{/if}}>
+    <div class="frame__stage" id="stage" aria-live="polite"></div>
+    <div class="frame__shade" aria-hidden="true"></div>
+{{#unless site.flags.home_film}}    <div class="frame__copy"><h1 class="h1">We repair and remodel homes around Denver.</h1></div>
+{{/unless}}    <a class="frame__job" id="jobLink" hidden>
+      <span class="frame__jobname" id="jobName"></span>
+      <span class="frame__see">See the job <i aria-hidden="true">&rarr;</i></span>
+    </a>
+    <div class="dial" id="dial">
+      <p class="dial__note">No job too big or too small.</p>
+      <svg class="dial__svg" id="dialSvg" viewBox="0 0 390 100" aria-hidden="true"></svg>
+      <div class="dial__row">
+        <button class="dial__step" id="prev" type="button" aria-label="Smaller job"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <div class="dial__label" id="dialLabel" role="slider" tabindex="0" aria-label="Service" aria-valuemin="1"></div>
+        <button class="dial__step" id="next" type="button" aria-label="Bigger job"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <ol class="dial__list">
+{{#each dial}}      <li><a href="{{path}}"><b>{{label}}</b> <span>{{line}}</span></a></li>
+{{/each}}    </ol>
+{{#each dial}}    <template data-dial-stop data-kind="{{kind}}" data-label="{{label}}" data-job="{{job}}" data-href="{{href}}">{{#if photo}}{{pic photo pos=pos}}{{else}}{{#if urgent}}<p class="word__kicker">{{line}}</p><p class="word__big">If it can't wait, call us.</p><a class="btn btn--call" href="tel:{{site.phone.tel}}">Call {{site.phone.display}}</a>{{else}}<p class="word__kicker">{{nn}} / {{total}}</p><p class="word__big">{{line}}</p>{{#if links}}<p class="word__links">{{#each links}}<a class="word__link" href="{{path}}">{{name}} <i aria-hidden="true">&rarr;</i></a>{{/each}}</p>{{else}}<a class="word__link" href="#quote">Get a free quote <i aria-hidden="true">&rarr;</i></a>{{/if}}{{/if}}{{/if}}</template>
+{{/each}}  </section>
+
+  <!-- 3. OUR JOBS: full-bleed 2x2 of finished work (approved comp dial-v2-screen-5b) -->
+  <section class="sec jobs is-bleed" id="jobs" aria-labelledby="jobsTitle">
+    <div class="sec__head"><h2 class="h2" id="jobsTitle">Our jobs</h2></div>
+    <ul class="grid">
+{{#each home_jobs}}      <li><a href="{{href}}">{{pic after sizes="50vw"}}<span>{{title}}</span></a></li>
+{{/each}}    </ul>
+  </section>
+
+  <!-- 4. OUR PROCESS: 4 steps + photos from jobs while the work was underway -->
+  <section class="sec proc" id="process" aria-labelledby="procTitle">
+    <div class="sec__head"><h2 class="h2" id="procTitle">Our process</h2></div>
+    <ol class="steps">
+      <li><span>01</span><p>Free consultation<small>We'll call you back within 24 hours and talk through the job.</small></p></li>
+      <li><span>02</span><p>Written quote<small>You'll get a written quote 24–48 hours after that call.</small></p></li>
+      <li><span>03</span><p>The build<small>We custom build every phase of the job, piece by piece.</small></p></li>
+      <li><span>04</span><p>Final walkthrough<small>We walk through the finished work with you before we call it done.</small></p></li>
+    </ol>
+    <a class="link-arrow proc__cta" href="#quote">Get a free quote <i aria-hidden="true">&rarr;</i></a>
+    <div class="rail" tabindex="0" role="region" aria-label="Photos from our jobs while the work was underway">
+      <figure>{{pic bathroom-1/process-2 sizes="(min-width:1024px) 30vw, 316px"}}<figcaption>{{job.bathroom-1.title}}</figcaption></figure>
+      <figure>{{pic wall-1/process-1 sizes="(min-width:1024px) 30vw, 316px"}}<figcaption>{{job.wall-1.title}}</figcaption></figure>
+      <figure>{{pic fireplace-2/process-1 sizes="(min-width:1024px) 30vw, 316px"}}<figcaption>{{job.fireplace-2.title}}</figcaption></figure>
+      <figure>{{pic bathroom-1/process-1 sizes="(min-width:1024px) 30vw, 316px"}}<figcaption>{{job.bathroom-1.title}}</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- 5. THE ASK -->
+  <section class="sec ask" id="ask" aria-labelledby="askTitle">
+    <figure class="ask__photo">{{pic bathroom-1/after sizes="(min-width:1024px) 50vw, 100vw"}}<figcaption>{{job.bathroom-1.title}}</figcaption></figure>
+    <div class="ask__body">
+{{> ask-body}}
+    </div>
+  </section>
+</main>

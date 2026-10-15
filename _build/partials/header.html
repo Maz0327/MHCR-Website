@@ -1,5 +1,30 @@
-<!-- STUB (Phase 01): Phase 03 replaces this with the approved comp header. -->
-<header class="hdr">
-  <a class="hdr__brand" href="index.html">{{site.name}}</a>
-  <a class="hdr__call" href="tel:{{site.phone.tel}}">Call {{site.phone.display}}</a>
+<header class="hdr" aria-label="Site header">
+  <a class="hdr__brand" href="index.html" aria-label="{{site.name}}, home">
+    <img src="images/brand/mhcr-logo-mark-orange.png" alt="" width="46" height="23" data-nopic>
+    <span class="hdr__word"><b>Mile High</b><span>Custom Remodels</span></span>
+  </a>
+  <nav class="hdr__nav" aria-label="Main">
+{{#each site.nav}}    <a href="{{href}}">{{label}}</a>
+{{/each}}  </nav>
+  <button class="hdr__menu" type="button" aria-controls="menu" aria-expanded="false">Menu</button>
+  <a class="hdr__call" href="tel:{{site.phone.tel}}" aria-label="Call {{site.phone.display}}">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+    Call<span class="hdr__num">&nbsp;{{site.phone.display}}</span>
+  </a>
 </header>
+<dialog class="menu" id="menu" aria-label="Menu">
+  <div class="menu__top">
+    <a class="hdr__brand" href="index.html" aria-label="{{site.name}}, home"><img src="images/brand/mhcr-logo-mark-orange.png" alt="" width="46" height="23" data-nopic><span class="hdr__word"><b>Mile High</b><span>Custom Remodels</span></span></a>
+    <button class="menu__close" type="button" data-close>Close</button>
+  </div>
+  <nav aria-label="Menu">
+    <ul class="menu__main">
+{{#each site.nav}}      <li><a href="{{href}}">{{label}}</a></li>
+{{/each}}    </ul>
+    <p class="menu__label">Services</p>
+    <ul class="menu__svc">
+{{#each services}}      <li><a href="{{path}}">{{name}}</a></li>
+{{/each}}    </ul>
+  </nav>
+  <a class="btn" href="tel:{{site.phone.tel}}">Call {{site.phone.display}}</a>
+</dialog>

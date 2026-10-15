@@ -4,7 +4,11 @@
      <template data-dial-stop data-kind="photo|word|urgent" data-label="Bathroom"
                data-job="Tiled walk-in shower" data-href="jobs/....html"> ...frame content... </template>
    Page hooks: #frame (data-default-stop, data-keep-turned, data-sweep-on-view), #stage, #jobLink, #jobName,
-   #dial, #dialSvg (viewBox 0 0 390 100), #dialLabel (role=slider), #prev, #next. */
+   #dial, #dialSvg (viewBox 0 0 390 100), #dialLabel (role=slider), #prev, #next.
+   Hand-off from the film: #frame starts with .is-intro (dial lowered, no row/caption) and .is-clear (see-through, so
+   the film's last frame shows behind it). On view, 01 opens as an iris over the film and the sweep runs to the default.
+   Input: drag, the arrows, a tap on a number, arrow/Home/End keys, a sideways trackpad swipe (one stop per swipe).
+   The vertical wheel always scrolls the page. */
 (function () {
   const $ = (id) => document.getElementById(id);
   const frame = $("frame"), stage = $("stage"), svg = $("dialSvg");
@@ -65,7 +69,11 @@
   function caption(i) {
     const s = STOPS[i], link = $("jobLink"), photo = s.kind === "photo";
     link.hidden = !photo;
-    if (photo) { $("jobName").textContent = s.job; link.href = s.href || "#jobs"; }
+    if (photo) {                                          // no job page yet (unpublished job): name only, no "See the job"
+      $("jobName").textContent = s.job;
+      if (s.href) link.href = s.href; else link.removeAttribute("href");
+      link.classList.toggle("is-nolink", !s.href);
+    }
     frame.classList.toggle("is-word", !photo);
   }
   let capT;
@@ -74,6 +82,7 @@
     capT = setTimeout(() => { caption(i); $("jobLink").classList.remove("is-out"); }, wait);
   }
 
+  const settle = () => frame.classList.remove("is-clear"); // solid frame once a layer covers the film
   /* Go to a stop: the new frame opens as an iris from the pointer (a cut, not a slide). */
   function go(i, animate = true) {
     i = Math.max(0, Math.min(N - 1, i));
@@ -88,9 +97,9 @@
         top.style.transition = "clip-path .62s cubic-bezier(.7,0,.2,1)";
         top.style.clipPath = `circle(${c.r}px at ${c.x}px ${c.y}px)`;
       }));
-      setTimeout(() => { while (stage.children.length > 1 && stage.firstChild !== top) stage.firstChild.remove(); top.style.clipPath = ""; }, 700);
+      setTimeout(() => { while (stage.children.length > 1 && stage.firstChild !== top) stage.firstChild.remove(); top.style.clipPath = ""; settle(); }, 700);
       swapCaption(i, 300);
-    } else { stage.replaceChildren(top); caption(i); }
+    } else { stage.replaceChildren(top); caption(i); settle(); }
     tween(from, i); label(i);
     if (i !== from) frame.classList.add("is-turned");
   }
@@ -113,27 +122,52 @@
     if (step) { go(cur + step); e.preventDefault(); }
   });
   let drag = null;
-  svg.addEventListener("pointerdown", (e) => { drag = { x: e.clientX, r: rotNow, k: svg.getBoundingClientRect().width / 390 }; svg.setPointerCapture(e.pointerId); });
+  const toSvg = (x) => (x - svg.getBoundingClientRect().left) / (svg.getBoundingClientRect().width / 390);
+  svg.addEventListener("pointerdown", (e) => { drag = { x: e.clientX, r: rotNow, k: svg.getBoundingClientRect().width / 390, moved: false }; svg.setPointerCapture(e.pointerId); });
   svg.addEventListener("pointermove", (e) => {
     if (!drag) return;
+    if (Math.abs(e.clientX - drag.x) > 4) drag.moved = true;
+    if (!drag.moved) return;
     tw++; // stop any running tween
     rotNow = Math.max(-0.4, Math.min(N - 0.6, drag.r - (e.clientX - drag.x) / drag.k / (R * STEP * Math.PI / 180)));
     drawDial(rotNow);
   });
-  const release = () => { if (!drag) return; drag = null; const t = Math.round(rotNow); if (t !== cur) go(t); else tween(rotNow, cur); };
+  const release = (e) => {
+    if (!drag) return;
+    const d = drag; drag = null;
+    if (!d.moved && e && e.type === "pointerup") {           // a tap: go to the number under the finger
+      const a = Math.asin(Math.max(-1, Math.min(1, (toSvg(e.clientX) - CX) / R)));
+      return go(Math.round(rotNow + a / (STEP * Math.PI / 180)));
+    }
+    const t = Math.round(rotNow); if (t !== cur) go(t); else tween(rotNow, cur);
+  };
   svg.addEventListener("pointerup", release);
   svg.addEventListener("pointercancel", release);
+  let wheelLock = 0;                                          // sideways trackpad swipe = one stop per gesture
+  frame.addEventListener("wheel", (e) => {
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) || Math.abs(e.deltaX) < 8) return;
+    e.preventDefault();
+    const now = performance.now(), fresh = now - wheelLock > 450;
+    wheelLock = now;
+    if (fresh) go(cur + (e.deltaX > 0 ? 1 : -1));
+  }, { passive: false });
 
-  /* First paint on the default stop; once the dial is on screen, one sweep 01 -> default teaches it. */
-  stage.replaceChildren(layer(cur)); label(cur); caption(cur); drawDial(cur);
+  /* First paint. With the film hand-off the stage stays empty (the film shows through) until the sweep. */
+  const intro = frame.classList.contains("is-intro");
+  if (intro) { label(cur); caption(cur); $("jobLink").hidden = true; rotNow = 0; drawDial(0); }
+  else { stage.replaceChildren(layer(cur)); label(cur); caption(cur); drawDial(cur); settle(); }
   function sweep() {
-    if (reduce() || DEF < 2) return;
-    cur = 0; stage.replaceChildren(layer(0)); label(0); caption(0); rotNow = 0; drawDial(0);
-    let k = 1;
-    const iv = setInterval(() => {
+    frame.classList.remove("is-intro");
+    if (reduce() || DEF < 2) { cur = -1; return go(DEF - 1, false); }
+    let k = 0;
+    if (!intro) { cur = 0; stage.replaceChildren(layer(0)); label(0); caption(0); rotNow = 0; drawDial(0); k = 1; }
+    else { cur = 0; stage.replaceChildren(); }
+    const step = () => {
       go(k++);
-      if (k >= DEF) { clearInterval(iv); if (!KEEP_TURNED) frame.classList.remove("is-turned"); }
-    }, 520);
+      if (k < DEF) setTimeout(step, 520);
+      else if (!KEEP_TURNED) setTimeout(() => frame.classList.remove("is-turned"), 520);
+    };
+    step();
   }
   if (SWEEP_ON_VIEW && "IntersectionObserver" in window) {
     const io = new IntersectionObserver((e) => { if (e[0].isIntersecting) { io.disconnect(); sweep(); } }, { threshold: 0.6 });

@@ -43,7 +43,8 @@ class BuildRun(unittest.TestCase):
         self.assertEqual(rc, 0, err)
         home = build.read(os.path.join(self.out, "stub-home.html"))
         sub = build.read(os.path.join(self.out, "services/stub-sub.html"))
-        self.assertIn('<source media="(min-width:900px)"', home)
+        self.assertIn(f'<source media="{pics.BREAKPOINT}"', home)
+        self.assertNotIn('_readme', home)
         self.assertEqual(home.count("<template data-dial-stop"), 9)
         self.assertIn('src="../images/jobs/wall-1/before-m-800.webp"', sub)       # rebased for the subfolder
         self.assertIn('href="../stub-home.html#jobs"', sub)
@@ -83,7 +84,7 @@ class BuildRun(unittest.TestCase):
         self.page("{{pic fireplace-1/process-2}}")
         self.assertIn("on hold", self.run_build()[1])
         self.page("{{pic bathroom-3/after}}")
-        self.assertIn("not published", self.run_build()[1])
+        self.assertIn("photos:false", self.run_build()[1])
 
     def test_root_absolute_url_and_bad_anchor_fail(self):
         self.page('<a href="/about.html">About</a><a href="#nowhere">x</a>')

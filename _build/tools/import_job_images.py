@@ -3,20 +3,22 @@
 NOT part of build.py (that one is stdlib only). This one-off needs Pillow for the unstretch step:
     /usr/local/bin/python3 _build/tools/import_job_images.py            # writes images/jobs/** + tools/image-import-log.tsv
 
-What it does, per shown frame of every PUBLISHED job in data/jobs.json:
+What it does, per shown frame of every job whose photos may be shown (photos != false) in data/jobs.json:
   <frame>-m-800 / -m-1200 (3:4)  byte copies of the approved mobile finals (<frame>-800.webp / <frame>.webp)
   <frame>-d-1600 / -d-2400 (3:2) byte copies of the approved desktop wides (-wide-1600 / -wide), EXCEPT the
                                  older wides in UNSTRETCH: re-made from their 2048px masters, squeezed sideways by
                                  1/aspect (aspect measured by NCC against the mobile), trimmed back to 3:2.
 Slots are never upscaled past the master, so a slot's real width can be under its name (build reads real sizes).
-Also copies the stone film frames (before/prep/final x m/s/l) to images/jobs/fireplace-1/film-<frame>-<set>.webp.
+Film frames (images/jobs/fireplace-1/film-<frame>-<set>.webp, prep + final): m = byte copies of the phone film frames;
+d = the cleaned 3:2 card crop of the 4K keys (x 1338-2706, y 1184-2096: no bar shelves or bottles), 2400x1600 +
+light unsharp, the same recipe as the approved film card (fireplace-1/after-d-2400).
 Never touches: Kitchen 1 IMG_9626-9630 / IMG_0029, Bathroom 3 IMG_9638-9640 (MLS); none are in the sources below.
 """
 import json
 import os
 import shutil
 
-from PIL import Image
+from PIL import Image, ImageFilter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(os.path.dirname(HERE))
@@ -24,6 +26,8 @@ ARCHIVE = "/Users/maz/Documents/Projects/MHCR-Redesign/2026-10-14-session/scratc
 FINAL = f"{ARCHIVE}/photo-batch/final"
 MASTER2 = f"{ARCHIVE}/photo-batch/master2"
 FILM = f"{ARCHIVE}/mhcr-stone-film/f"
+KEYS = f"{ARCHIVE}/fp1/keys"
+CARD_BOX = (1338, 1184, 2706, 2096)
 
 # Older wides that were still stretched: (master file, measured aspect vs the mobile, NCC confidence).
 # Measured 2026-10-15 with a two-stage NCC fit (coarse grid as wide2/tools/measure_stretch.py, then 0.005 steps).
@@ -63,7 +67,7 @@ def main():
     with open(os.path.join(SITE, "_build/data/jobs.json"), encoding="utf-8") as f:
         jobs = json.load(f)["jobs"]
     log = [("file", "width", "height", "source", "note")]
-    for job in (j for j in jobs if j.get("publish")):
+    for job in (j for j in jobs if j.get("photos", True)):
         out_dir = os.path.join(SITE, "images/jobs", job["slug"])
         os.makedirs(out_dir, exist_ok=True)
         for fr in (f for f in job["frames"] if not f.get("hold")):
@@ -88,12 +92,14 @@ def main():
                 w, h = Image.open(p).size
                 log.append((os.path.relpath(p, SITE), str(w), str(h), os.path.relpath(base, ARCHIVE), note))
     film_dir = os.path.join(SITE, "images/jobs/fireplace-1")
-    for name in ("before", "prep", "final"):
-        for s in ("m", "s", "l"):
-            dst = f"{film_dir}/film-{name}-{s}.webp"
-            shutil.copyfile(f"{FILM}/{name}-{s}.webp", dst)
-            w, h = Image.open(dst).size
-            log.append((os.path.relpath(dst, SITE), str(w), str(h), f"mhcr-stone-film/f/{name}-{s}.webp", "film frame, byte copy"))
+    for name in ("prep", "final"):
+        dst = f"{film_dir}/film-{name}-m.webp"
+        shutil.copyfile(f"{FILM}/{name}-m.webp", dst)
+        log.append((os.path.relpath(dst, SITE), *map(str, Image.open(dst).size), f"mhcr-stone-film/f/{name}-m.webp", "film frame, byte copy"))
+        dst = f"{film_dir}/film-{name}-d.webp"
+        im = Image.open(f"{KEYS}/{name}_4k.png").convert("RGB").crop(CARD_BOX).resize((2400, 1600), Image.LANCZOS)
+        save_webp(im.filter(ImageFilter.UnsharpMask(radius=1.2, percent=35, threshold=2)), dst, 82)
+        log.append((os.path.relpath(dst, SITE), "2400", "1600", f"fp1/keys/{name}_4k.png", "film card crop x1338-2706 y1184-2096"))
     with open(os.path.join(HERE, "image-import-log.tsv"), "w", encoding="utf-8") as f:
         f.write("\n".join("\t".join(r) for r in log) + "\n")
     print(f"{len(log) - 1} files written; log: _build/tools/image-import-log.tsv")

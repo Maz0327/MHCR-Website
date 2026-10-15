@@ -128,7 +128,8 @@ def load(data_dir):
     home_jobs = [by_slug[s] for s in site.get("home_jobs", [])]
     job_groups = [dict(x, jobs=sorted(x["jobs"], key=lambda j: j["title"])) for x in out_services if x["jobs"]]  # gallery, A-Z
     extra = {n[:-5]: _load(data_dir, n) for n in ("faq.json",) if os.path.exists(os.path.join(data_dir, n))}
-    return dict({"site": site, "services": out_services, "jobs": jobs, "job": by_slug, "dial": dial, "film": film,
+    site_path = re.sub(r"^https://[^/]+", "", site["site_url"])          # "/MHCR-Website" (or "" at a domain root)
+    return dict({"site_path": site_path, "site": site, "services": out_services, "jobs": jobs, "job": by_slug, "dial": dial, "film": film,
                  "home_jobs": home_jobs, "job_groups": job_groups}, **extra)
 
 

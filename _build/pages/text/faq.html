@@ -1,0 +1,13 @@
+<!-- path: faq.html -->
+<!-- title: Remodeling and Repair FAQ | Mile High Custom Remodels -->
+<!-- description: Answers about quotes, the work we do, where we work and what to do when something can't wait. Mile High Custom Remodels, Denver area. -->
+<main id="main" class="page">
+  <section class="page-head"><p class="crumb">FAQ</p><h1 class="h1">Questions and answers</h1>
+    <p class="lede">If your question isn't here, call us at (720) 492-4326.</p></section>
+  <article class="read">
+{{#each faq.groups}}    <h2>{{title}}</h2>
+{{#each items}}    <details class="qa"><summary>{{q}}</summary><div>{{& a}}</div></details>
+{{/each}}{{/each}}  </article>
+{{> ask}}
+</main>
+{{ld "faq"}}

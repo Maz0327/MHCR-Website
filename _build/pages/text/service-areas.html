@@ -1,0 +1,15 @@
+<!-- path: service-areas.html -->
+<!-- title: Service Areas: Denver Metro | Mile High Custom Remodels -->
+<!-- description: We work in Arvada, Aurora, Centennial, Denver, Golden, Highlands Ranch, Lakewood, Littleton, Parker, Thornton and Westminster. Call (720) 492-4326. -->
+<main id="main" class="page">
+  <section class="page-head"><p class="crumb">Service areas</p><h1 class="h1">Where we work</h1>
+    <p class="lede">We take repair and remodeling jobs in these 11 cities around Denver.</p></section>
+  <article class="read">
+    <ul class="links">
+{{#each site.cities}}      <li><a href="{{href}}">{{name}}</a></li>
+{{/each}}    </ul>
+    <p>If you're near one of these and not sure, call and ask: (720) 492-4326.</p>
+    <p><a href="services.html">See all services.</a></p>
+  </article>
+{{> ask}}
+</main>

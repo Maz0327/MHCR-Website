@@ -1,4 +1,7 @@
 <meta charset="utf-8">
+{{#if page.is_404}}<script>/* 404 is served at any missing path: point relative links at the site root */
+document.write('<base href="' + (location.pathname.indexOf("{{site_path}}/") === 0 ? "{{site_path}}/" : "/") + '">');</script>
+{{/if}}
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 {{#if page.robots}}<meta name="robots" content="{{page.robots}}">
 {{/if}}

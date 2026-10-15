@@ -1,0 +1,17 @@
+<!-- each: site.cities as city -->
+<!-- path: {{city.href}} -->
+<!-- title: Home Remodeling in {{city.name}}, CO | Mile High Custom Remodels -->
+<!-- description: {{city.meta_description}} -->
+<!-- robots: noindex, follow -->
+<main id="main" class="page">
+  <section class="page-head"><p class="crumb"><a href="service-areas.html">Service areas</a><i>/</i>{{city.name}}</p><h1 class="h1">Home repairs and remodels in {{city.name}}</h1>
+    <p class="lede">{{city.intro}}</p></section>
+  <article class="read">
+    <h2>What we do</h2>
+    <ul class="links">
+{{#each services}}      <li><a href="{{path}}">{{name}}</a></li>
+{{/each}}    </ul>
+    <p>{{city.nearby}}</p>
+  </article>
+{{> ask}}
+</main>

@@ -148,7 +148,7 @@ def build(pages_dir, out_dir, quiet=False):
         page = {"path": path, "root": prefix, "is_home": path == "index.html", "description": meta.get("description", ""),
                 "url": f"{ctx['site']['site_url']}/{public}",
                 "scripts": meta.get("scripts", "").split(), "robots": meta.get("robots", ""),
-                "sheet_inline": meta.get("sheet") == "inline"}
+                "sheet_inline": meta.get("sheet") == "inline", "is_404": path == "404.html"}
         scopes = [ctx, {"page": page}, extra]
         try:
             content = renderer.render(body, scopes, name)

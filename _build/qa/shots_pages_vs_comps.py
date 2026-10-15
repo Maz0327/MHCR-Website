@@ -29,6 +29,9 @@ SETS = {
     "text": ("terms.html", "text-pages",
              [C / f"tpl2-terms-phone-{i}.png" for i in (1, 2)], [TOP, BOTTOM], [], [TOP, BOTTOM]),
 }
+# Pages with no comp of their own (text-page system): top of each page, build only.
+TEXT_MORE = ["about.html", "contact.html", "faq.html", "service-areas.html", "locations/denver.html",
+             "blog/index.html", "blog/bathroom-remodel-timeline.html", "gallery.html", "404.html"]
 BUILD = """p => { const b = document.getElementById('build'); const top = b.getBoundingClientRect().top + scrollY;
   window.scrollTo({top: top + p * (b.offsetHeight - innerHeight), behavior: 'instant'}); }"""
 
@@ -57,6 +60,20 @@ def shoot_set(browser, base, key):
     else: H.sheet(browser, shots["1440"], shots["1440"], False, 720, 450, f"{name} 1440 (build; no desktop comp: text-page system)", f"{out}-1440")
 
 
+def shoot_text_more(browser, base):
+    shots = {}
+    for tag, vp in (("390", dict(viewport={"width": 390, "height": 844}, device_scale_factor=3, is_mobile=True, has_touch=True)),
+                    ("1440", dict(viewport={"width": 1440, "height": 900}, device_scale_factor=1))):
+        shots[tag] = []
+        for path in TEXT_MORE:
+            ctx = browser.new_context(**vp); page = ctx.new_page(); page.goto(f"{base}/{path}"); H.settle(page)
+            shots[tag].append(H.shoot(page, f"text-more-{tag}-{path.replace('/', '_')[:-5]}", 600)); ctx.close()
+    H.sheet(browser, shots["390"], shots["390"], True, 390, 844, "Text-page system 390 (build): " + " · ".join(TEXT_MORE), "text-pages-more-390")
+    half = len(shots["1440"]) // 2 + 1
+    H.sheet(browser, shots["1440"][:half], shots["1440"][half:] + [shots["1440"][-1]] * (2 * half - len(shots["1440"])), False, 720, 450,
+            "Text-page system 1440 (build): " + " · ".join(TEXT_MORE), "text-pages-more-1440")
+
+
 if __name__ == "__main__":
     keys = [a for a in sys.argv[1:] if a in SETS]
     rest = [a for a in sys.argv[1:] if a not in SETS]
@@ -67,6 +84,8 @@ if __name__ == "__main__":
         browser = pw.chromium.launch(channel="chrome", headless=True)
         for k in keys or SETS:
             shoot_set(browser, f"http://127.0.0.1:{srv.server_address[1]}", k)
+        if not keys or "text" in keys:
+            shoot_text_more(browser, f"http://127.0.0.1:{srv.server_address[1]}")
         browser.close()
     srv.shutdown()
     print("\n".join(str(p) for p in sorted(H.OUT.glob("*-vs-comp-*.png")) + sorted(H.OUT.glob("text-pages-*.png"))))

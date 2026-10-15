@@ -1,0 +1,77 @@
+{
+ "_readme": "FAQ copy, verbatim from the copy deck §11. `a` is HTML (links written from the site root). The build renders <details> and the FAQPage JSON-LD from the same words.",
+ "groups": [
+  {
+   "title": "Getting a quote",
+   "items": [
+    {
+     "q": "How do I get a quote?",
+     "a": "<p>Call (720) 492-4326, or send a request and we'll call you back within 24 hours. You'll get a written quote 24–48 hours after that call.</p>"
+    },
+    {
+     "q": "Do you charge to come look at a job?",
+     "a": "<p>No. We don't charge to come look at a job, big or small, and the written quote is free too.</p>"
+    },
+    {
+     "q": "How much will my project cost?",
+     "a": "<p>It depends on the size of the job, the materials you pick and what we find once the walls or floors are open. We price every job on its own, so we don't post price lists. You'll have the number in writing before any work starts.</p>"
+    },
+    {
+     "q": "How long will it take?",
+     "a": "<p>It depends on the job. Ask us on the call and we'll tell you what to expect for yours.</p>"
+    }
+   ]
+  },
+  {
+   "title": "The work",
+   "items": [
+    {
+     "q": "What kind of work do you do?",
+     "a": "<p>We take single repairs and full remodels. Our services are:</p><ul><li>Basement</li><li>Bathroom</li><li>Bedroom</li><li>Drywall</li><li>Electrical</li><li>Emergency services</li><li>Full home</li><li>HVAC</li><li>Kitchen</li><li>Living / dining room</li><li>Plumbing</li></ul><p>We also put in hardwood and tile floors. If what you need isn't on the list, call and ask.</p>"
+    },
+    {
+     "q": "Do you take small jobs?",
+     "a": "<p>Yes. Small fixes around the house, like a sticking door or loose trim, are part of <a href=\"emergency-repairs.html\">Emergency services</a>, along with leaks and water damage.</p>"
+    },
+    {
+     "q": "What do you mean by \"custom\"?",
+     "a": "<p>We custom build every phase of the job, piece by piece, and we don't take shortcuts. A shower is a good example. We build the curb, then pour and level the mud pan by hand. We fit the liner and waterproof it. Then we cut and set the tile one piece at a time.</p>"
+    },
+    {
+     "q": "Do you do electrical, plumbing and HVAC work?",
+     "a": "<p>Yes, as a job on its own or as part of a remodel. Each one has its own page: <a href=\"services/electrical.html\">Electrical</a>, <a href=\"services/hvac.html\">HVAC</a> and <a href=\"services/plumbing.html\">Plumbing</a>.</p>"
+    },
+    {
+     "q": "Do you do whole-house remodels?",
+     "a": "<p>Yes. When a job covers several rooms or the whole house, we plan it and build it as one job. See <a href=\"services/whole-home-renovation.html\">Full home</a>.</p>"
+    },
+    {
+     "q": "What's the difference between a bathroom update and a full remodel?",
+     "a": "<p>An update keeps the plumbing where it is and replaces what you see, like the vanity, toilet, faucets and lights, and sometimes the tile. A full remodel takes the room down to the studs and subfloor, so the pipes, wiring and layout can change. Which one makes sense depends on what's behind the walls and what you want from the room.</p>"
+    },
+    {
+     "q": "Can I see your work?",
+     "a": "<p>Yes. Go to <a href=\"gallery.html\">Our jobs</a> for before and after photos of our own work.</p>"
+    }
+   ]
+  },
+  {
+   "title": "Where we work",
+   "items": [
+    {
+     "q": "What areas do you work in?",
+     "a": "<p>Arvada, Aurora, Centennial, Denver, Golden, Highlands Ranch, Lakewood, Littleton, Parker, Thornton and Westminster. If you're near one of these and not sure, call and ask.</p>"
+    }
+   ]
+  },
+  {
+   "title": "When something can't wait",
+   "items": [
+    {
+     "q": "What should I do if something can't wait?",
+     "a": "<p>Call (720) 492-4326 instead of using the form, and tell us what's going on.</p><ul><li>If water is coming in, shut off the main water valve, then call us.</li><li>If you smell gas, get everyone out of the house. Then, from outside, call 911 and Xcel Energy at 1-800-895-2999.</li><li>For smoke or a burning smell, call 911.</li></ul>"
+    }
+   ]
+  }
+ ]
+}

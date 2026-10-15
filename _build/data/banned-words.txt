@@ -27,3 +27,5 @@ free\s+(?:in[- ]home\s+)?(?:estimates?|bids?)   ## free estimate
 check: \bfree\b                          ## free (other)
 
 allow: Free consultation
+# Omar's own story on About (copy deck §7 version a, Maz 10-15): his history, not a tenure badge. Only there.
+allow: Over 18 years ago

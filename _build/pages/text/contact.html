@@ -1,0 +1,19 @@
+<!-- path: contact.html -->
+<!-- title: Contact Us and Get a Free Quote | Mile High Custom Remodels -->
+<!-- description: Tell us what you need done and we'll call you back within 24 hours. No charge to come look at a job. Call (720) 492-4326 or send a request. -->
+<!-- sheet: inline -->
+<main id="main" class="page">
+  <section class="page-head"><p class="crumb">Contact</p><h1 class="h1">Contact us</h1>
+    <p class="lede">Tell us what you need done. We'll call you back within 24 hours, and you'll get a written quote 24–48 hours after that call. We don't charge to come look at a job, big or small.</p></section>
+  <section class="sheet sheet--page" id="quote" aria-labelledby="quoteTitle">
+{{> quote-form}}  </section>
+  <article class="read">
+    <h2>Call us</h2>
+    <p><a class="btn" href="tel:{{site.phone.tel}}">Call {{site.phone.display}}</a></p>
+    <p>If it can't wait, call instead of using the form.</p>
+    <h2>Where we work</h2>
+    <p>{{#each site.cities}}<a href="{{href}}">{{name}}</a>{{#unless @last}}, {{/unless}}{{/each}}</p>
+    <p>If you're near one of these and not sure, call and ask.</p>
+  </article>
+</main>
+{{ld "business"}}

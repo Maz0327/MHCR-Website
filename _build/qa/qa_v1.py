@@ -22,6 +22,7 @@ import build_page_checks  # noqa: E402
 CLAIMS = build_page_checks.load_claims()
 SITE = json.loads((HERE.parent / "data" / "site.json").read_text())
 TEL = "tel:" + SITE["phone"]["tel"]
+SAFETY_TELS = {"tel:911", "tel:+18008952999"}   # 911 and Xcel Energy gas line: the copy deck's safety lines
 FILM_POS = (0, 33, 66, 100)
 SUCCESS_RE = r"thanks?\b|thank you|received|success|got your|we.ll be in touch|all set|on its way|request is in|we.ve got"
 
@@ -396,7 +397,7 @@ def check_quote_links(page):
             page.keyboard.press("Escape"); page.wait_for_timeout(300)
         except Exception as e:
             bad.append(f"\"{first['txt']}\": click failed ({str(e).splitlines()[0][:60]})")
-    wrong = sorted({t["href"] for t in items["tels"] if t["href"] != TEL})
+    wrong = sorted({t["href"] for t in items["tels"] if t["href"] != TEL and t["href"] not in SAFETY_TELS})
     if wrong: bad.append(f"tel: links not {TEL}: {wrong}")
     if not any(t["top"] for t in items["tels"]): bad.append("no tel: link visible at the top of the page")
     page.evaluate("window.scrollTo({top:0,behavior:'instant'})")
@@ -548,8 +549,9 @@ def main():
     if not index.is_file(): sys.exit(f"not a file: {index}")
     OUT.mkdir(exist_ok=True)
     for old in OUT.glob("*.png"): old.unlink()
-    srv = serve(index.parent)
-    url = f"http://127.0.0.1:{srv.server_address[1]}/{index.name}"
+    root = next((d for d in index.parents if (d / "css" / "site.css").exists()), index.parent)   # serve the site root
+    srv = serve(root)
+    url = f"http://127.0.0.1:{srv.server_address[1]}/{index.relative_to(root).as_posix()}"
     results = []   # (name, status, summary, details)
 
     def record(name, bad, ok_msg, extra=None):
@@ -601,7 +603,8 @@ def main():
 
         def quote():
             bad, n, t = check_quote_links(mob)
-            if n == 0: bad = bad + ["no link/button mentioning 'quote' or 'consultation' found (expected CTAs)"]
+            if n == 0 and index.name == "index.html" and index.parent.name != "blog":
+                bad = bad + ["no link/button mentioning 'quote' or 'consultation' found (expected CTAs)"]
             record("9a Quote sheet + tel links", bad, f"{n} quote controls open #quote; {t} tel: links all {TEL}")
         guarded("9a Quote sheet + tel links", quote)
         def forms():

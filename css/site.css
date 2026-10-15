@@ -41,6 +41,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .hdr__word b { color: var(--orange); font-weight: 800; }
 .hdr__word span { color: var(--paper); font-weight: 600; }
 .hdr__word b, .hdr__word span { white-space: nowrap; }
+.hdr__nav, .hdr__num { display: none; }
+.hdr__menu { height: 44px; padding: 0 12px; border-radius: 12px; font: 700 11px/1 var(--m); letter-spacing: .12em; text-transform: uppercase; color: var(--paper); }
+.hdr__call { display: inline-flex; align-items: center; gap: 7px; height: 44px; padding: 0 16px; border-radius: 12px; flex: none;
+  background: var(--orange); color: var(--ink); font: 700 15px/1 var(--f); text-decoration: none; }
+.hdr__call svg { width: 16px; height: 16px; fill: currentColor; }
 @media (max-width: 400px) {                 /* 360-400px phones: keep the wordmark on 2 lines next to Menu + Call */
   .hdr { gap: 4px; padding-left: 10px; }
   .hdr__brand { gap: 7px; }
@@ -48,11 +53,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .hdr__menu { padding: 0 8px; }
   .hdr__call { padding: 0 13px; }
 }
-.hdr__nav, .hdr__num { display: none; }
-.hdr__menu { height: 44px; padding: 0 12px; border-radius: 12px; font: 700 11px/1 var(--m); letter-spacing: .12em; text-transform: uppercase; color: var(--paper); }
-.hdr__call { display: inline-flex; align-items: center; gap: 7px; height: 44px; padding: 0 16px; border-radius: 12px; flex: none;
-  background: var(--orange); color: var(--ink); font: 700 15px/1 var(--f); text-decoration: none; }
-.hdr__call svg { width: 16px; height: 16px; fill: currentColor; }
+@media (max-width: 350px) {                 /* 320px phones: smaller mark + wordmark so nothing overlaps */
+  .hdr__brand img { width: 38px; height: 19px; }
+  .hdr__word { font-size: 10px; letter-spacing: .03em; }
+  .hdr__menu { padding: 0 6px; }
+  .hdr__call { padding: 0 10px; gap: 5px; }
+}
 .menu { width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: 10px 24px 32px; border: 0;
   background: var(--ink); color: var(--paper); overflow-y: auto; }
 .menu::backdrop { background: var(--ink); }

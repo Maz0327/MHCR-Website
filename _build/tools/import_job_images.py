@@ -9,7 +9,8 @@ What it does, per shown frame of every job whose photos may be shown (photos != 
                                  older wides in UNSTRETCH: re-made from their 2048px masters, squeezed sideways by
                                  1/aspect (aspect measured by NCC against the mobile), trimmed back to 3:2.
 Slots are never upscaled past the master, so a slot's real width can be under its name (build reads real sizes).
-Film frames (images/jobs/fireplace-1/film-<frame>-<set>.webp, prep + final): m = byte copies of the phone film frames;
+Film frames (images/jobs/fireplace-1/film-<frame>-<set>.webp, prep + final): m = the phone film frames cut to the
+stone wall's width (x 198-1230 of 1440: the bar shelf with bottles sits right of it and must never show at any width);
 d = the cleaned 3:2 card crop of the 4K keys (x 1338-2706, y 1184-2096: no bar shelves or bottles), 2400x1600 +
 light unsharp, the same recipe as the approved film card (fireplace-1/after-d-2400).
 Never touches: Kitchen 1 IMG_9626-9630 / IMG_0029, Bathroom 3 IMG_9638-9640 (MLS); none are in the sources below.
@@ -109,9 +110,10 @@ def main():
                 log.append((os.path.relpath(p, SITE), str(w), str(h), os.path.relpath(base, ARCHIVE), note))
     film_dir = os.path.join(SITE, "images/jobs/fireplace-1")
     for name in ("prep", "final"):
-        dst = f"{film_dir}/film-{name}-m.webp"
-        shutil.copyfile(f"{FILM}/{name}-m.webp", dst)
-        log.append((os.path.relpath(dst, SITE), *map(str, Image.open(dst).size), f"mhcr-stone-film/f/{name}-m.webp", "film frame, byte copy"))
+        dst = f"{film_dir}/film-{name}-m.webp"                    # phone set: cut to the stone wall's width (x 198-1230)
+        m = Image.open(f"{FILM}/{name}-m.webp").convert("RGB")  # so the bar shelf + bottles at the right can never show
+        save_webp(m.crop((FP1_M_BOX[0], 0, FP1_M_BOX[2], m.height)), dst, 82)
+        log.append((os.path.relpath(dst, SITE), *map(str, Image.open(dst).size), f"mhcr-stone-film/f/{name}-m.webp", "film frame, cut to x198-1230 (no shelf)"))
         dst = f"{film_dir}/film-{name}-d.webp"
         im = Image.open(f"{KEYS}/{name}_4k.png").convert("RGB").crop(CARD_BOX).resize((2400, 1600), Image.LANCZOS)
         save_webp(im.filter(ImageFilter.UnsharpMask(radius=1.2, percent=35, threshold=2)), dst, 82)

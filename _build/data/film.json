@@ -1,5 +1,5 @@
 {
- "_readme": "The stacked stone film (Fireplace 1) that opens the homepage, read by js/film.js. Templates put {{json film}} in <script type=\"application/json\" id=\"film-data\"> and one hidden <img data-film-frame data-film-set data-nopic loading=lazy> per entry of `frames`. Sets: m = phone portrait (1440x2217), d = everything wider than 9:10, the cleaned 3:2 card crop of the 4K keys (x 1338-2706, y 1184-2096 of 4096x2323: no bar shelves or bottles; same crop + upscale as fireplace-1/after-d-2400). The film OPENS on the finished wall (final), cuts to the prepped wall as you scroll (timeline.open), the stone goes up course by course (timeline.stone) and the finished wall fades back in (timeline.finalIn). geo = stone wall, gas insert and props boxes as fractions of each set's frame. cells = [row height, cell width] for the stone reveal. focus = where the wall centre sits across the screen (cover framing).",
+ "_readme": "The stacked stone film (Fireplace 1) that opens the homepage, read by js/film.js. Templates put {{json film}} in <script type=\"application/json\" id=\"film-data\"> and one hidden <img data-film-frame data-film-set data-nopic loading=lazy> per entry of `frames`. Sets: m = phone portrait, cut to the stone wall's width (1032x2217: x 198-1230 of the 1440 frame; the bar shelf with bottles is right of it, so no width can ever show it), d = everything wider than 9:10, the cleaned 3:2 card crop of the 4K keys (x 1338-2706, y 1184-2096 of 4096x2323: no bar shelves or bottles; same crop + upscale as fireplace-1/after-d-2400). The film OPENS on the finished wall (final), cuts to the prepped wall as you scroll (timeline.open), the stone goes up course by course (timeline.stone) and the finished wall fades back in (timeline.finalIn). geo = stone wall, gas insert and props boxes as fractions of each set's frame. cells = [row height, cell width] for the stone reveal. focus = where the wall centre sits across the screen (cover framing).",
  "frames": [
   {
    "name": "prep",
@@ -53,33 +53,33 @@
   },
   "m": {
    "STONE": {
-    "x0": 0.1464,
-    "x1": 0.8542,
+    "x0": 0.0124,
+    "x1": 1,
     "y0": 0.047,
     "y1": 0.749
    },
    "INSERT": {
-    "x0": 0.3589,
-    "x1": 0.7385,
+    "x0": 0.3089,
+    "x1": 0.8386,
     "y0": 0.4689,
     "y1": 0.7037
    },
    "PROPS": [
     {
-     "x0": 0.6474,
-     "x1": 0.7859,
+     "x0": 0.7115,
+     "x1": 0.9047,
      "y0": 0.7027,
      "y1": 0.84
     },
     {
-     "x0": 0.737,
-     "x1": 0.7667,
+     "x0": 0.8365,
+     "x1": 0.878,
      "y0": 0.6807,
      "y1": 0.706
     },
     {
-     "x0": 0.1505,
-     "x1": 0.5896,
+     "x0": 0.0181,
+     "x1": 0.6308,
      "y0": 0.7365,
      "y1": 0.84
     }
@@ -111,7 +111,7 @@
   ],
   "m": [
    0.0225,
-   0.0625
+   0.0872
   ]
  }
 }

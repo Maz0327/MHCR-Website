@@ -144,7 +144,7 @@
 .qa[open] summary::after { content: "–"; }
 .qa > div { padding-bottom: 16px; }
 .qa > div > :first-child { margin-top: 0; }
-.post-list { list-style: none; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.read .post-list { list-style: none; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
 .post-list li { padding: 22px 0; border-bottom: 1px solid var(--line); }
 .post-list h2 { margin: 0; font-size: 22px; }
 .post-list h2 a { text-decoration: none; }

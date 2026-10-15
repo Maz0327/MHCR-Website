@@ -66,7 +66,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .film__shade { position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(to bottom, rgba(11,11,12,.72) 0, rgba(11,11,12,.55) 220px, rgba(11,11,12,0) 380px, rgba(11,11,12,0) 64%, rgba(11,11,12,.75) 86%, var(--ink) 100%); }
 .film__copy { position: absolute; left: 24px; right: 24px; top: 96px; opacity: clamp(0, calc(1 - var(--film-p, 0) * 14), 1); }
-.film__job { position: absolute; left: 24px; bottom: 34px; font: 700 11px/1 var(--m); letter-spacing: .12em; text-transform: uppercase; color: var(--paper); }
+.film__job { position: absolute; left: 24px; bottom: 34px; font: 700 11px/1 var(--m); letter-spacing: .12em; text-transform: uppercase; color: var(--paper);
+  opacity: clamp(0, calc((1 - var(--film-p, 0)) * 20), 1); }   /* gone before the Dial slides over */
 .film__cue { position: absolute; right: 24px; bottom: 30px; display: flex; flex-direction: column; align-items: center; gap: 10px;
   font: 700 11px/1 var(--m); letter-spacing: .12em; text-transform: uppercase; color: var(--paper); transition: opacity .3s; }
 .film__cue span { width: 1px; height: 40px; background: linear-gradient(var(--orange), rgba(232,90,27,0)); order: 2; }

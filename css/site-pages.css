@@ -3,31 +3,42 @@
    Ported from the approved comps (wildcard-2/tpl-pages.css: tpl2 service, index, job, terms). Phone first; desktop >= 1024. */
 
 /* ---------- page head ---------- */
-.page { padding-top: 112px; }
+.page { padding-top: 112px; padding-bottom: 56px; }   /* + the footer's 56px = 112px before the footer */
 .page-head { padding: 0 24px; }
 .page-head .h1 { margin-top: 10px; }
 .h1--xl { font-size: 56px; line-height: .95; }
 .lede a { color: var(--paper); }
+.page-head .lede { margin-top: 28px; max-width: 300px; }
 
 /* ---------- service page: the category's jobs, then copy + the ask, then more services ---------- */
-.svc-jobs { margin-top: 36px; }
+.svc-jobs { margin-top: 112px; }
 .svc-jobs .card + .card { margin-top: 40px; }
 .card .frame__see { margin-top: 2px; }
-.svc-end { padding: 64px 24px 0; display: grid; gap: 56px; }
-.svc-end .body { padding: 0; }
+/* body as short blocks, then a real photo (or a big-type band), then the list + the ask (Maz 10-15: no text walls) */
+.svc-body { padding: 112px 24px 0; display: grid; gap: 22px; }
+.svc-body p { font-size: 17px; line-height: 1.6; color: #d6d5d9; max-width: 300px; }
+.svc-photo { position: relative; margin: 112px 0 0; }
+.svc-photo img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+.svc-photo figcaption { position: absolute; left: 24px; bottom: 20px; font: 700 11px/1 var(--m); letter-spacing: .1em; text-transform: uppercase;
+  padding: 8px 10px; border-radius: 8px; background: rgba(11,11,12,.72); }
+.svc-band { margin-top: 112px; padding: 96px 24px; background: var(--ink-2); }
+.svc-band .kicker { margin: 0; color: var(--mute); }
+.svc-band__big { margin-top: 18px; font: 800 52px/.98 var(--f); letter-spacing: -.035em; max-width: 342px; text-wrap: balance; }
+.svc-end { padding: 116px 24px 0; display: grid; gap: 116px; }
 .svc-end .ask__body { padding: 0; }
 .svc-end .h2 { font-size: 40px; }
-.does { margin-top: 36px; }
 .does h2, .did-head { font: 700 11px/1 var(--m); letter-spacing: .12em; text-transform: uppercase; color: var(--orange); }
 .does ul, .did { list-style: none; padding: 0; margin: 14px 0 0; border-top: 1px solid var(--line); }
-.does li, .did li { padding: 13px 0; border-bottom: 1px solid var(--line); font: 600 17px/1.35 var(--f); }
+.does li { padding: 18px 0; border-bottom: 1px solid var(--line); font: 600 17px/1.3 var(--f); }
+.does li, .did li { max-width: 300px; }   /* a long item wraps inside the 300px reading measure */
+.did li { padding: 13px 0; border-bottom: 1px solid var(--line); font: 600 17px/1.35 var(--f); }
 .ask--call .btn { margin-top: 26px; }
 .ask__link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 10px; font-weight: 700; color: var(--paper); text-underline-offset: 4px; }
-.more { padding-top: 72px; }
+.more { padding-top: 112px; }
 .more > .kicker { padding: 0 24px; margin: 0; }
 
 /* ---------- tiles (services index + "more services") ---------- */
-.tiles { list-style: none; margin: 32px 0 0; padding: 0 24px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.tiles { list-style: none; margin: 32px 0 0; padding: 0 24px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .tiles--more { margin-top: 18px; }
 .tiles li { min-width: 0; }
 .tile { position: relative; display: flex; width: 100%; overflow-wrap: anywhere; flex-direction: column; justify-content: flex-end; aspect-ratio: 1; padding: 14px;
@@ -149,6 +160,13 @@
   .h1--index { font-size: 56px; max-width: 1000px; }
   .svc-jobs { margin-top: 56px; }
   .card img { aspect-ratio: auto; height: 82vh; }
+  .svc-body { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px 56px; padding: 112px var(--g) 0; }
+  .svc-body p { font-size: 19px; max-width: 420px; }
+  .svc-photo { margin-top: 96px; }
+  .svc-photo img { aspect-ratio: auto; height: 78vh; }
+  .svc-photo figcaption { left: var(--g); bottom: 32px; }
+  .svc-band { margin-top: 96px; padding: 128px var(--g); }
+  .svc-band__big { font-size: 96px; max-width: 1100px; }
   .svc-end { grid-template-columns: 1fr 1fr; gap: 96px; padding: 112px var(--g) 0; align-items: start; }
   .svc-end .h2, .job-end .h2 { font-size: 56px; }
   .statement { font-size: 40px; line-height: 1.18; max-width: 600px; }

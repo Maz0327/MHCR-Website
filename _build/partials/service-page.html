@@ -1,4 +1,6 @@
-<!-- Service page (one per services.json entry; scope `svc`). Comp: wildcard-2 tpl2-service-*. Copy: copy deck §4. -->
+<!-- Service page (one per services.json entry; scope `svc`). Comp: wildcard-2 tpl2-service-*. Copy: copy deck §4.
+     Rhythm (Maz 10-15, no text walls): head -> the category's jobs -> short body blocks -> a real process/detail photo
+     (or a big-type band) -> "What we do" -> the ask -> more services. -->
 <main id="main" class="page">
   <section class="page-head">
     <p class="crumb"><a href="services.html">Services</a><i>/</i>{{svc.name}}</p>
@@ -8,17 +10,17 @@
 {{#if svc.jobs}}  <section class="svc-jobs" aria-label="{{svc.name}} jobs">
 {{#each svc.jobs}}    <a class="card" href="{{href}}">{{pic after sizes="100vw"}}<span class="card__cap"><span class="card__name">{{title}}</span><span class="frame__see">See the job <i aria-hidden="true">&rarr;</i></span></span></a>
 {{/each}}  </section>
+{{/if}}  <section class="svc-body">
+{{#each svc.body_blocks}}    <p>{{.}}</p>
+{{/each}}  </section>
+{{#if svc.body_photo}}  <figure class="svc-photo">{{pic svc.body_photo sizes="100vw"}}<figcaption>{{svc.body_photo_caption}}</figcaption></figure>
+{{else}}  <div class="svc-band"><p class="kicker">{{svc.name}}</p><p class="svc-band__big">{{svc.line}}</p></div>
 {{/if}}  <section class="svc-end">
-    <div class="svc-end__text">
-      <div class="body">
-{{#each svc.body}}        <p>{{.}}</p>
-{{/each}}      </div>
-      <div class="does">
-        <h2>What we do</h2>
-        <ul>
-{{#each svc.does}}          <li>{{.}}</li>
-{{/each}}        </ul>
-      </div>
+    <div class="does">
+      <h2>What we do</h2>
+      <ul>
+{{#each svc.does}}        <li>{{.}}</li>
+{{/each}}      </ul>
     </div>
     <div class="ask__body" id="ask">
 {{> ask-body}}

@@ -1,0 +1,8 @@
+# GitHub Pages (Jekyll) settings for the MHCR site.
+# Internal working docs in the repo root are kept in git but NOT published.
+# Underscore folders (_build/) are never published by Jekyll.
+exclude:
+  - AWARD-WINNING-SITE-ANALYSIS.md
+  - DESIGN-STANDARDS-RESEARCH.md
+  - MHCR-DESIGN-AUDIT.md
+  - PLACEHOLDER-GUIDE.md

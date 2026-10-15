@@ -362,6 +362,7 @@ def main():
     for f in files:
         if not f.is_file(): sys.exit(f"not a file: {f}")
     root = Path(os.path.commonpath([str(f.parent) for f in files]))
+    root = next((d for d in [root, *root.parents] if (d / "css" / "site.css").exists()), root)   # serve the site root
     if str(root) == "/": sys.exit("pages share no common folder below /; pass pages from one site folder")
     OUT.mkdir(exist_ok=True)
     if a.shots: (OUT / "breathing").mkdir(exist_ok=True)

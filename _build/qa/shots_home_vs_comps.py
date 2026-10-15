@@ -89,7 +89,9 @@ def sheet(browser, comps, builds, cols, w, h, label, out):
         rows.append('<div class="row">' + "".join(cell(c, f"COMP {i + 1}") for i, c in enumerate(comps)) + "</div>")
         rows.append('<div class="row">' + "".join(cell(b, f"BUILD {i + 1}") for i, b in enumerate(builds)) + "</div>")
     else:      # desktop: comp | build per state
-        rows += [f'<div class="row">{cell(c, f"COMP {i + 1}")}{cell(b, f"BUILD {i + 1}")}</div>' for i, (c, b) in enumerate(zip(comps, builds))]
+        comps = list(comps) + [None] * (len(builds) - len(comps))
+        rows += [f'<div class="row">{cell(c, f"COMP {i + 1}") if c else f"<figure style=\'width:{w}px\'></figure>"}{cell(b, f"BUILD {i + 1}")}</div>'
+                 for i, (c, b) in enumerate(zip(comps, builds))]
     doc = OUT / "shots" / f"_{out}.html"
     doc.write_text(f"""<!doctype html><meta charset="utf-8"><style>body{{margin:0;padding:24px;background:#d9d6d1;font:600 14px system-ui}}
       h1{{font-size:18px;margin:0 0 16px}} .row{{display:flex;gap:16px;margin-bottom:16px}} figure{{margin:0}}

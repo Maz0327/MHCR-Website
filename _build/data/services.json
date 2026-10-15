@@ -1,5 +1,5 @@
 {
- "_readme": "The 11 services, A-Z (az_order = position, checked by the build). path = the page it builds to (existing slugs kept). dial_order = stop on the homepage Dial, small job to big job (1-9; null = not its own stop). dial_label / dial_line override name / line on the Dial only; dial_links = services linked from that word frame (stop 02: Electrical · HVAC · Plumbing, copywriter 261015-0040 §1.2). photo = 'job/frame' from jobs.json (a published, shown frame) or null for a big-word frame; photo_pos = object-position for the full-screen crop. line = one short line (copy deck copy-deck-261015-mhcr-full-site-v1.md, the single source for copy). Each service's jobs list is derived from jobs.json `category`. h1 / intro / body (paragraphs) / does (the 'What we do' list) / meta_title / meta_description = the service page copy, verbatim from the copy deck §4. The build makes one page per service at `path` from partials/service-page.html.",
+ "_readme": "The 11 services, A-Z (az_order = position, checked by the build). path = the page it builds to (existing slugs kept). dial_order = stop on the homepage Dial, small job to big job (1-9; null = not its own stop). dial_label / dial_line override name / line on the Dial only; dial_links = services linked from that word frame (stop 02: Electrical · HVAC · Plumbing, copywriter 261015-0040 §1.2). photo = 'job/frame' from jobs.json (a published, shown frame) or null for a big-word frame; photo_pos = object-position for the full-screen crop. line = one short line (copy deck copy-deck-261015-mhcr-full-site-v1.md, the single source for copy). Each service's jobs list is derived from jobs.json `category`. h1 / intro / body (paragraphs) / does (the 'What we do' list) / meta_title / meta_description = the service page copy, verbatim from the copy deck §4. The build makes one page per service at `path` from partials/service-page.html. body_photo = a real process/detail frame shown between the body and the 'What we do' list (never one already on the page); null = a big-type band with the service line instead (Maz 10-15: no text walls on phone).",
  "services": [
   {
    "name": "Basement",
@@ -21,7 +21,8 @@
     "Drywall, hung and finished",
     "Wiring, outlets and lighting",
     "Flooring, trim and doors"
-   ]
+   ],
+   "body_photo": null
   },
   {
    "name": "Bathroom",
@@ -46,7 +47,8 @@
     "Tile floors",
     "Vanities, tops and faucets",
     "Toilets and fixtures"
-   ]
+   ],
+   "body_photo": "bathroom-2/process-2"
   },
   {
    "name": "Bedroom",
@@ -70,7 +72,8 @@
     "Flooring and trim",
     "Painting",
     "Lighting and ceiling fans"
-   ]
+   ],
+   "body_photo": "wall-1/process-1"
   },
   {
    "name": "Drywall",
@@ -90,7 +93,8 @@
     "Holes and cracks patched",
     "Water-damaged drywall replaced",
     "New walls hung, taped and finished"
-   ]
+   ],
+   "body_photo": null
   },
   {
    "name": "Electrical",
@@ -110,7 +114,8 @@
     "Outlets, switches and new circuits",
     "Light fixtures, recessed lights and ceiling fans",
     "Wiring for remodels and basements"
-   ]
+   ],
+   "body_photo": null
   },
   {
    "name": "Emergency services",
@@ -135,7 +140,8 @@
     "Water damage: wet drywall, ceilings and floors",
     "Electrical problems: outlets that quit, breakers that keep tripping",
     "Small fixes: sticking doors, loose trim, cabinet doors that hang crooked"
-   ]
+   ],
+   "body_photo": null
   },
   {
    "name": "Full home",
@@ -156,7 +162,8 @@
     "Kitchens, bathrooms and basements together",
     "Hardwood and tile floors through the house",
     "Electrical, plumbing and HVAC as part of the job"
-   ]
+   ],
+   "body_photo": null
   },
   {
    "name": "HVAC",
@@ -185,7 +192,8 @@
     "Air conditioning",
     "Ductwork, vents and returns",
     "Heating and cooling for finished basements"
-   ]
+   ],
+   "body_photo": null
   },
   {
    "name": "Kitchen",
@@ -210,7 +218,8 @@
     "Stone work, like a stone-wrapped peninsula",
     "Hardwood and tile floors",
     "Full kitchen remodels"
-   ]
+   ],
+   "body_photo": "kitchen-1/process-2"
   },
   {
    "name": "Living / dining room",
@@ -232,7 +241,8 @@
     "Accent walls and trim",
     "Hardwood and tile floors",
     "Lighting"
-   ]
+   ],
+   "body_photo": "fireplace-1/detail"
   },
   {
    "name": "Plumbing",
@@ -253,7 +263,8 @@
     "Leaks",
     "Faucets, toilets, sinks and showers",
     "Moving or adding drain and supply lines"
-   ]
+   ],
+   "body_photo": null
   }
  ]
 }

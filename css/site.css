@@ -169,6 +169,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* ---------- footer (3 lines) ---------- */
 .ftr { padding: 56px 24px 30px; font-size: 13px; line-height: 1.55; color: #9b9aa0; display: grid; gap: 8px; }
 .ftr b { color: var(--paper); font-weight: 700; }
+.ftr p { max-width: 300px; }
 .ftr a { color: inherit; }
 .ftr p:nth-child(2) a, .ftr p:nth-child(3) a { text-decoration: none; }
 .ftr p:nth-child(2) a:hover, .ftr p:nth-child(3) a:hover { text-decoration: underline; }
@@ -308,6 +309,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .ask--plain .h2 { max-width: 760px; }
 
   .ftr { padding: 64px var(--g) 40px; grid-template-columns: auto 1fr auto; gap: 32px; align-items: baseline; }
+  .ftr p { max-width: none; }
   .ftr p:nth-child(2) { max-width: 640px; }
   .body { padding: 0 var(--g); }
   .body p { font-size: 19px; max-width: 640px; }

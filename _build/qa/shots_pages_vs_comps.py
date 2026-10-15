@@ -18,14 +18,25 @@ TOP, BOTTOM = ("top",), ("bottom",)
 # set: (page, out name, phone comps, phone states, desktop comps, desktop states)
 SETS = {
     "service": ("services/bathroom-remodeling.html", "service-vs-comp",
-                [C / f"tpl2-service-phone-{i}.png" for i in (1, 2, 3)], [TOP, ("el", ".svc-end", 96), BOTTOM],
-                [C / f"tpl2-service-desktop-{i}.png" for i in (1, 2, 3)], [TOP, ("el", ".svc-jobs .card", 0), BOTTOM]),
+                [C / f"tpl2-service-phone-{i}.png" for i in (1, 2, 3)],
+                [TOP, ("el", ".svc-jobs .card + .card", 64), ("el", ".svc-photo", 120), ("el", ".svc-end", 64), BOTTOM],
+                [C / f"tpl2-service-desktop-{i}.png" for i in (1, 2, 3)],
+                [TOP, ("el", ".svc-jobs .card", 0), ("el", ".svc-body", 0), ("el", ".svc-end", 0), BOTTOM]),
+    "service-band": ("services/drywall.html", "service-band-vs-comp",
+                     [C / f"tpl2-service-phone-{i}.png" for i in (1, 2, 3)], [TOP, ("el", ".svc-band", 64), BOTTOM],
+                     [C / f"tpl2-service-desktop-{i}.png" for i in (1, 2, 3)], [TOP, ("el", ".svc-band", 0), BOTTOM]),
     "index": ("services.html", "index-vs-comp",
               [C / f"tpl2-index-phone-{i}.png" for i in (1, 2)], [TOP, BOTTOM],
               [C / "tpl2-index-desktop-1.png"], [TOP]),
     "job": ("jobs/bathroom-remodel.html", "job-vs-comp",
             [C / f"tpl2-job-phone-{i}.png" for i in (1, 2, 3, 4)], [TOP, ("el", ".ba", 64), ("build", 0.45), BOTTOM],
             [C / f"tpl2-job-desktop-{i}.png" for i in (1, 2, 3, 4)], [TOP, ("el", ".ba", 78), ("build", 0.45), BOTTOM]),
+    "fp1": ("jobs/stacked-stone-fireplace.html", "job-fp1-buildup-vs-film",
+            [C / f"tpl2-home-phone-{i}.png" for i in (1, 2, 3)], [("filmjob", 0.0), ("filmjob", 0.42), ("filmjob", 1.0)],
+            [C / f"tpl2-home-desktop-{i}.png" for i in (1,)], [("filmjob", 0.0), ("filmjob", 0.42), ("filmjob", 1.0)]),
+    "w1": ("jobs/navy-board-and-batten-wall.html", "job-w1",
+           [C / f"tpl2-job-phone-{i}.png" for i in (1, 2, 4)], [TOP, ("el", ".ba", 64), BOTTOM],
+           [C / f"tpl2-job-desktop-{i}.png" for i in (1, 2, 4)], [TOP, ("el", ".ba", 78), BOTTOM]),
     "text": ("terms.html", "text-pages",
              [C / f"tpl2-terms-phone-{i}.png" for i in (1, 2)], [TOP, BOTTOM], [], [TOP, BOTTOM]),
 }
@@ -41,6 +52,10 @@ def go(page, state):
     elif state[0] == "bottom": page.evaluate("window.scrollTo({top: document.documentElement.scrollHeight, behavior: 'instant'})")
     elif state[0] == "el": page.evaluate(H.TOP, [state[1], state[2]])
     elif state[0] == "build": page.evaluate(BUILD, state[1])
+    elif state[0] == "filmjob":
+        page.evaluate("""p => { const f = document.getElementById('film'); const top = f.getBoundingClientRect().top + scrollY;
+          window.scrollTo({top: top + p * (f.offsetHeight - innerHeight), behavior: 'instant'}); }""", state[1])
+        page.wait_for_timeout(900)
 
 
 def shoot_set(browser, base, key):

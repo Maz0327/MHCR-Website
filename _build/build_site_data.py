@@ -88,6 +88,11 @@ def load(data_dir):
         home = [j for j in mine if j["slug"] in site.get("home_jobs", [])]  # tiles reuse the homepage's pick first
         out_services.append(dict(s, jobs=mine, tile=(home or mine)[0]["after"] if mine else None,
                                  anchor=re.sub(r"[^a-z0-9]+", "-", s["name"].lower()).strip("-")))
+    for x in out_services:                         # body copy as short blocks (<= ~4 phone lines each), words unchanged
+        x["body_blocks"] = [b for para in x.get("body", []) for b in _blocks(para)]
+        if x.get("body_photo"):
+            job, fr = _frame(by_slug, x["body_photo"], f"services.json {x['name']}.body_photo")
+            x["body_photo_caption"] = job["title"] if fr["name"] in ("after", "detail") else f"In progress · {job['title']}"
     by_service = {x["name"]: x for x in out_services}
     for j in by_slug.values():                     # each job knows its service page (H1 + path) and frame labels
         j["service"] = {k: by_service[j["category"]][k] for k in ("name", "h1", "path", "anchor")}
@@ -131,6 +136,17 @@ def load(data_dir):
     site_path = re.sub(r"^https://[^/]+", "", site["site_url"])          # "/MHCR-Website" (or "" at a domain root)
     return dict({"site_path": site_path, "site": site, "services": out_services, "jobs": jobs, "job": by_slug, "dial": dial, "film": film,
                  "home_jobs": home_jobs, "job_groups": job_groups}, **extra)
+
+
+def _blocks(para, limit=120):
+    """Split a long paragraph at sentence ends into blocks of about `limit` characters (no words changed)."""
+    out, cur = [], ""
+    for sent in re.split(r"(?<=[.!?])\s+", para.strip()):
+        if cur and len(cur) + 1 + len(sent) > limit:
+            out.append(cur); cur = sent
+        else:
+            cur = f"{cur} {sent}".strip()
+    return out + [cur] if cur else out
 
 
 def _frame(by_slug, ref, where):

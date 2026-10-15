@@ -50,6 +50,8 @@ def load(data_dir):
 
     # ---- site
     _check(re.fullmatch(r"\+1\d{10}", site["phone"]["tel"] or ""), "site.phone.tel must look like +17204924326")
+    ep = site["form"]["endpoint"]
+    _check(not ep or re.fullmatch(r"https://[^\s\"'<>]+", ep), f"site.form.endpoint must be empty or an https:// URL (got {ep!r})")
     _az(site["cities"], "name", "site.cities")
     _az(site["more"], "label", "site.more")
     _check(re.fullmatch(r"https://[^\s/]+(/[^\s]*[^/\s])?", site["site_url"] or ""), "site.site_url must be https://host[/path] with no trailing slash")
@@ -134,7 +136,8 @@ def load(data_dir):
     job_groups = [dict(x, jobs=sorted(x["jobs"], key=lambda j: j["title"])) for x in out_services if x["jobs"]]  # gallery, A-Z
     extra = {n[:-5]: _load(data_dir, n) for n in ("faq.json",) if os.path.exists(os.path.join(data_dir, n))}
     site_path = re.sub(r"^https://[^/]+", "", site["site_url"])          # "/MHCR-Website" (or "" at a domain root)
-    return dict({"site_path": site_path, "site": site, "services": out_services, "jobs": jobs, "job": by_slug, "dial": dial, "film": film,
+    film_js = {k: v for k, v in film.items() if k not in ("frames",) and not k.startswith("_")}   # what film.js reads
+    return dict({"site_path": site_path, "film_js": film_js, "site": site, "services": out_services, "jobs": jobs, "job": by_slug, "dial": dial, "film": film,
                  "home_jobs": home_jobs, "job_groups": job_groups}, **extra)
 
 

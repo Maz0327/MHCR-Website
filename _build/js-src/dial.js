@@ -114,16 +114,18 @@
     })(t0);
   }
 
-  /* Input: drag the dial, tap the arrows, arrow keys on the slider. */
-  $("prev").addEventListener("click", () => go(cur - 1));
-  $("next").addEventListener("click", () => go(cur + 1));
+  /* Input: drag the dial, tap the arrows, arrow keys on the slider. Any input stops the opening sweep. */
+  let sweepT = 0;
+  const stopSweep = () => { clearTimeout(sweepT); sweepT = 0; };
+  $("prev").addEventListener("click", () => { stopSweep(); go(cur - 1); });
+  $("next").addEventListener("click", () => { stopSweep(); go(cur + 1); });
   $("dialLabel").addEventListener("keydown", (e) => {
     const step = { ArrowLeft: -1, ArrowDown: -1, ArrowRight: 1, ArrowUp: 1, Home: -N, End: N }[e.key];
-    if (step) { go(cur + step); e.preventDefault(); }
+    if (step) { stopSweep(); go(cur + step); e.preventDefault(); }
   });
   let drag = null;
   const toSvg = (x) => (x - svg.getBoundingClientRect().left) / (svg.getBoundingClientRect().width / 390);
-  svg.addEventListener("pointerdown", (e) => { drag = { x: e.clientX, r: rotNow, k: svg.getBoundingClientRect().width / 390, moved: false }; svg.setPointerCapture(e.pointerId); });
+  svg.addEventListener("pointerdown", (e) => { stopSweep(); drag = { x: e.clientX, r: rotNow, k: svg.getBoundingClientRect().width / 390, moved: false }; svg.setPointerCapture(e.pointerId); });
   svg.addEventListener("pointermove", (e) => {
     if (!drag) return;
     if (Math.abs(e.clientX - drag.x) > 4) drag.moved = true;
@@ -144,13 +146,12 @@
   svg.addEventListener("pointerup", release);
   svg.addEventListener("pointercancel", release);
   let wheelLock = 0;                                          // sideways trackpad swipe = one stop per gesture
-  frame.addEventListener("wheel", (e) => {
+  frame.addEventListener("wheel", (e) => {                    // passive: never blocks scrolling or swipe-back
     if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) || Math.abs(e.deltaX) < 8) return;
-    e.preventDefault();
     const now = performance.now(), fresh = now - wheelLock > 450;
     wheelLock = now;
-    if (fresh) go(cur + (e.deltaX > 0 ? 1 : -1));
-  }, { passive: false });
+    if (fresh) { stopSweep(); go(cur + (e.deltaX > 0 ? 1 : -1)); }
+  }, { passive: true });
 
   /* First paint. With the film hand-off the stage stays empty (the film shows through) until the sweep. */
   const intro = frame.classList.contains("is-intro");
@@ -164,13 +165,15 @@
     else { cur = 0; stage.replaceChildren(); }
     const step = () => {
       go(k++);
-      if (k < DEF) setTimeout(step, 520);
-      else if (!KEEP_TURNED) setTimeout(() => frame.classList.remove("is-turned"), 520);
+      if (k < DEF) sweepT = setTimeout(step, 520);
+      else { sweepT = 0; if (!KEEP_TURNED) setTimeout(() => frame.classList.remove("is-turned"), 520); }
     };
     step();
   }
   if (SWEEP_ON_VIEW && "IntersectionObserver" in window) {
-    const io = new IntersectionObserver((e) => { if (e[0].isIntersecting) { io.disconnect(); sweep(); } }, { threshold: 0.6 });
+    // 60% in view starts it; on short landscape phones the frame (min-height 640) can never be 60% visible.
+    const io = new IntersectionObserver((e) => { if (e[0].isIntersecting) { io.disconnect(); sweep(); } },
+      { threshold: Math.min(0.6, innerHeight * 0.85 / frame.offsetHeight) });
     io.observe(frame);
   } else sweep();
 })();

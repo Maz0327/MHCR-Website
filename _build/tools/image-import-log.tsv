@@ -95,3 +95,10 @@ images/jobs/fireplace-1/film-prep-m.webp	1032	2217	photo-fixes-261015/fp1-prep/m
 images/jobs/fireplace-1/film-prep-d.webp	2400	1600	photo-fixes-261015/fp1-prep/prep_4k_v2.png	film card crop x1338-2706 y1184-2096
 images/jobs/fireplace-1/film-final-m.webp	1032	2217	mhcr-stone-film/f/final-m.webp	film frame, cut to x198-1230 (no shelf)
 images/jobs/fireplace-1/film-final-d.webp	2400	1600	fp1/keys/final_4k.png	film card crop x1338-2706 y1184-2096
+images/og/home.jpg	1200	630	fp1/keys/final_4k.png	og: crop x1350-2700 inside the stone wall
+images/og/fireplace-1.jpg	1200	630	images/jobs/fireplace-1/after-d-2400.webp	og: centre crop
+images/og/fireplace-2.jpg	1200	630	images/jobs/fireplace-2/after-d-2400.webp	og: centre crop
+images/og/bathroom-1.jpg	1200	630	images/jobs/bathroom-1/after-d-2400.webp	og: centre crop
+images/og/bathroom-2.jpg	1200	630	images/jobs/bathroom-2/after-d-2400.webp	og: centre crop
+images/og/wall-1.jpg	1200	630	images/jobs/wall-1/after-d-2400.webp	og: centre crop
+images/og/kitchen-1.jpg	1200	630	images/jobs/kitchen-1/after-d-2400.webp	og: centre crop

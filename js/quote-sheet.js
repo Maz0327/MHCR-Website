@@ -60,9 +60,9 @@
     if (steps[1].hidden) { if (step1Ok()) show(1); return; }           // Enter on step 1 = Next
     const bad = ["name", "phone"].filter((n) => !check(n));
     if (bad.length) { box.elements[bad[0]].focus(); return; }
-    if (box.elements.website.value) return;                // honeypot: a bot filled it
-    const btn = box.querySelector("[type=submit]"), label = btn.textContent, data = new FormData(box);
     const fail = q("[data-send-error]");
+    if (box.elements._gotcha && box.elements._gotcha.value) { fail.textContent = fail.dataset.msg; return; }  // honeypot hit: say "call us", never silent
+    const btn = box.querySelector("[type=submit]"), label = btn.textContent, data = new FormData(box);
     btn.disabled = true; btn.textContent = "Sending…"; fail.textContent = "";
     fetch(box.action, { method: "POST", body: data, headers: { Accept: "application/json" } })
       .then((r) => { if (!r.ok) throw new Error(r.status); box.hidden = true; done.hidden = false; done.focus(); })

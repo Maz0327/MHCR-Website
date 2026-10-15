@@ -19,7 +19,8 @@
       if (knob) { knob.setAttribute("aria-valuenow", Math.round(split)); knob.setAttribute("aria-valuetext", `${Math.round(split)}% after`); }
     };
     const fromX = (x) => { const r = ba.getBoundingClientRect(); set(((x - r.left) / r.width) * 100); };
-    ba.addEventListener("pointerdown", (e) => { drag = true; ba.setPointerCapture(e.pointerId); fromX(e.clientX); });
+    ba.addEventListener("dragstart", (e) => e.preventDefault());   // desktop: no native image drag (it cancels the pointer)
+    ba.addEventListener("pointerdown", (e) => { drag = true; ba.setPointerCapture(e.pointerId); fromX(e.clientX); e.preventDefault(); });
     ba.addEventListener("pointermove", (e) => { if (drag) fromX(e.clientX); });
     ["pointerup", "pointercancel"].forEach((t) => ba.addEventListener(t, () => { drag = false; }));
     if (knob) knob.addEventListener("keydown", (e) => {

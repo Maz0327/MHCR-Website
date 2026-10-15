@@ -31,9 +31,14 @@
       if (e.target === dlg) dlg.close();                                  // backdrop
       else if (e.target.closest("[data-close]")) dlg.close();
       else if (dlg.id === "menu" && e.target.closest("a")) {            // menu link: close, then follow it
-        // No history.back() on close here: it would cancel the link (another page) or undo the jump (#jobs).
-        const st = state.get(dlg); if (st) st.pushed = false;
+        // No history.back() on close: it would cancel the link (another page) or undo the jump (#jobs).
+        const a = e.target.closest("a"), st = state.get(dlg);
+        if (st) st.pushed = false;
         dlg.close();
+        const u = new URL(a.href, location.href);
+        const plain = e.button === 0 && !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) && !a.target && u.origin === location.origin;
+        // Replace the menu's own history entry, so one Back press returns to where the visitor was.
+        if (plain) { e.preventDefault(); location.replace(a.href); }
       }
     });
     dlg.addEventListener("close", () => {

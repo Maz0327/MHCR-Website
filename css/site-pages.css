@@ -6,7 +6,7 @@
 .page { padding-top: 112px; padding-bottom: 56px; }   /* + the footer's 56px = 112px before the footer */
 .page-head { padding: 0 24px; }
 .page-head .h1 { margin-top: 10px; }
-.h1--xl { font-size: 56px; line-height: .95; }
+.h1--xl { font-size: clamp(42px, 14.5vw, 56px); line-height: .95; }   /* 320px: "remodeling" still fits */
 .lede a { color: var(--paper); }
 .page-head .lede { margin-top: 28px; max-width: 300px; }
 
@@ -64,9 +64,11 @@
   background: linear-gradient(to bottom, rgba(11,11,12,.45) 0, rgba(11,11,12,0) 130px, rgba(11,11,12,0) 55%, rgba(11,11,12,.8) 82%, var(--ink) 100%); }
 .job-hero__cap { position: absolute; z-index: 1; left: 24px; right: 24px; bottom: 40px; }
 .job-hero__cap .h1 { margin-top: 12px; font-size: 48px; }
+/* the crumb sits on the photo: a dark scrim chip keeps it >= 4.5:1 on any photo, at any width */
+.job-hero__cap .crumb { display: inline-flex; align-items: center; padding: 0 10px; border-radius: 8px; background: rgba(11,11,12,.8); color: var(--paper); }
 /* before / after: same head-on angle, one frame, drag the handle */
 .ba { position: relative; overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
-.ba img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+.ba img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; -webkit-user-drag: none; user-select: none; pointer-events: none; }
 .ba__after { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--split, 50%)); }
 .ba__after picture, .ba__after img { height: 100%; }
 .ba__line { position: absolute; top: 0; bottom: 0; left: var(--split, 50%); width: 2px; margin-left: -1px; background: var(--paper); }

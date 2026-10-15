@@ -4,3 +4,4 @@ screenshots/
 *.DS_Store
 .env
 MHCR IMAGES/
+.claude/

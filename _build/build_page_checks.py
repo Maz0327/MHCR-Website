@@ -158,6 +158,22 @@ def dead_links(page_path, html_text, exists):
     return out
 
 
+SAFETY_TELS = {"tel:911", "tel:+18008952999"}                 # 911 and the Xcel Energy gas line (copy deck safety lines)
+SAFETY_SHOWN = {"1-800-895-2999"}
+
+
+def phone_problems(html_text, site):
+    """Every tel: link and every shown phone number must be the site's number (or a safety line)."""
+    tel, shown, bad = "tel:" + site["phone"]["tel"], site["phone"]["display"], []
+    for t in set(re.findall(r'href="(tel:[^"]*)"', html_text)) - {tel} - SAFETY_TELS:
+        bad.append(f"tel link {t!r} is not site.json phone {tel!r}")
+    for n in set(re.findall(r"\(\d{3}\) \d{3}-\d{4}", html_text)) - {shown}:
+        bad.append(f"phone number {n!r} is not site.json phone {shown!r}")
+    for n in set(re.findall(r"\b1-\d{3}-\d{3}-\d{4}\b", html_text)) - SAFETY_SHOWN:
+        bad.append(f"phone number {n!r} is not a known number")
+    return bad
+
+
 def grep_claims(path, claims, kinds=("ban",)):
     """Raw line grep of one file: [(line_no, kind, label, matched, line_text)]."""
     out = []

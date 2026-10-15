@@ -81,6 +81,25 @@ def fp1_before(out_dir):
     return "aligned to the after: film before-m crop + before_4k card crop"
 
 
+def make_og_images(jobs):
+    """Share images, 1200x630 JPEG, in images/og/: home.jpg = the stacked stone wall + fireplace from the film's FINAL
+    4K key, cut inside the stone wall (x 1350-2700: the bar shelf with bottles is right of 2706, so it can't show);
+    <job>.jpg = the centre of each job's 3:2 after."""
+    out_dir, rows = os.path.join(SITE, "images/og"), []
+    os.makedirs(out_dir, exist_ok=True)
+    im = Image.open(f"{KEYS}/final_4k.png").convert("RGB")
+    w = 2700 - 1350; h = round(w * 630 / 1200); cy = 1660                    # centred on the gas insert
+    im.crop((1350, cy - h // 2, 2700, cy - h // 2 + h)).resize((1200, 630), Image.LANCZOS).save(f"{out_dir}/home.jpg", "JPEG", quality=85, optimize=True, progressive=True)
+    rows.append(("images/og/home.jpg", "1200", "630", "fp1/keys/final_4k.png", "og: crop x1350-2700 inside the stone wall"))
+    for job in (j for j in jobs if j.get("photos", True)):
+        src = os.path.join(SITE, f"images/jobs/{job['slug']}/after-d-2400.webp")
+        im = Image.open(src).convert("RGB")
+        ch = round(im.width * 630 / 1200); y = (im.height - ch) // 2
+        im.crop((0, y, im.width, y + ch)).resize((1200, 630), Image.LANCZOS).save(f"{out_dir}/{job['slug']}.jpg", "JPEG", quality=85, optimize=True, progressive=True)
+        rows.append((f"images/og/{job['slug']}.jpg", "1200", "630", f"images/jobs/{job['slug']}/after-d-2400.webp", "og: centre crop"))
+    return rows
+
+
 def main():
     with open(os.path.join(SITE, "_build/data/jobs.json"), encoding="utf-8") as f:
         jobs = json.load(f)["jobs"]
@@ -124,6 +143,7 @@ def main():
         im = Image.open(PREP_4K if name == "prep" else f"{KEYS}/{name}_4k.png").convert("RGB").crop(CARD_BOX).resize((2400, 1600), Image.LANCZOS)
         save_webp(im.filter(ImageFilter.UnsharpMask(radius=1.2, percent=35, threshold=2)), dst, 82)
         log.append((os.path.relpath(dst, SITE), "2400", "1600", "photo-fixes-261015/fp1-prep/prep_4k_v2.png" if name == "prep" else f"fp1/keys/{name}_4k.png", "film card crop x1338-2706 y1184-2096"))
+    log += make_og_images(jobs)
     with open(os.path.join(HERE, "image-import-log.tsv"), "w", encoding="utf-8") as f:
         f.write("\n".join("\t".join(r) for r in log) + "\n")
     print(f"{len(log) - 1} files written; log: _build/tools/image-import-log.tsv")

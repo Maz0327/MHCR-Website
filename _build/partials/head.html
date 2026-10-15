@@ -1,6 +1,9 @@
 <meta charset="utf-8">
 {{#if page.is_404}}<script>/* 404 is served at any missing path: point relative links at the site root */
-document.write('<base href="' + (location.pathname.indexOf("{{site_path}}/") === 0 ? "{{site_path}}/" : "/") + '">');</script>
+document.write('<base href="' + (location.pathname.indexOf("{{site_path}}/") === 0 ? "{{site_path}}/" : "/") + '">');
+document.addEventListener("DOMContentLoaded", function () {   /* keep "#main" etc. on this page, not the home page */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) { a.href = location.pathname + a.getAttribute("href"); });
+});</script>
 {{/if}}
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 {{#if page.robots}}<meta name="robots" content="{{page.robots}}">
@@ -11,14 +14,18 @@ document.write('<base href="' + (location.pathname.indexOf("{{site_path}}/") ===
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{page.url}}">
 <meta property="og:title" content="{{page.title}}">
+<meta property="og:image" content="{{page.og}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{page.og}}">
 {{#if page.description}}<meta property="og:description" content="{{page.description}}">
 {{/if}}<meta name="theme-color" content="#0b0b0c">
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <script>document.documentElement.className = "js";</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap">
+<link rel="preload" href="fonts/be-vietnam-pro-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/be-vietnam-pro-500-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/site.css">
 {{#unless page.is_home}}<link rel="stylesheet" href="css/site-pages.css">
 {{/unless}}

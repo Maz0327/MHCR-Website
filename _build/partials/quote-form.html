@@ -30,7 +30,7 @@
         <div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="e-phone"><p class="sheet__err" id="e-phone" role="alert"></p></div>
         <div class="field"><label for="q-email">Email (optional)</label><input id="q-email" name="email" type="email" autocomplete="email"></div>
         <div class="field"><label for="q-msg">A few words about the job</label><textarea id="q-msg" name="message" rows="3"></textarea></div>
-        <div class="trap" aria-hidden="true"><label for="q-web">Leave this empty</label><input id="q-web" name="website" tabindex="-1" autocomplete="off"></div>
+        <div class="trap" aria-hidden="true"><label for="q-gotcha">Leave this empty</label><input id="q-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore></div>
         <button class="btn" type="submit">Send request</button>
         <p class="sheet__note">We use this to get back to you about your job. We don't sell it. <a href="privacy.html">Privacy policy</a></p>
         <p class="sheet__err" data-send-error data-msg="Your request didn't go through. Please call us at {{site.phone.display}}." role="alert"></p>

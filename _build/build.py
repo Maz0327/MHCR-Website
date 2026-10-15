@@ -13,12 +13,14 @@ Page fragments (_build/pages/**/*.html) start with header comments, then the bod
   <!-- sheet: inline -->                              optional: the page shows the quote form itself (no dialog)
   <!-- each: services as svc -->                      optional: one page per item; path/title/description may use
                                                       {{svc.path}} etc. (services, jobs = published, site.cities)
-Also writes sitemap.xml (indexable pages, real lastmod) and robots.txt from site.json site_url.
+Also writes sitemap.xml (indexable pages, real lastmod) and robots.txt from site.json site_url, and _config.yml so
+GitHub Pages publishes no asset that a generated page doesn't use (build_publish_list.py).
 Bodies use the template syntax in build_template_engine.py. Write every URL from the site root without a
 leading slash ("services.html", "images/jobs/..."); the build adds ../ for pages in subfolders.
 Nothing is written unless EVERY page passes: banned claims, duplicate ids, <img> without a mobile + desktop
 <picture>, missing files, root-absolute URLs and same-page anchors with no target all stop the build.
-Each target keeps its existing line endings (faq.html is CRLF). js-src/*.js is copied to js/.
+Each target keeps its existing line endings (faq.html is CRLF). js-src/*.js -> js/, css-src/*.css -> css/.
+Cache-busting: every local asset URL gets ?v=<sha1[:8] of the file> (build_asset_versions.py).
 """
 import argparse
 import datetime
@@ -27,14 +29,15 @@ import html
 import json
 import os
 import re
-import shutil
 import sys
 import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)                  # python3 -I drops the script dir; these are our own modules
+import build_asset_versions as versions  # noqa: E402
 import build_page_checks as checks        # noqa: E402
 import build_picture_helper as pics       # noqa: E402
+import build_publish_list as publish      # noqa: E402
 import build_seo_outputs as seo           # noqa: E402
 import build_site_data as site_data       # noqa: E402
 from build_template_engine import MISSING, Renderer, TemplateError, lookup  # noqa: E402
@@ -73,7 +76,8 @@ def expand(renderer, ctx, src, meta, body):
     out = []
     for item in items:
         extra = {name.strip(): item}
-        m = {k: (renderer.render(v, [ctx, extra], src) if k in ("path", "title", "description") else v) for k, v in meta.items()}
+        m = {k: (html.unescape(renderer.render(v, [ctx, extra], src)) if k in ("path", "title", "description") else v)
+             for k, v in meta.items()}                     # header values are escaped once, in the head partial
         out.append((m, body, extra))
     return out
 
@@ -99,6 +103,13 @@ def link_phones(h):
         return f'<a href="tel:{n if n == "911" else "+1" + n[-10:]}">{m.group(0)}</a>'
     parts = SKIP_TEXT.split(h)
     return "".join(p if i % 2 else PHONES.sub(tel, p) for i, p in enumerate(parts))
+
+
+def og_image(ctx, extra):
+    """Share image (1200x630, images/og/): the job's own photo on job pages and on service pages that have a job;
+    the stacked stone fireplace (film final, no shelf) everywhere else. Absolute URL from site_url."""
+    slug = (extra.get("jb") or {}).get("slug") or next((j["slug"] for j in (extra.get("svc") or {}).get("jobs", [])), "home")
+    return f"{ctx['site']['site_url']}/images/og/{slug}.jpg"
 
 
 def make_helpers(ctx):
@@ -130,7 +141,16 @@ def build(pages_dir, out_dir, quiet=False):
     if not frags:
         print(f"build: no page fragments in {os.path.relpath(pages_dir, SITE)}; nothing to do")
         return 0
-    js_out = {f"js/{os.path.basename(p)}": p for p in glob.glob(os.path.join(HERE, "js-src", "*.js"))}
+    generated = {}                                   # css/ + js/ outputs, built first so pages can carry their hashes
+    for p in sorted(glob.glob(os.path.join(HERE, "js-src", "*.js"))):
+        with open(p, "rb") as f:
+            generated[f"js/{os.path.basename(p)}"] = f.read()
+    assets = versions.Assets(SITE, generated)
+    for p in sorted(glob.glob(os.path.join(HERE, "css-src", "*.css"))):
+        rel = f"css/{os.path.basename(p)}"
+        generated[rel] = assets.version_css(read(p), rel).encode("utf-8")
+    assets = versions.Assets(SITE, generated)
+    js_out = generated
     pages, problems, warnings = {}, {}, []
     metas = [(f, m, b, x) for f in frags for m, b, x in expand(renderer, ctx, os.path.relpath(f, SITE), *parse_fragment(read(f), os.path.relpath(f, SITE)))]
     paths = [m["path"] for _, m, _, _ in metas]
@@ -148,7 +168,8 @@ def build(pages_dir, out_dir, quiet=False):
         page = {"path": path, "root": prefix, "is_home": path == "index.html", "description": meta.get("description", ""),
                 "url": f"{ctx['site']['site_url']}/{public}",
                 "scripts": meta.get("scripts", "").split(), "robots": meta.get("robots", ""),
-                "sheet_inline": meta.get("sheet") == "inline", "is_404": path == "404.html"}
+                "sheet_inline": meta.get("sheet") == "inline", "is_404": path == "404.html",
+                "og": og_image(ctx, extra)}
         scopes = [ctx, {"page": page}, extra]
         try:
             content = renderer.render(body, scopes, name)
@@ -161,10 +182,18 @@ def build(pages_dir, out_dir, quiet=False):
             problems[path] = [str(e)]
             continue
         out = rebase(link_phones(out), prefix)
+        try:
+            out = assets.version_html(out, path, ctx["site"]["site_url"])   # cache-busting: ?v=<sha1[:8]> on every asset
+        except OSError as e:
+            problems[path] = [f"asset version: {e}"]
+            continue
         bad = checks.page_problems(path, out, claims, exists)
         if bad:
             problems[path] = bad
-        warnings += [f"{path}: dead link {d}" for d in checks.dead_links(path, out, exists)]
+        bad += [f"dead internal link {d}" for d in checks.dead_links(path, out, exists)]
+        bad += checks.phone_problems(out, ctx["site"])
+        if bad:
+            problems[path] = bad
         pages[path] = out
     if problems:
         for path, bad in sorted(problems.items()):
@@ -180,13 +209,17 @@ def build(pages_dir, out_dir, quiet=False):
         write(os.path.join(out_dir, path), text)
     write(os.path.join(out_dir, "sitemap.xml"), sitemap)
     write(os.path.join(out_dir, "robots.txt"), seo.robots(ctx))
-    for rel, src in js_out.items():
-        os.makedirs(os.path.join(out_dir, "js"), exist_ok=True)
-        shutil.copyfile(src, os.path.join(out_dir, rel))
+    refs = publish.referenced(pages, ctx["site"]["site_url"], SITE)          # keep unused assets off GitHub Pages
+    unused = publish.unreferenced_assets(publish.repo_files(SITE), refs)
+    write(os.path.join(out_dir, "_config.yml"), publish.config_yml(publish.DOCS + unused))
+    for rel, data in generated.items():
+        os.makedirs(os.path.dirname(os.path.join(out_dir, rel)), exist_ok=True)
+        with open(os.path.join(out_dir, rel), "wb") as f:
+            f.write(data)
     for w in dict.fromkeys(warnings):
         print(f"WARN {w}")
     if not quiet:
-        print(f"build: {len(pages)} page(s) + {len(js_out)} script(s) -> {out_dir} in {time.time() - t0:.2f}s")
+        print(f"build: {len(pages)} page(s) + {len(generated)} css/js file(s) -> {out_dir} in {time.time() - t0:.2f}s")
     return 0
 
 

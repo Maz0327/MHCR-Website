@@ -59,7 +59,8 @@
   let W = 0, H = 0, dirty = true, shown = 0, target = 0, lastKey = "";
   function resize() {
     const r = cv.getBoundingClientRect();
-    if (Math.abs(r.width - W) < 1 && Math.abs(r.height - H) < 160 && W) return; // ignore the phone URL bar
+    const tol = matchMedia("(pointer: coarse)").matches ? 160 : 1;              // ignore the phone URL bar only
+    if (Math.abs(r.width - W) < 1 && Math.abs(r.height - H) < tol && W) return;
     W = r.width; H = r.height;
     pickSet();
     const dpr = Math.min(devicePixelRatio || 1, 2);
@@ -133,12 +134,15 @@
     if (bar) bar.style.transform = `scaleX(${shown.toFixed(4)})`;
     if (cue) cue.style.opacity = shown > 0.02 ? 0 : 1;
     draw(dirty); dirty = false; // draw() skips itself when nothing changed
-    requestAnimationFrame(tick);
+    if (onScreen) requestAnimationFrame(tick); else running = false;   // idle while the film is off screen
   }
+  let onScreen = true, running = false;
+  const wake = () => { if (!running) { running = true; requestAnimationFrame(tick); } };
 
   new ResizeObserver(resize).observe(cv);
   addEventListener("orientationchange", () => { W = 0; resize(); });
   resize();
   shown = target = progress();
-  requestAnimationFrame(tick);
+  if ("IntersectionObserver" in window) new IntersectionObserver((e) => { onScreen = e[0].isIntersecting; if (onScreen) wake(); }).observe(film);
+  wake();
 })();
